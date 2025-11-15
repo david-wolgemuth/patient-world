@@ -4,15 +4,25 @@ from __future__ import annotations
 
 import argparse
 import sys
+from typing import List
 
-from core import forecast, snapshot, world
-from core import simulation
+from core import analysis, snapshot, world
+from core.grid import tick as grid_tick
+from core.grid.state import GridState
+
+COMMANDS = {"tick", "forecast", "init-grid"}
 
 
-def normalize_args(argv: list[str]) -> list[str]:
+def normalize_args(argv: List[str]) -> List[str]:
     if not argv:
         return ["tick"]
-    if argv[0] in {"tick", "forecast"}:
+    if "-h" in argv or "--help" in argv:
+        return argv
+    if argv[0].startswith("-"):
+        if argv[0] in {"-h", "--help"}:
+            return argv
+        return ["tick", *argv]
+    if argv[0] in COMMANDS:
         return argv
     return ["tick", *argv]
 
@@ -46,6 +56,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     forecast_p.set_defaults(func=cmd_forecast)
 
+    init_p = subparsers.add_parser("init-grid", help="Create a fresh grid-based world")
+    init_p.add_argument("world", help="World name to initialize")
+    init_p.add_argument("--width", type=int, default=10, help="Grid width (default: 10)")
+    init_p.add_argument("--height", type=int, default=10, help="Grid height (default: 10)")
+    init_p.add_argument("--rabbits", type=int, default=20, help="Initial rabbit population (default: 20)")
+    init_p.add_argument("--foxes", type=int, default=5, help="Initial fox population (default: 5)")
+    init_p.set_defaults(func=cmd_init_grid)
+
     return parser
 
 
@@ -53,7 +71,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
     state = world.load_world(args.world)
 
     for _ in range(max(args.count, 0)):
-        state = simulation.tick(state)
+        state = grid_tick.tick_grid(state)
 
     world.save_world(args.world, state)
 
@@ -74,7 +92,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
 
 def cmd_forecast(args: argparse.Namespace) -> None:
     state = world.load_world(args.world)
-    result = forecast.run(
+    result = analysis.run(
         state,
         world_name=args.world,
         days=args.days,
@@ -83,14 +101,27 @@ def cmd_forecast(args: argparse.Namespace) -> None:
     )
 
     if args.format == "table":
-        print(forecast.render_table(result))
+        print(analysis.render_table(result))
     elif args.format == "csv":
-        print(forecast.render_csv(result))
+        print(analysis.render_csv(result))
     else:
-        print(forecast.render_json(result))
+        print(analysis.render_json(result))
 
 
-def main(argv: list[str] | None = None) -> int:
+def cmd_init_grid(args: argparse.Namespace) -> None:
+    state = world.init_grid_world(
+        args.world,
+        width=max(1, args.width),
+        height=max(1, args.height),
+        total_rabbits=max(0, args.rabbits),
+        total_foxes=max(0, args.foxes),
+    )
+    snap_text = snapshot.generate_snapshot(state)
+    snapshot.save_snapshot(args.world, snap_text)
+    print(f"Initialized {args.world} as {state.grid_width}x{state.grid_height} grid.")
+
+
+def main(argv: List[str] | None = None) -> int:
     if argv is None:
         argv = sys.argv[1:]
     argv = normalize_args(argv)

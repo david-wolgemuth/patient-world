@@ -1,12 +1,13 @@
-"""Forecasting utilities for read-only projections."""
+"""Forecasting utilities for grid worlds."""
 from __future__ import annotations
 
 import json
 import random
 from dataclasses import dataclass
-from typing import Dict, Iterable, List
+from typing import Dict, List
 
-from core import simulation
+from core.grid import tick
+from core.grid.state import GridState
 
 SPECIES = ("grass", "rabbits", "foxes")
 EXTINCTION_THRESHOLD = 0.5
@@ -65,77 +66,80 @@ class ForecastResult:
         }
 
 
-def _copy_state(state: Dict[str, float]) -> Dict[str, float]:
-    return {k: float(state[k]) for k in SPECIES + ("day",)}
-
-
-def run(state: Dict[str, float], *, world_name: str, days: int, step: int, seed: int | None = None) -> ForecastResult:
+def run(state: GridState, *, world_name: str, days: int, step: int, seed: int | None = None) -> ForecastResult:
     if days <= 0:
         raise ValueError("--days must be positive")
     if step <= 0:
         raise ValueError("--step must be positive")
 
-    current = _copy_state(state)
-    start_day = int(current["day"])
+    current = state.clone()
+    start_day = current.day
     end_day = start_day + days
-    rng = random.Random(seed)
+    rng = random.Random(seed) if seed is not None else None
 
-    def init_summary(species: str) -> MetricSummary:
-        value = current[species]
+    def totals_dict(st: GridState) -> Dict[str, float]:
+        return {
+            "day": float(st.day),
+            "grass": float(st.total_grass()),
+            "rabbits": float(st.total_rabbits()),
+            "foxes": float(st.total_foxes()),
+        }
+
+    def init_summary(species: str, totals: Dict[str, float]) -> MetricSummary:
+        value = totals[species]
         return MetricSummary(start=value, end=value, min=value, max=value)
 
-    summary = {species: init_summary(species) for species in SPECIES}
+    initial_totals = totals_dict(current)
+    summary = {species: init_summary(species, initial_totals) for species in SPECIES}
     samples: List[Sample] = []
 
-    def record_sample() -> None:
+    def record_sample(totals: Dict[str, float]) -> None:
         samples.append(
-            Sample(
-                day=int(current["day"]),
-                grass=current["grass"],
-                rabbits=current["rabbits"],
-                foxes=current["foxes"],
-            )
+            Sample(day=int(totals["day"]), grass=totals["grass"], rabbits=totals["rabbits"], foxes=totals["foxes"])
         )
 
-    record_sample()
+    record_sample(initial_totals)
 
-    while int(current["day"]) < end_day:
-        current = simulation.tick(current)
+    while current.day < end_day:
+        current = tick.tick_grid(current)
 
-        if seed is not None:
+        if rng is not None:
             _apply_noise(current, rng)
 
+        totals = totals_dict(current)
         for species in SPECIES:
-            value = current[species]
+            value = totals[species]
             metric = summary[species]
             metric.min = min(metric.min, value)
             metric.max = max(metric.max, value)
             if value <= EXTINCTION_THRESHOLD:
                 metric.extinct_days += 1
                 if metric.first_extinction_day is None:
-                    metric.first_extinction_day = int(current["day"])
+                    metric.first_extinction_day = int(totals["day"])
 
-        if int(current["day"]) >= end_day or ((int(current["day"]) - start_day) % step == 0):
-            record_sample()
+        if current.day >= end_day or ((current.day - start_day) % step == 0):
+            record_sample(totals)
 
+    totals = totals_dict(current)
     for species in SPECIES:
-        summary[species].end = current[species]
+        summary[species].end = totals[species]
 
     return ForecastResult(
         world=world_name,
         days=days,
         step=step,
         seed=seed,
-        initial_state=_copy_state(state),
+        initial_state=initial_totals,
         samples=samples,
         summary=summary,
     )
 
 
-def _apply_noise(state: Dict[str, float], rng: random.Random) -> None:
-    state["grass"] = max(0, min(1000, state["grass"] * rng.uniform(0.97, 1.03)))
-    state["rabbits"] = max(0, state["rabbits"] * rng.uniform(0.95, 1.05))
-    state["foxes"] = max(0, state["foxes"] * rng.uniform(0.94, 1.06))
+def _apply_noise(state: GridState, rng: random.Random) -> None:
+    for cell in state.cells:
+        cell.grass = max(0, min(100, int(round(cell.grass * rng.uniform(0.97, 1.03)))))
+        cell.rabbits = max(0, int(round(cell.rabbits * rng.uniform(0.95, 1.05))))
+        cell.foxes = max(0, int(round(cell.foxes * rng.uniform(0.94, 1.06))))
 
 
 def render_table(result: ForecastResult) -> str:
@@ -176,9 +180,7 @@ def render_table(result: ForecastResult) -> str:
             )
 
     if result.seed is not None:
-        lines.append(
-            f"\nRun again with --seed {result.seed} for identical results."
-        )
+        lines.append(f"\nRun again with --seed {result.seed} for identical results.")
 
     return "\n".join(lines)
 
