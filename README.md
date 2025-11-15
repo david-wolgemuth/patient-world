@@ -72,13 +72,13 @@ Staging exists for experiments and may be reset at any time. Day counts below ar
 <!-- STAGING SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 11** • 2025-11-14
+**Day 12** • 2025-11-15
 
 ### Population
 ```
-🌱 Grass    ███████████             576
-🐇 Rabbits  ████                    205
-🦊 Foxes                             47
+🌱 Grass    ██████████              531
+🐇 Rabbits  ████                    232
+🦊 Foxes    █                        54
 ```
 
 <!-- STAGING SNAPSHOT END -->
