@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""
-World simulation. Run with --prod or --dev.
-"""
+"""Patient World simulation supporting multiple named worlds."""
+import argparse
 import json
-import sys
 from datetime import datetime
 from pathlib import Path
+
+DEFAULT_STATE = {"day": 0, "grass": 500, "rabbits": 50, "foxes": 10}
+HISTORY_HEADER = "date,day,grass,rabbits,foxes"
+WORLDS_DIR = Path("worlds")
 
 
 def tick(state):
@@ -48,7 +50,7 @@ def load_state(path: Path):
     if path.exists():
         with path.open() as fh:
             return json.load(fh)
-    return {"day": 0, "grass": 500, "rabbits": 50, "foxes": 10}
+    return DEFAULT_STATE.copy()
 
 
 def save_state(path: Path, state):
@@ -56,31 +58,45 @@ def save_state(path: Path, state):
         json.dump(state, fh, indent=2)
 
 
-def append_history(state):
+def ensure_history_file(path: Path):
+    if not path.exists():
+        path.write_text(HISTORY_HEADER + "\n")
+
+
+def append_history(state, path: Path):
+    ensure_history_file(path)
     line = f"{datetime.now().date()},{state['day']},{state['grass']:.0f},{state['rabbits']:.0f},{state['foxes']:.0f}\n"
-    with Path("history.csv").open("a") as fh:
+    with path.open("a") as fh:
         fh.write(line)
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run a Patient World tick for a specific world.")
+    parser.add_argument("world", help="World name (prod, dev, staging, etc.)")
+    parser.add_argument("--snapshot", action="store_true", help="Write snapshot.md for the given world")
+    return parser.parse_args()
+
+
 def main():
-    args = sys.argv[1:]
-    mode = next((arg for arg in args if arg in ("--prod", "--dev")), "--dev")
-    snapshot_mode = "--snapshot" in args
-    state_file = Path("state_prod.json" if mode == "--prod" else "state_dev.json")
+    args = parse_args()
+    world_dir = WORLDS_DIR / args.world
+    world_dir.mkdir(parents=True, exist_ok=True)
+    state_file = world_dir / "state.json"
+    history_file = world_dir / "history.csv"
+    snapshot_file = world_dir / "snapshot.md"
 
     state = load_state(state_file)
     new_state = tick(state)
     save_state(state_file, new_state)
 
-    if snapshot_mode:
-        Path("snapshot.md").write_text(generate_snapshot(new_state))
+    if args.snapshot:
+        snapshot_file.write_text(generate_snapshot(new_state))
 
-    if mode == "--prod":
-        append_history(new_state)
+    append_history(new_state, history_file)
 
     print(
-        f"Day {new_state['day']}: Grass={new_state['grass']:.0f}, "
-        f"Rabbits={new_state['rabbits']:.0f}, Foxes={new_state['foxes']:.0f}"
+        f"[{args.world}] Day {new_state['day']}: "
+        f"Grass={new_state['grass']:.0f}, Rabbits={new_state['rabbits']:.0f}, Foxes={new_state['foxes']:.0f}"
     )
 
 

@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '0 12 * * *'
   workflow_dispatch:
+    inputs:
+      world:
+        description: "World to tick when manually triggered"
+        required: false
+        default: staging
 
 jobs:
   tick:
@@ -10,13 +15,24 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Select world
+        id: select-world
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            world="${{ github.event.inputs.world }}"
+            if [ -z "$world" ]; then
+              world=staging
+            fi
+          else
+            world=prod
+          fi
+          echo "value=$world" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v3
-      - run: python sim.py --prod --snapshot
-      - run: python update_readme.py
-      - run: |
-          git config user.name "World"
-          git config user.email "bot@example.com"
-          git add README.md state_prod.json history.csv
-          git add -f snapshot.md
-          git commit -m "Day $(python -c 'import json; print(json.load(open("state_prod.json"))["day"])')" || exit 0
-          git push
+      - name: Run simulation
+        run: python sim.py ${{ steps.select-world.outputs.value }} --snapshot
+      - name: Update README
+        run: python update_readme.py ${{ steps.select-world.outputs.value }}
+      - name: Commit world state
+        run: python commit_world.py ${{ steps.select-world.outputs.value }}
+      - name: Push changes
+        run: git push

@@ -1,45 +1,65 @@
 # Patient World
 
-A self-running simulation that ticks daily.
+A self-running ecosystem simulation built around tiny rules that evolve over time. Each named world stores its own state/history/snapshot under `worlds/<name>/`, allowing prod, staging, and local sandboxes to coexist.
 
 <!-- SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 2** • 2025-11-15
+**Day 3** • 2025-11-14
 
 ### Population
 ```
-🌱 Grass    ██████████              549
-🐇 Rabbits  █                        65
-🦊 Foxes                             13
+🌱 Grass    ███████████             571
+🐇 Rabbits  █                        74
+🦊 Foxes                             15
 ```
 
 <!-- SNAPSHOT END -->
 
-## About
-
-This world runs autonomously via GitHub Actions and evolves according to simple ecological rules. The simulator lives in `sim.py`, with prod/dev worlds stored in JSON. History accumulates in `history.csv` for future visualization.
-
-## Local Snapshot Testing
-
-1. Generate a snapshot without touching README:
-
-```bash
-python sim.py --dev --snapshot
-cat snapshot.md
+## Worlds Layout
+```
+worlds/
+├── prod/           # committed, long-running
+│   ├── state.json
+│   ├── history.csv
+│   └── snapshot.md
+├── staging/        # optional committed worlds (created via helper)
+└── dev/            # gitignored sandbox created on demand
+    ├── state.json
+    ├── history.csv
+    └── snapshot.md
 ```
 
-2. Update the README using the generated snapshot:
+## Running Locally
+- `python sim.py <world> [--snapshot]`
+- Example (dev sandbox):
+  ```bash
+  python sim.py dev --snapshot
+  cat worlds/dev/snapshot.md
+  ```
+- Worlds are created automatically on first run (directories + default state/history).
 
+## Updating README Manually
 ```bash
-python update_readme.py
-git diff README.md
+python update_readme.py prod      # or staging-v2, etc.
+git diff README.md                # inspect snapshot change
 ```
 
-3. Reset README changes after testing if desired:
-
+To stage and commit a particular world's files manually:
 ```bash
-git checkout -- README.md
+python commit_world.py prod
+git push
 ```
 
-`snapshot.md` is ignored locally so these steps stay clean while the GitHub Action commits the official snapshot each tick.
+## Creating or Cloning Worlds
+Use the helper script to bootstrap directories:
+```bash
+python create_world.py staging-v2          # fresh world with default state
+python create_world.py staging --from=prod # clone current prod state/history
+```
+
+## Automation
+- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC and runs `commit_world.py` to store the updated world data plus README.
+- Manual `workflow_dispatch` runs accept a `world` input (default `staging`) so you can tick staging without touching cron schedules.
+
+`snapshot.md` files inside `worlds/dev/` remain untracked via `.gitignore`, keeping experiments clean while prod/staging snapshots are committed automatically by the workflow.

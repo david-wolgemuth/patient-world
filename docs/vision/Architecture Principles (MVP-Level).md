@@ -10,7 +10,7 @@ permalink: vision/architecture-principles-mvp-level
 Keep the production world protected, experimentation disposable, and state stored in the simplest possible JSON files until the simulation itself demands more.
 
 ## Principles
-- Maintain `state_prod.json` for the long-running world and `state_dev.json` for experimentation.
+- Maintain `worlds/prod/` as the long-running committed world and keep `worlds/dev/` disposable/Git-ignored for experimentation.
 - Tick prod daily via automation while running limitless local dev loops.
 - Use Git branches to gate changes; merge only after testing against dev state.
 - Reject rule directories, schema migrations, and complex hierarchies until absolutely necessary.
