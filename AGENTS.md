@@ -17,10 +17,10 @@ Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or rea
 ## CLI + Structure
 - Core logic lives under `core/` (`simulation.py`, `world.py`, `snapshot.py`).
 - `sim.py` handles load → tick → save with optional side effects:
-  - `./sim.py` ticks `dev` once.
-  - `./sim.py prod --snapshot --log --update-readme` mirrors the GitHub Action.
+  - `./sim.py` ticks `dev` once (no subcommand needed).
+  - `./sim.py tick prod --snapshot --log --update-readme` mirrors the GitHub Action.
   - `./sim.py dev --count 1000` for fast-forwarding.
-  - `./sim.py staging --count 0 --snapshot --update-readme` regenerates staging snapshots.
+  - `./sim.py forecast dev --days 365 --step 30 [--format csv|json]` provides read-only projections for QA (use `--seed` for reproducible comparisons).
 - Rare helpers:
   - `python commit_world.py prod` stages README + world artifacts via git.
   - Clone worlds via `cp -R worlds/prod worlds/staging-v2` when needed.

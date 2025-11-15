@@ -31,23 +31,53 @@ worlds/
 ```
 
 ## Running Locally
-- Default flow: `./sim.py` → ticks `dev` once and prints the new totals.
+- Default flow: `./sim.py` or `./sim.py tick` → ticks `dev` once and prints the new totals.
 - Examples:
   ```bash
   python sim.py --count 100            # fast-forward dev
   python sim.py prod --snapshot --log  # prod tick with side effects
   python sim.py staging --count 10     # experiment in staging
+  python sim.py tick prod --snapshot --log --update-readme  # explicit subcommand
   ```
 - Worlds are created automatically on first run (directories + default state/history).
 
 ## Optional Side Effects
-Add flags to the main command instead of separate subcommands:
+Add flags to the main command (or `tick` subcommand):
 
 ```bash
 python sim.py prod --snapshot --log --update-readme
 python sim.py dev --count 0 --snapshot      # regenerate snapshot without ticking
 python sim.py staging --snapshot --update-readme
 ```
+
+## Forecast (Read-only)
+Project future states without mutating the world using `forecast`:
+
+```bash
+python sim.py forecast dev --days 365 --step 30
+python sim.py forecast prod --days 1000 --seed 42
+python sim.py forecast staging --days 365 --format csv > year.csv
+```
+
+Sample output:
+
+```
+Forecasting 'dev' world for 365 days (sampling every 30 days)
+Initial state: Day 94, Grass=944, Rabbits=127, Foxes=74
+
+Day    Grass   Rabbits  Foxes
+  94     944      127      74
+ 124     811       96      58
+ 154     705       73      46
+ ...
+
+Summary (365 days):
+  Grass    start=944  end=712  min=412  max=1000
+  Rabbits  start=127  end=53   min=18   max=145
+  Foxes    start=74   end=21   min=6    max=84
+```
+
+Use `--seed` for reproducible before/after comparisons and `--format csv|json` to feed spreadsheets or QA scripts.
 
 To stage and commit a particular world's files manually (used by CI):
 ```bash
