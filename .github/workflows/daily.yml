@@ -15,22 +15,41 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Select world
+      - uses: actions/checkout@v3
+
+      - name: Select manual world
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         id: select-world
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            world="${{ github.event.inputs.world }}"
-            if [ -z "$world" ]; then
-              world=staging
-            fi
-          else
-            world=prod
+          world="${{ github.event.inputs.world }}"
+          if [ -z "$world" ]; then
+            world=staging
           fi
           echo "value=$world" >> "$GITHUB_OUTPUT"
-      - uses: actions/checkout@v3
-      - name: Run simulation
+
+      - name: Run prod simulation (daily)
+        if: ${{ github.event_name == 'schedule' }}
+        run: python sim.py tick prod --snapshot --log --update-readme
+
+      - name: Commit prod state
+        if: ${{ github.event_name == 'schedule' }}
+        run: python commit_world.py prod
+
+      - name: Run staging simulation (weekly batch)
+        if: ${{ github.event_name == 'schedule' }}
+        run: python sim.py tick staging --count 7 --snapshot --log --update-readme
+
+      - name: Commit staging state
+        if: ${{ github.event_name == 'schedule' }}
+        run: python commit_world.py staging
+
+      - name: Run manual simulation
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: python sim.py tick ${{ steps.select-world.outputs.value }} --snapshot --log --update-readme
-      - name: Commit world state
+
+      - name: Commit manual world state
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         run: python commit_world.py ${{ steps.select-world.outputs.value }}
+
       - name: Push changes
         run: git push
