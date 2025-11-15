@@ -15,6 +15,7 @@ class GridState:
     grid_width: int
     grid_height: int
     cells: List[Cell] = field(default_factory=list)
+    migration_version: int = 1
 
     def __post_init__(self) -> None:
         expected = self.grid_width * self.grid_height
@@ -24,12 +25,15 @@ class GridState:
     @classmethod
     def from_dict(cls, data: dict) -> "GridState":
         if "grid_width" not in data or "grid_height" not in data or "cells" not in data:
-            raise ValueError("Legacy state format detected. Run: python migrations/20251115_0001_grid_migration.py <world>")
+            raise ValueError(
+                "Legacy state format detected. Run: python migrations/20251115_0001_grid_migration.py <world>"
+            )
         width = int(data["grid_width"])
         height = int(data["grid_height"])
         cells_raw: Sequence[dict] = data["cells"]
         cells = [Cell.from_dict(cell) for cell in cells_raw]
-        return cls(day=int(data.get("day", 0)), grid_width=width, grid_height=height, cells=cells)
+        version = int(data.get("_migration_version", 0))
+        return cls(day=int(data.get("day", 0)), grid_width=width, grid_height=height, cells=cells, migration_version=version)
 
     def to_dict(self) -> dict:
         return {
@@ -37,6 +41,7 @@ class GridState:
             "grid_width": int(self.grid_width),
             "grid_height": int(self.grid_height),
             "cells": [cell.to_dict() for cell in self.cells],
+            "_migration_version": int(self.migration_version),
         }
 
     def _index(self, x: int, y: int) -> int:
@@ -80,6 +85,7 @@ class GridState:
             grid_width=int(self.grid_width),
             grid_height=int(self.grid_height),
             cells=[cell.copy() for cell in self.cells],
+            migration_version=int(self.migration_version),
         )
 
     def iter_coords(self) -> Iterable[Tuple[int, int]]:

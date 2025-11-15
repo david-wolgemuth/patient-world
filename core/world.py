@@ -13,6 +13,7 @@ from core.grid import Cell, GridState
 HISTORY_HEADER = "date,day,grass,rabbits,foxes"
 WORLDS_DIR = Path("worlds")
 DEFAULT_CELL_GRASS = 50
+EXPECTED_MIGRATION_VERSION = 1
 
 
 @dataclass
@@ -45,6 +46,12 @@ def load_world(world_name: str) -> GridState:
         raise FileNotFoundError(f"No grid state for '{world_name}'. Run: ./sim.py init-grid {world_name}")
     with paths.state.open() as fh:
         data = json.load(fh)
+    current_version = int(data.get("_migration_version", 0))
+    if current_version < EXPECTED_MIGRATION_VERSION:
+        raise ValueError(
+            f"World '{world_name}' is at migration v{current_version}, expected v{EXPECTED_MIGRATION_VERSION}. "
+            f"Run: python migrations/20251115_0001_grid_migration.py {world_name}"
+        )
     return GridState.from_dict(data)
 
 
@@ -92,7 +99,7 @@ def init_grid_world(
     for _ in range(max(0, total_foxes)):
         idx = rng.randrange(len(cells))
         cells[idx].foxes += 1
-    state = GridState(day=0, grid_width=width, grid_height=height, cells=cells)
+    state = GridState(day=0, grid_width=width, grid_height=height, cells=cells, migration_version=EXPECTED_MIGRATION_VERSION)
     save_world(world_name, state)
     ensure_history_file(world_name)
     return state

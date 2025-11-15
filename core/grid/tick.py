@@ -43,6 +43,7 @@ def tick_grid(state: GridState) -> GridState:
         grid_width=state.grid_width,
         grid_height=state.grid_height,
         cells=new_cells,
+        migration_version=state.migration_version,
     )
     return apply_diffusion(next_state)
 
