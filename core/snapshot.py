@@ -4,28 +4,28 @@ from __future__ import annotations
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Dict
 
 from core import world
+from core.grid import viz
+from core.grid.state import GridState
 
 PROD_MARKERS = ("<!-- SNAPSHOT START -->", "<!-- SNAPSHOT END -->")
 STAGING_MARKERS = ("<!-- STAGING SNAPSHOT START -->", "<!-- STAGING SNAPSHOT END -->")
 
 
-def generate_snapshot(state: Dict[str, float]) -> str:
-    max_pop = 1000
-
-    def bar(value: float) -> str:
-        return "█" * min(20, int(value / max_pop * 20))
-
+def generate_snapshot(state: GridState) -> str:
+    grid_viz = viz.render_grid(state)
+    totals = (
+        f"🌱 {state.total_grass()}  "
+        f"🐇 {state.total_rabbits()}  "
+        f"🦊 {state.total_foxes()}"
+    )
     return (
         "## 🌍 Patient World\n\n"
-        f"**Day {state['day']}** • {datetime.now().strftime('%Y-%m-%d')}\n\n"
-        "### Population\n```\n"
-        f"🌱 Grass    {bar(state['grass']):<20} {state['grass']:>6.0f}\n"
-        f"🐇 Rabbits  {bar(state['rabbits']):<20} {state['rabbits']:>6.0f}\n"
-        f"🦊 Foxes    {bar(state['foxes']):<20} {state['foxes']:>6.0f}\n"
-        "```\n"
+        f"**Day {state.day}** • {datetime.now().strftime('%Y-%m-%d')}\n\n"
+        f"{grid_viz}\n\n"
+        "### Totals\n"
+        f"{totals}\n"
     )
 
 

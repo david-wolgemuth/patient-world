@@ -5,14 +5,21 @@ A self-running ecosystem simulation built around tiny rules that evolve over tim
 <!-- SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 4** • 2025-11-14
+**Day 4** • 2025-11-15
 
-### Population
-```
-🌱 Grass    ███████████             592
-🐇 Rabbits  █                        92
-🦊 Foxes                             17
-```
+▫️🦊🐇▫️🐇🐇▫️▫️▫️🐇
+▫️🐇▫️🐇▫️▫️🦊🐇▫️🦊
+🐇🐇🦊▫️▫️▫️🐇🐇🐇▫️
+🐇▫️🐇▫️🐇🦊🐇🐇🐇▫️
+▫️🐇🐇🐇🐇🦊🦊▫️🐇🐇
+🐇▫️🐇🐇🦊🐇🦊🦊▫️🐇
+🦊▫️▫️🦊🦊🐇▫️▫️🐇▫️
+🐇🐇🐇🐇▫️🐇🐇🦊▫️▫️
+▫️🦊🐇🐇🐇▫️▫️🐇🐇🐇
+▫️🐇🐇▫️🐇🐇▫️▫️🐇🐇
+
+### Totals
+🌱 591  🐇 91  🦊 17
 
 <!-- SNAPSHOT END -->
 
@@ -30,33 +37,70 @@ worlds/
     └── snapshot.md
 ```
 
+## Grid State Format
+All worlds now share a single grid schema (no legacy scalar fields):
+
+```json
+{
+  "day": 47,
+  "grid_width": 10,
+  "grid_height": 10,
+  "cells": [
+    {"grass": 52, "rabbits": 3, "foxes": 0},
+    {"grass": 48, "rabbits": 2, "foxes": 1},
+    {"grass": 61, "rabbits": 0, "foxes": 0}
+  ]
+}
+```
+
+Cells are stored row-major (`y * width + x`). Helpers under `core/grid/` handle JSON (de)serialization, neighbor
+computation, totals, and emoji visualization.
+
+Use `python3 migrate.py <world>` once per world to convert older aggregate state files. The script creates
+`state.json.backup` beside the new grid file for safekeeping.
+
 ## Running Locally
 - Default flow: `./sim.py` or `./sim.py tick` → ticks `dev` once and prints the new totals.
 - Examples:
   ```bash
-  python sim.py --count 100            # fast-forward dev
-  python sim.py prod --snapshot --log  # prod tick with side effects
-  python sim.py staging --count 10     # experiment in staging
-  python sim.py tick prod --snapshot --log --update-readme  # explicit subcommand
+  python3 sim.py --count 100            # fast-forward dev
+  python3 sim.py prod --snapshot --log  # prod tick with side effects
+  python3 sim.py staging --count 10     # experiment in staging
+  python3 sim.py tick prod --snapshot --log --update-readme  # explicit subcommand
   ```
-- Worlds are created automatically on first run (directories + default state/history).
+- Initialize new worlds with the grid-aware helper:
+  ```bash
+  python3 sim.py init-grid sandbox --width 20 --height 10 --rabbits 50 --foxes 12
+  ```
+- Worlds remain directory-based; `init-grid` fills in state/history/snapshot from scratch.
 
 ## Optional Side Effects
 Add flags to the main command (or `tick` subcommand):
 
 ```bash
-python sim.py prod --snapshot --log --update-readme
-python sim.py dev --count 0 --snapshot      # regenerate snapshot without ticking
-python sim.py staging --snapshot --update-readme
+python3 sim.py prod --snapshot --log --update-readme
+python3 sim.py dev --count 0 --snapshot      # regenerate snapshot without ticking
+python3 sim.py staging --snapshot --update-readme
 ```
+
+## Manual Interventions
+Nudge populations without advancing time via the `intervene` command:
+
+```bash
+python3 sim.py intervene dev grass +200          # spread grass evenly across the grid
+python3 sim.py intervene dev rabbits -10         # cull rabbits everywhere
+python3 sim.py intervene dev foxes +5 --at 3,4   # adjust a single cell
+```
+
+Changes write back to `state.json`, so follow up with `--snapshot` and/or `--log` via `tick` if you want historical entries.
 
 ## Forecast (Read-only)
 Project future states without mutating the world using `forecast`:
 
 ```bash
-python sim.py forecast dev --days 365 --step 30
-python sim.py forecast prod --days 1000 --seed 42
-python sim.py forecast staging --days 365 --format csv > year.csv
+python3 sim.py forecast dev --days 365 --step 30
+python3 sim.py forecast prod --days 1000 --seed 42
+python3 sim.py forecast staging --days 365 --format csv > year.csv
 ```
 
 Sample output:
@@ -93,7 +137,7 @@ cp -R worlds/prod worlds/staging-v2
 Or bootstrap a blank world by deleting `state.json` and running `./sim.py staging-v2` once.
 
 ## Automation
-- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC by running `python sim.py prod --snapshot --log --update-readme`, then commits via `python commit_world.py prod`.
+- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC by running `python3 sim.py prod --snapshot --log --update-readme`, then commits via `python commit_world.py prod`.
 - Manual `workflow_dispatch` runs accept a `world` input (default `staging`) so you can tick staging without touching cron schedules.
 
 `snapshot.md` files inside `worlds/dev/` remain untracked via `.gitignore`, keeping experiments clean while prod/staging snapshots are committed automatically by the workflow.
@@ -109,12 +153,19 @@ Staging exists for experiments and may be reset at any time & have unrealistic n
 
 **Day 15** • 2025-11-15
 
-### Population
-```
-🌱 Grass    ████████                445
-🐇 Rabbits  ██                      131
-🦊 Foxes    █                        81
-```
+🦊▫️🐇▫️🐇🦊🐇▫️🦊🦊
+▫️🦊🦊🦊🐇🦊🦊🦊🐇🦊
+🦊🦊🦊🦊🦊🐇🐇▫️🦊🦊
+🦊🐇🐇🦊🐇▫️🦊🐇🦊🦊
+🐇🦊🐇🦊▫️🐇🐇🦊🐇🦊
+🐇🐇🦊🦊🦊🦊🐇🦊🦊▫️
+🐇🐇🐇🦊🐇🐇🐇▫️🦊🦊
+🐇🦊🦊🦊▫️🦊🦊🦊🐇🦊
+🐇🐇▫️🦊🦊🦊🐇🦊▫️🦊
+🐇🦊▫️🐇🦊🦊🦊▫️🦊🦊
+
+### Totals
+🌱 444  🐇 131  🦊 81
 
 <!-- STAGING SNAPSHOT END -->
 
