@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Iterable
 
 MIGRATIONS_DIR = Path(__file__).resolve().parent
-MIGRATION_MODULES = ["migrations.0001_grid_state"]
+MIGRATION_MODULES = ["migrations.0001_grid_state", "migrations.0002_entities"]
 
 
 def run_pending(world_name: str, silent: bool = False) -> bool:

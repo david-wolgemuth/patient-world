@@ -46,8 +46,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     forecast_p = subparsers.add_parser("forecast", help="Forecast world evolution (read-only)")
     forecast_p.add_argument("world", nargs="?", default="dev", help="World name (default: dev)")
-    forecast_p.add_argument("--days", type=int, required=True, help="Days to simulate ahead")
-    forecast_p.add_argument("--step", type=int, default=30, help="Sampling interval in days")
+    forecast_p.add_argument("--days", type=int, default=365, help="Days to simulate ahead (default: 365)")
+    forecast_p.add_argument("--step", type=int, default=30, help="Sampling interval in days (default: 30)")
     forecast_p.add_argument("--seed", type=int, help="Random seed for noisy projections")
     forecast_p.add_argument(
         "--format",

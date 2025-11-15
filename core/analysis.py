@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import random
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Literal
 
 from core.grid import tick
 from core.grid.state import GridState
@@ -138,8 +138,44 @@ def run(state: GridState, *, world_name: str, days: int, step: int, seed: int | 
 def _apply_noise(state: GridState, rng: random.Random) -> None:
     for cell in state.cells:
         cell.grass = max(0, min(100, int(round(cell.grass * rng.uniform(0.97, 1.03)))))
-        cell.rabbits = max(0, int(round(cell.rabbits * rng.uniform(0.95, 1.05))))
-        cell.foxes = max(0, int(round(cell.foxes * rng.uniform(0.94, 1.06))))
+    _scale_entities(state, rng, "rabbit", 0.95, 1.05)
+    _scale_entities(state, rng, "fox", 0.94, 1.06)
+
+
+def _scale_entities(
+    state: GridState,
+    rng: random.Random,
+    entity_type: Literal["rabbit", "fox"],
+    low: float,
+    high: float,
+) -> None:
+    """Randomly scale populations of the requested entity type between bounds."""
+    cohort = [entity for entity in state.entities.values() if entity.type == entity_type]
+    if not cohort:
+        return
+    target = max(0, int(round(len(cohort) * rng.uniform(low, high))))
+    if target == len(cohort):
+        return
+    if target < len(cohort):
+        to_remove = rng.sample(cohort, len(cohort) - target)
+        for entity in to_remove:
+            state.remove_entity(entity.id)
+        return
+
+    # Need to add new entities.
+    spawn_locations = [(entity.x, entity.y) for entity in cohort]
+    deficit = target - len(cohort)
+    for _ in range(deficit):
+        if spawn_locations:
+            x, y = spawn_locations[rng.randrange(len(spawn_locations))]
+        else:
+            x = rng.randrange(state.grid_width)
+            y = rng.randrange(state.grid_height)
+        hunger_range = (0, 5) if entity_type == "rabbit" else (0, 7)
+        age_range = (0, 20) if entity_type == "rabbit" else (0, 30)
+        hunger = rng.randint(*hunger_range)
+        age = rng.randint(*age_range)
+        state.spawn_entity(entity_type, x, y, hunger=hunger, age=age)
 
 
 def render_table(result: ForecastResult) -> str:
