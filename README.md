@@ -97,6 +97,8 @@ python3 sim.py forecast prod --days 1000 --seed 42
 python3 sim.py forecast staging --days 365 --format csv > year.csv
 ```
 
+`--days` defaults to 365 and `--step` defaults to 30, so `python3 sim.py forecast dev` is a quick smoke test when you don't need custom horizons.
+
 Sample output:
 
 ```

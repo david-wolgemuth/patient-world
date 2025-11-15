@@ -13,7 +13,7 @@ from core.grid import Cell, GridState
 HISTORY_HEADER = "date,day,grass,rabbits,foxes"
 WORLDS_DIR = Path("worlds")
 DEFAULT_CELL_GRASS = 50
-EXPECTED_MIGRATION_VERSION = 1
+EXPECTED_MIGRATION_VERSION = 2
 
 
 @dataclass
@@ -50,7 +50,7 @@ def load_world(world_name: str) -> GridState:
     if current_version < EXPECTED_MIGRATION_VERSION:
         raise ValueError(
             f"World '{world_name}' is at migration v{current_version}, expected v{EXPECTED_MIGRATION_VERSION}. "
-            f"Run: python migrations/0001_grid_state.py {world_name}"
+            f"Run: ./sim.py migrate {world_name}"
         )
     return GridState.from_dict(data)
 
@@ -91,15 +91,26 @@ def init_grid_world(
 ) -> GridState:
     ensure_directory(get_paths(world_name).directory)
     base_grass = DEFAULT_CELL_GRASS if total_grass is None else int(total_grass)
-    cells = [Cell(grass=base_grass, rabbits=0, foxes=0) for _ in range(width * height)]
+    cells = [Cell(grass=base_grass) for _ in range(width * height)]
+    state = GridState(
+        day=0,
+        grid_width=width,
+        grid_height=height,
+        cells=cells,
+        migration_version=EXPECTED_MIGRATION_VERSION,
+    )
     rng = random.Random()
+    total_cells = width * height
     for _ in range(max(0, total_rabbits)):
-        idx = rng.randrange(len(cells))
-        cells[idx].rabbits += 1
+        idx = rng.randrange(total_cells)
+        x = idx % width
+        y = idx // width
+        state.spawn_entity("rabbit", x, y)
     for _ in range(max(0, total_foxes)):
-        idx = rng.randrange(len(cells))
-        cells[idx].foxes += 1
-    state = GridState(day=0, grid_width=width, grid_height=height, cells=cells, migration_version=EXPECTED_MIGRATION_VERSION)
+        idx = rng.randrange(total_cells)
+        x = idx % width
+        y = idx // width
+        state.spawn_entity("fox", x, y)
     save_world(world_name, state)
     ensure_history_file(world_name)
     return state

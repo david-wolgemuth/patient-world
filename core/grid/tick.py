@@ -1,52 +1,64 @@
-"""Grid tick logic."""
+"""Grid tick logic for entity actors."""
 from __future__ import annotations
 
-from .cell import Cell
-from .diffusion import apply_diffusion
+import random
+from typing import Iterable
+
+from .diffusion import apply_entity_diffusion
+from .entity import Entity
 from .state import GridState
 
 
-def tick_cell(cell: Cell) -> Cell:
-    """Compute next cell state using local-only interactions."""
-    grass = min(100, cell.grass * 1.1)
-
-    grass_needed = cell.rabbits * 2
-    if grass >= grass_needed:
-        grass -= grass_needed
-        food_ok = True
-    else:
-        grass = 0
-        food_ok = False
-
-    rabbits = cell.rabbits * (1.2 if food_ok else 0.7)
-
-    rabbits_eaten = min(rabbits, cell.foxes * 0.3)
-    rabbits -= rabbits_eaten
-
-    foxes = cell.foxes * (1.1 if rabbits_eaten > cell.foxes * 0.15 else 0.9)
-
-    return Cell(
-        grass=_clamp_int(grass),
-        rabbits=_clamp_int(rabbits),
-        foxes=_clamp_int(foxes),
-    )
-
-
 def tick_grid(state: GridState) -> GridState:
-    """Apply one tick (local interactions + diffusion)."""
-    new_cells = []
-    for y in range(state.grid_height):
-        for x in range(state.grid_width):
-            new_cells.append(tick_cell(state.get_cell(x, y)))
-    next_state = GridState(
-        day=state.day + 1,
-        grid_width=state.grid_width,
-        grid_height=state.grid_height,
-        cells=new_cells,
-        migration_version=state.migration_version,
-    )
-    return apply_diffusion(next_state)
+    """Apply one tick over the grid using entity behaviors."""
+    next_state = state.clone()
+    _grow_grass(next_state)
+    _tick_rabbits(next_state)
+    _tick_foxes(next_state)
+    apply_entity_diffusion(next_state)
+    _remove_dead_entities(next_state)
+    next_state.day += 1
+    return next_state
 
 
-def _clamp_int(value: float) -> int:
-    return max(0, int(round(value)))
+def _grow_grass(state: GridState) -> None:
+    for cell in state.cells:
+        cell.grass = min(100, int(cell.grass * 1.1))
+
+
+def _tick_rabbits(state: GridState) -> None:
+    for entity in list(_entities_of_type(state, "rabbit")):
+        entity.hunger += 1
+        entity.age += 1
+        cell = state.get_cell(entity.x, entity.y)
+        if cell.grass >= 2:
+            cell.grass -= 2
+            entity.hunger = max(0, entity.hunger - 3)
+        if entity.hunger <= 2 and entity.age > 5:
+            if random.random() < 0.2:
+                state.spawn_entity("rabbit", entity.x, entity.y)
+
+
+def _tick_foxes(state: GridState) -> None:
+    for entity in list(_entities_of_type(state, "fox")):
+        entity.hunger += 1
+        entity.age += 1
+        rabbits = state.entities_by_type(entity.x, entity.y, "rabbit")
+        if rabbits:
+            prey = max(rabbits, key=lambda r: r.hunger)
+            state.remove_entity(prey.id)
+            entity.hunger = max(0, entity.hunger - 5)
+        if entity.hunger <= 3 and entity.age > 10:
+            if random.random() < 0.15:
+                state.spawn_entity("fox", entity.x, entity.y)
+
+
+def _remove_dead_entities(state: GridState) -> None:
+    for entity_id in [eid for eid, entity in state.entities.items() if entity.is_dead()]:
+        state.remove_entity(entity_id)
+
+
+def _entities_of_type(state: GridState, entity_type: str) -> Iterable[Entity]:
+    for entity in state.entities.values():
+        if entity.type == entity_type:
+            yield entity

@@ -20,27 +20,28 @@ def build_fixture(width: int = 5, height: int = 5) -> GridState:
     for y in range(height):
         for x in range(width):
             grass = 60 if (x + y) % 2 == 0 else 40
-            rabbits = 0
-            foxes = 0
-            if x == center_x and y == center_y:
-                rabbits = 40
-                foxes = 8
-            cells.append(Cell(grass=grass, rabbits=rabbits, foxes=foxes))
-    return GridState(day=0, grid_width=width, grid_height=height, cells=cells)
+            cells.append(Cell(grass=grass))
+    state = GridState(day=0, grid_width=width, grid_height=height, cells=cells, migration_version=2)
+    for _ in range(40):
+        state.spawn_entity("rabbit", center_x, center_y)
+    for _ in range(8):
+        state.spawn_entity("fox", center_x, center_y)
+    return state
 
 
 def assert_non_negative(state: GridState) -> None:
     for idx, cell in enumerate(state.cells):
-        if cell.grass < 0 or cell.rabbits < 0 or cell.foxes < 0:
-            raise AssertionError(f"Negative population detected in cell {idx}: {cell}")
+        if cell.grass < 0:
+            raise AssertionError(f"Negative grass detected in cell {idx}: {cell}")
 
 
 def assert_caps(state: GridState) -> None:
+    entities = state.entities
     for idx, cell in enumerate(state.cells):
-        if cell.rabbits > MAX_RABBITS:
-            raise AssertionError(f"Rabbit explosion in cell {idx}: {cell.rabbits}")
-        if cell.foxes > MAX_FOXES:
-            raise AssertionError(f"Fox explosion in cell {idx}: {cell.foxes}")
+        if cell.rabbits(entities) > MAX_RABBITS:
+            raise AssertionError(f"Rabbit explosion in cell {idx}")
+        if cell.foxes(entities) > MAX_FOXES:
+            raise AssertionError(f"Fox explosion in cell {idx}")
         if cell.grass > 100:
             raise AssertionError(f"Grass cap violated in cell {idx}: {cell.grass}")
 
@@ -49,10 +50,10 @@ def assert_diffusion(previous: GridState, current: GridState) -> None:
     cx = previous.grid_width // 2
     cy = previous.grid_height // 2
     neighbor_coords = previous.neighbors(cx, cy)
-    before_rabbits = _sum_species(previous, neighbor_coords, "rabbits")
-    after_rabbits = _sum_species(current, neighbor_coords, "rabbits")
-    before_foxes = _sum_species(previous, neighbor_coords, "foxes")
-    after_foxes = _sum_species(current, neighbor_coords, "foxes")
+    before_rabbits = _sum_species(previous, neighbor_coords, "rabbit")
+    after_rabbits = _sum_species(current, neighbor_coords, "rabbit")
+    before_foxes = _sum_species(previous, neighbor_coords, "fox")
+    after_foxes = _sum_species(current, neighbor_coords, "fox")
 
     if after_rabbits <= before_rabbits:
         raise AssertionError("Rabbits failed to diffuse outward from the center.")
@@ -60,8 +61,13 @@ def assert_diffusion(previous: GridState, current: GridState) -> None:
         raise AssertionError("Foxes failed to diffuse outward from the center.")
 
 
-def _sum_species(state: GridState, coords: Iterable[Tuple[int, int]], attr: str) -> int:
-    return sum(getattr(state.get_cell(x, y), attr) for x, y in coords)
+def _sum_species(state: GridState, coords: Iterable[Tuple[int, int]], species: str) -> int:
+    cells = (state.get_cell(x, y) for x, y in coords)
+    entities = state.entities
+    counter = 0
+    for cell in cells:
+        counter += cell.rabbits(entities) if species == "rabbit" else cell.foxes(entities)
+    return counter
 
 
 def run_checks(ticks: int) -> GridState:

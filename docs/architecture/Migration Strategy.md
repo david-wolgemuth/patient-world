@@ -1,7 +1,7 @@
 ---
 title: Migration Strategy
 type: note
-permalink: vision/migration-strategy-1
+permalink: architecture/migration-strategy
 ---
 
 # Minimal Migration System
@@ -70,6 +70,7 @@ def migrate_world(world_name: str):
 Key points:
 
 - **Pure functions**: treat migrations as dict→dict transformations.
+- **Plain Python**: avoid importing runtime classes (e.g., `GridState`, `Cell`). Those implementations evolve with the sim and can break old scripts; operate on raw JSON/dicts so migrations stay stable over time.
 - **No rollbacks**: rely on Git if you need to revert.
 - **Idempotent**: scripts should be safe to re-run (skip once 
 `_migration_version >= TARGET_VERSION`).

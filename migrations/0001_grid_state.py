@@ -14,7 +14,6 @@ if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
 from core import world
-from core.grid import Cell, GridState
 
 DEFAULT_GRID_SIZE = 10
 TARGET_VERSION = 1
@@ -56,16 +55,18 @@ def _convert_scalar_to_grid(legacy: dict, grid_size: int) -> dict:
     grass_base = grass_total // cell_count
     grass_remainder = grass_total % cell_count
 
+    # NOTE: keep migrations focused on raw dicts so changes to runtime classes
+    # (e.g., GridState/Cell) cannot break legacy scripts after the fact.
     cells = []
     for idx in range(cell_count):
         grass = grass_base + (1 if idx < grass_remainder else 0)
-        cells.append(Cell(grass=grass, rabbits=0, foxes=0))
+        cells.append({"grass": grass, "rabbits": 0, "foxes": 0})
 
     rng = random.Random()
     for _ in range(int(legacy.get("rabbits", 0))):
-        cells[rng.randrange(cell_count)].rabbits += 1
+        cells[rng.randrange(cell_count)]["rabbits"] += 1
     for _ in range(int(legacy.get("foxes", 0))):
-        cells[rng.randrange(cell_count)].foxes += 1
+        cells[rng.randrange(cell_count)]["foxes"] += 1
 
     return _grid_state_dict(legacy.get("day", 0), grid_size, cells)
 
@@ -84,9 +85,21 @@ def _regrid(existing: dict, grid_size: int) -> dict:
     return _convert_scalar_to_grid(scalar, grid_size)
 
 
-def _grid_state_dict(day: int, grid_size: int, cells: list[Cell]) -> dict:
-    state = GridState(day=int(day), grid_width=grid_size, grid_height=grid_size, cells=cells, migration_version=TARGET_VERSION)
-    return state.to_dict()
+def _grid_state_dict(day: int, grid_size: int, cells: list[dict]) -> dict:
+    return {
+        "day": int(day),
+        "grid_width": int(grid_size),
+        "grid_height": int(grid_size),
+        "cells": [
+            {
+                "grass": int(cell.get("grass", 0)),
+                "rabbits": int(cell.get("rabbits", 0)),
+                "foxes": int(cell.get("foxes", 0)),
+            }
+            for cell in cells
+        ],
+        "_migration_version": TARGET_VERSION,
+    }
 
 
 def main(argv: list[str]) -> int:
