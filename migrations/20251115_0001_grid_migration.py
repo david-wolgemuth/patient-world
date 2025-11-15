@@ -16,7 +16,7 @@ if str(ROOT_DIR) not in sys.path:
 from core import world
 from core.grid import Cell, GridState
 
-DEFAULT_GRID_SIZE = 10
+DEFAULT_GRID_SIZE = 8
 
 
 def migrate_world(world_name: str, grid_size: int = DEFAULT_GRID_SIZE) -> None:
