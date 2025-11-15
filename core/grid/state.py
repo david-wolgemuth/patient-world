@@ -24,7 +24,7 @@ class GridState:
     @classmethod
     def from_dict(cls, data: dict) -> "GridState":
         if "grid_width" not in data or "grid_height" not in data or "cells" not in data:
-            raise ValueError("Legacy state format detected. Run: python migrate.py <world>")
+            raise ValueError("Legacy state format detected. Run: python migrations/20251115_0001_grid_migration.py <world>")
         width = int(data["grid_width"])
         height = int(data["grid_height"])
         cells_raw: Sequence[dict] = data["cells"]

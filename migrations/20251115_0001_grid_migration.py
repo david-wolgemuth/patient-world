@@ -8,6 +8,11 @@ import shutil
 import sys
 from pathlib import Path
 
+# Ensure repo root is importable when running from migrations/ directory
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
 from core import world
 from core.grid import Cell, GridState
 
@@ -53,7 +58,7 @@ def migrate_world(world_name: str, grid_size: int = DEFAULT_GRID_SIZE) -> None:
 
 def main(argv: list[str]) -> int:
     if not argv:
-        raise SystemExit("Usage: python migrate.py <world> [grid_size]")
+        raise SystemExit("Usage: python migrations/20251115_0001_grid_migration.py <world> [grid_size]")
     world_name = argv[0]
     grid_size = DEFAULT_GRID_SIZE
     if len(argv) > 1:

@@ -56,7 +56,7 @@ All worlds now share a single grid schema (no legacy scalar fields):
 Cells are stored row-major (`y * width + x`). Helpers under `core/grid/` handle JSON (de)serialization, neighbor
 computation, totals, and emoji visualization.
 
-Use `python3 migrate.py <world>` once per world to convert older aggregate state files. The script creates
+Use `python3 migrations/20251115_0001_grid_migration.py <world>` once per world to convert older aggregate state files. The script creates
 `state.json.backup` beside the new grid file for safekeeping.
 
 ## Running Locally
