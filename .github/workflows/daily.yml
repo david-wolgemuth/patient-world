@@ -29,16 +29,7 @@ jobs:
           echo "value=$world" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v3
       - name: Run simulation
-        run: python sim.py ${{ steps.select-world.outputs.value }} --snapshot
-      - name: Update README
-        env:
-          WORLD: ${{ steps.select-world.outputs.value }}
-        run: |
-          if [ "$WORLD" = "staging" ]; then
-            python update_readme.py "$WORLD" --staging
-          else
-            python update_readme.py "$WORLD"
-          fi
+        run: python sim.py ${{ steps.select-world.outputs.value }} --snapshot --log --update-readme
       - name: Commit world state
         run: python commit_world.py ${{ steps.select-world.outputs.value }}
       - name: Push changes

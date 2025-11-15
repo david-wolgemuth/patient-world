@@ -1,54 +1,47 @@
 #!/usr/bin/env python3
-"""Stage and commit snapshot/state for a specific world."""
+"""Stage and commit README + world data for a world."""
+from __future__ import annotations
+
 import argparse
 import json
 import subprocess
 from pathlib import Path
 
-
-def run(cmd, check=True):
-    subprocess.run(cmd, check=check)
+from core import world
 
 
-def add_existing(paths):
-    existing = [str(path) for path in paths if path.exists()]
-    if existing:
-        run(["git", "add", *existing])
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Commit world data via git")
+    parser.add_argument("world", help="World name to commit")
+    parser.add_argument("--user", default="World", help="Git user.name")
+    parser.add_argument("--email", default="bot@example.com", help="Git user.email")
+    return parser.parse_args()
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Commit README + world data after a tick")
-    parser.add_argument("world", help="World name to commit (prod, staging, etc.)")
-    parser.add_argument("--user", default="World", help="Git user.name to set before committing")
-    parser.add_argument("--email", default="bot@example.com", help="Git user.email to set before committing")
-    args = parser.parse_args()
-
-    world_dir = Path("worlds") / args.world
-    state_file = world_dir / "state.json"
-    history_file = world_dir / "history.csv"
-    snapshot_file = world_dir / "snapshot.md"
-
-    missing = [p for p in (state_file, history_file, snapshot_file) if not p.exists()]
+def main() -> int:
+    args = parse_args()
+    paths = world.get_paths(args.world)
+    required = [paths.state, paths.history, paths.snapshot]
+    missing = [p for p in required if not p.exists()]
     if missing:
         raise SystemExit(f"Missing files for world '{args.world}': {', '.join(str(p) for p in missing)}")
 
-    state = json.loads(state_file.read_text())
+    with paths.state.open() as fh:
+        state = json.load(fh)
     day = state.get("day", 0)
 
-    run(["git", "config", "user.name", args.user])
-    run(["git", "config", "user.email", args.email])
+    subprocess.run(["git", "config", "user.name", args.user], check=True)
+    subprocess.run(["git", "config", "user.email", args.email], check=True)
+    subprocess.run(["git", "add", "README.md", str(paths.state), str(paths.history)], check=True)
+    subprocess.run(["git", "add", "-f", str(paths.snapshot)], check=True)
 
-    add_existing([Path("README.md"), state_file, history_file])
-    run(["git", "add", "-f", str(snapshot_file)])
-
-    diff = subprocess.run(["git", "diff", "--cached", "--quiet"])
-    if diff.returncode == 0:
+    if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode == 0:
         print("No changes to commit")
-        return
+        return 0
 
-    commit_msg = f"[{args.world}] Day {day}"
-    run(["git", "commit", "-m", commit_msg])
+    subprocess.run(["git", "commit", "-m", f"[{args.world}] Day {day}"], check=True)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

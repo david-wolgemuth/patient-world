@@ -14,8 +14,20 @@ Patient World is a minimal autonomous ecosystem sim. `sim.py` holds the entire l
 
 Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or read these notes. Snapshot markers in README reference `worlds/<world>/snapshot.md`, produced via `python sim.py <world> --snapshot`.
 
+## CLI + Structure
+- Core logic lives under `core/` (`simulation.py`, `world.py`, `snapshot.py`).
+- `sim.py` handles load → tick → save with optional side effects:
+  - `./sim.py` ticks `dev` once.
+  - `./sim.py prod --snapshot --log --update-readme` mirrors the GitHub Action.
+  - `./sim.py dev --count 1000` for fast-forwarding.
+  - `./sim.py staging --count 0 --snapshot --update-readme` regenerates staging snapshots.
+- Rare helpers:
+  - `python commit_world.py prod` stages README + world artifacts via git.
+  - Clone worlds via `cp -R worlds/prod worlds/staging-v2` when needed.
+
 ## Python Environment
-- Recommended: `python3 -m venv .venv && source .venv/bin/activate`
+- Recommended: `python3 -m venv venv && source venv/bin/activate`
+- Install dependencies as they appear (`pip install -r requirements.txt` once the file exists)
 - Install dependencies as needed (no pinned requirements yet)
 - Run `deactivate` when finished so future shells stay clean
 

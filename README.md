@@ -5,13 +5,13 @@ A self-running ecosystem simulation built around tiny rules that evolve over tim
 <!-- SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 2** • 2025-11-15
+**Day 4** • 2025-11-14
 
 ### Population
 ```
-🌱 Grass    ██████████              549
-🐇 Rabbits  █                        65
-🦊 Foxes                             13
+🌱 Grass    ███████████             592
+🐇 Rabbits  █                        92
+🦊 Foxes                             17
 ```
 
 <!-- SNAPSHOT END -->
@@ -31,62 +31,70 @@ worlds/
 ```
 
 ## Running Locally
-- `python sim.py <world> [--snapshot]`
-- Example (dev sandbox):
+- Default flow: `./sim.py` → ticks `dev` once and prints the new totals.
+- Examples:
   ```bash
-  python sim.py dev --snapshot
-  cat worlds/dev/snapshot.md
+  python sim.py --count 100            # fast-forward dev
+  python sim.py prod --snapshot --log  # prod tick with side effects
+  python sim.py staging --count 10     # experiment in staging
   ```
 - Worlds are created automatically on first run (directories + default state/history).
 
-## Updating README Manually
+## Optional Side Effects
+Add flags to the main command instead of separate subcommands:
+
 ```bash
-python update_readme.py prod      # or staging-v2, etc.
-# Staging section uses --staging to update the separate snapshot block
-python update_readme.py staging --staging
-git diff README.md                # inspect snapshot change
+python sim.py prod --snapshot --log --update-readme
+python sim.py dev --count 0 --snapshot      # regenerate snapshot without ticking
+python sim.py staging --snapshot --update-readme
 ```
 
-To stage and commit a particular world's files manually:
+To stage and commit a particular world's files manually (used by CI):
 ```bash
 python commit_world.py prod
 git push
 ```
 
 ## Creating or Cloning Worlds
-Use the helper script to bootstrap directories:
+For quick clones, copy directories directly:
 ```bash
-python create_world.py staging-v2          # fresh world with default state
-python create_world.py staging --from=prod # clone current prod state/history
+cp -R worlds/prod worlds/staging-v2
 ```
+Or bootstrap a blank world by deleting `state.json` and running `./sim.py staging-v2` once.
 
 ## Automation
-- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC and runs `commit_world.py` to store the updated world data plus README.
+- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC by running `python sim.py prod --snapshot --log --update-readme`, then commits via `python commit_world.py prod`.
 - Manual `workflow_dispatch` runs accept a `world` input (default `staging`) so you can tick staging without touching cron schedules.
 
 `snapshot.md` files inside `worlds/dev/` remain untracked via `.gitignore`, keeping experiments clean while prod/staging snapshots are committed automatically by the workflow.
 
 ## Staging World (Not Canonical)
-Staging exists for experiments and may be reset at any time. Day counts below are illustrative only.
+
+Staging exists for experiments and may be reset at any time & have unrealistic number of days.
+
+<details><summary>current snapshot</summary>
 
 <!-- STAGING SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 12** • 2025-11-15
+**Day 14** • 2025-11-14
 
 ### Population
 ```
-🌱 Grass    ██████████              531
-🐇 Rabbits  ████                    232
-🦊 Foxes    █                        54
+🌱 Grass    █████████               464
+🐇 Rabbits  ███                     152
+🦊 Foxes    █                        71
 ```
 
 <!-- STAGING SNAPSHOT END -->
+
+</details>
 
 ## Environment Setup
 Create an isolated virtualenv so Python dependencies stay contained:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
+# pip install -r requirements.txt  # once we start pinning deps
 ```
