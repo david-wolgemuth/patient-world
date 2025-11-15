@@ -50,7 +50,7 @@ def load_world(world_name: str) -> GridState:
     if current_version < EXPECTED_MIGRATION_VERSION:
         raise ValueError(
             f"World '{world_name}' is at migration v{current_version}, expected v{EXPECTED_MIGRATION_VERSION}. "
-            f"Run: python migrations/20251115_0001_grid_migration.py {world_name}"
+            f"Run: python migrations/0001_grid_state.py {world_name}"
         )
     return GridState.from_dict(data)
 

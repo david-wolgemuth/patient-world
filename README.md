@@ -55,11 +55,11 @@ Cells are stored row-major (`y * width + x`). Helpers under `core/grid/` handle 
 computation, totals, and emoji visualization. Each state also carries a `_migration_version` metadata field so the CLI
 can refuse to run until all migrations have been applied.
 
-Use `python3 migrations/20251115_0001_grid_migration.py <world>` once per world to convert older aggregate state files. The script creates
+Use `python3 migrations/0001_grid_state.py <world>` once per world to convert older aggregate state files. The script creates
 `state.json.backup` beside the new grid file for safekeeping.
 
 ### Migration Versioning
-- Migrations live under `migrations/` with zero-padded filenames (e.g., `20251115_0001_grid_migration.py`).
+- Migrations live under `migrations/` with zero-padded filenames (e.g., `0001_grid_state.py`).
 - Every state writes `_migration_version` (currently `1`). `core/world.py` checks this and instructs you to run the latest migration if a world lags behind.
 - Migrations are Python scripts you run manually (one world at a time). They are idempotent—safe to re-run if unsure.
 - See `docs/vision/Migration Strategy.md` for the full template (naming, helper ideas, and workflow).
