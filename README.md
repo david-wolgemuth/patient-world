@@ -136,6 +136,9 @@ cp -R worlds/prod worlds/staging-v2
 ```
 Or bootstrap a blank world by deleting `state.json` and running `./sim.py staging-v2` once.
 
+## Grid Sanity Check
+Run `python3 qa_grid_sanity.py` before shipping risky changes to guarantee per-cell ticks stay stable (checks for negative counts, runaway populations, and verifies that diffusion spreads populations away from hotspots).
+
 ## Automation
 - `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC by running `python3 sim.py prod --snapshot --log --update-readme`, then commits via `python commit_world.py prod`.
 - Manual `workflow_dispatch` runs accept a `world` input (default `staging`) so you can tick staging without touching cron schedules.

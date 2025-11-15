@@ -25,14 +25,3 @@ class Cell:
 
     def copy(self) -> "Cell":
         return Cell(grass=self.grass, rabbits=self.rabbits, foxes=self.foxes)
-
-    def dominant_entity(self) -> str:
-        if self.foxes > 0:
-            return "fox"
-        if self.rabbits > 0:
-            return "rabbit"
-        if self.grass > 70:
-            return "grass_high"
-        if self.grass > 20:
-            return "grass_low"
-        return "empty"

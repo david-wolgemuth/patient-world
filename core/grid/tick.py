@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from .cell import Cell
+from .diffusion import apply_diffusion
 from .state import GridState
 
 
@@ -32,17 +33,18 @@ def tick_cell(cell: Cell) -> Cell:
 
 
 def tick_grid(state: GridState) -> GridState:
-    """Apply tick to every cell."""
+    """Apply one tick (local interactions + diffusion)."""
     new_cells = []
     for y in range(state.grid_height):
         for x in range(state.grid_width):
             new_cells.append(tick_cell(state.get_cell(x, y)))
-    return GridState(
+    next_state = GridState(
         day=state.day + 1,
         grid_width=state.grid_width,
         grid_height=state.grid_height,
         cells=new_cells,
     )
+    return apply_diffusion(next_state)
 
 
 def _clamp_int(value: float) -> int:
