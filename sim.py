@@ -12,13 +12,20 @@ WORLDS_DIR = Path("worlds")
 
 def tick(state):
     """Pure function: state in → state out"""
-    grass = state["grass"] * 1.1
-    rabbits = state["rabbits"] * 1.2 if grass > state["rabbits"] else state["rabbits"] * 0.8
-    foxes = state["foxes"] * 1.15 if rabbits > state["foxes"] * 2 else state["foxes"] * 0.9
+    grass = min(state["grass"] * 1.1, 1000)
 
-    grass = min(grass, 1000)
-    rabbits -= state["foxes"] * 0.3
-    grass -= state["rabbits"] * 0.5
+    # Feedback loop: rabbit births track food availability
+    demand = state["rabbits"] * 5 or 1
+    food_ratio = min(grass / demand, 1.0)
+    rabbit_growth = 0.9 + 0.2 * food_ratio  # 0.9× when starving, up to 1.1× when abundant
+    rabbits = state["rabbits"] * rabbit_growth
+    rabbits -= state["rabbits"] * (1 - food_ratio) * 0.1  # starvation losses when grass is scarce
+
+    foxes = state["foxes"] * 1.05 if rabbits > state["foxes"] * 2 else state["foxes"] * 0.95
+
+    grass -= state["rabbits"] * (0.2 + 0.1 * food_ratio)
+
+    rabbits -= state["foxes"] * 0.2
 
     return {
         "day": state["day"] + 1,
