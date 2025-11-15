@@ -5,13 +5,13 @@ A self-running simulation that ticks daily.
 <!-- SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 12** • 2025-11-14
+**Day 2** • 2025-11-15
 
 ### Population
 ```
-🌱 Grass    ██████████              531
-🐇 Rabbits  ████                    232
-🦊 Foxes    █                        54
+🌱 Grass    ██████████              549
+🐇 Rabbits  █                        65
+🦊 Foxes                             13
 ```
 
 <!-- SNAPSHOT END -->
