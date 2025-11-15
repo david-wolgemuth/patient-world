@@ -1,237 +1,102 @@
 {
-  "day": 15,
+  "day": 23,
   "grid_width": 10,
   "grid_height": 10,
   "cells": [
     {
-      "grass": 5,
+      "grass": 4,
+      "rabbits": 3,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 2,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
       "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
       "foxes": 0
     },
     {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 3
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 2
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 0,
       "foxes": 1
     },
     {
-      "grass": 5,
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
       "rabbits": 2,
       "foxes": 2
     },
     {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 1,
       "foxes": 1
     },
     {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 3
-    },
-    {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 1,
-      "foxes": 3
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
       "foxes": 0
     },
     {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 1,
-      "foxes": 2
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
       "foxes": 1
     },
     {
-      "grass": 5,
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
       "rabbits": 0,
-      "foxes": 1
+      "foxes": 0
     },
     {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 2,
       "foxes": 2
     },
     {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 3
+      "grass": 4,
+      "rabbits": 2,
+      "foxes": 0
     },
     {
-      "grass": 5,
+      "grass": 4,
+      "rabbits": 2,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
       "rabbits": 1,
       "foxes": 0
     },
     {
-      "grass": 5,
-      "rabbits": 4,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 0,
       "foxes": 0
     },
     {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 4
-    },
-    {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 2
-    },
-    {
-      "grass": 5,
-      "rabbits": 4,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 4,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 0,
-      "foxes": 1
-    },
-    {
-      "grass": 5,
-      "rabbits": 2,
-      "foxes": 0
-    },
-    {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 1,
       "foxes": 2
     },
     {
-      "grass": 5,
+      "grass": 4,
       "rabbits": 1,
       "foxes": 0
-    },
-    {
-      "grass": 5,
-      "rabbits": 1,
-      "foxes": 1
     },
     {
       "grass": 4,
       "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
-      "foxes": 0
+      "foxes": 1
     },
     {
       "grass": 4,
@@ -245,22 +110,7 @@
     },
     {
       "grass": 4,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
+      "rabbits": 0,
       "foxes": 0
     },
     {
@@ -271,26 +121,26 @@
     {
       "grass": 4,
       "rabbits": 2,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
       "foxes": 0
     },
     {
       "grass": 4,
       "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 2,
       "foxes": 1
     },
     {
@@ -306,6 +156,31 @@
     {
       "grass": 4,
       "rabbits": 3,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 2,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
       "foxes": 0
     },
     {
@@ -315,7 +190,137 @@
     },
     {
       "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 3,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 4,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 2
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
       "rabbits": 2,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 2
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 1,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 4,
+      "rabbits": 2,
+      "foxes": 2
+    },
+    {
+      "grass": 4,
+      "rabbits": 0,
       "foxes": 0
     },
     {
@@ -324,184 +329,179 @@
       "foxes": 2
     },
     {
-      "grass": 4,
-      "rabbits": 6,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
+      "grass": 3,
       "rabbits": 1,
       "foxes": 0
     },
     {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 2,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 3
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 5,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 4
-    },
-    {
-      "grass": 4,
+      "grass": 3,
       "rabbits": 3,
       "foxes": 1
     },
     {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
+      "grass": 3,
       "rabbits": 1,
       "foxes": 0
     },
     {
-      "grass": 4,
-      "rabbits": 4,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
-      "rabbits": 0,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
-      "rabbits": 4,
-      "foxes": 0
-    },
-    {
-      "grass": 4,
+      "grass": 3,
       "rabbits": 1,
       "foxes": 1
     },
     {
-      "grass": 4,
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 3,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 2,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 2,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
       "rabbits": 0,
       "foxes": 0
     },
     {
-      "grass": 4,
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 3,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
       "rabbits": 2,
       "foxes": 0
     },
     {
-      "grass": 4,
-      "rabbits": 3,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
+      "grass": 3,
       "rabbits": 1,
-      "foxes": 1
+      "foxes": 0
     },
     {
-      "grass": 4,
-      "rabbits": 1,
-      "foxes": 1
-    },
-    {
-      "grass": 4,
+      "grass": 3,
       "rabbits": 0,
       "foxes": 0
     },
     {
-      "grass": 4,
-      "rabbits": 3,
+      "grass": 3,
+      "rabbits": 0,
       "foxes": 1
     },
     {
-      "grass": 4,
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 2
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 2
+    },
+    {
+      "grass": 3,
       "rabbits": 1,
-      "foxes": 4
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 3,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 2,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 2,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 1,
+      "foxes": 1
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 0,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 1,
+      "foxes": 0
+    },
+    {
+      "grass": 3,
+      "rabbits": 2,
+      "foxes": 0
     }
   ]
 }
