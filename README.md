@@ -42,6 +42,8 @@ worlds/
 ## Updating README Manually
 ```bash
 python update_readme.py prod      # or staging-v2, etc.
+# Staging section uses --staging to update the separate snapshot block
+python update_readme.py staging --staging
 git diff README.md                # inspect snapshot change
 ```
 
@@ -63,3 +65,28 @@ python create_world.py staging --from=prod # clone current prod state/history
 - Manual `workflow_dispatch` runs accept a `world` input (default `staging`) so you can tick staging without touching cron schedules.
 
 `snapshot.md` files inside `worlds/dev/` remain untracked via `.gitignore`, keeping experiments clean while prod/staging snapshots are committed automatically by the workflow.
+
+## Staging World (Not Canonical)
+Staging exists for experiments and may be reset at any time. Day counts below are illustrative only.
+
+<!-- STAGING SNAPSHOT START -->
+## 🌍 Patient World
+
+**Day 11** • 2025-11-14
+
+### Population
+```
+🌱 Grass    ███████████             576
+🐇 Rabbits  ████                    205
+🦊 Foxes                             47
+```
+
+<!-- STAGING SNAPSHOT END -->
+
+## Environment Setup
+Create an isolated virtualenv so Python dependencies stay contained:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```

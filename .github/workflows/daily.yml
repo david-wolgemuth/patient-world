@@ -31,7 +31,14 @@ jobs:
       - name: Run simulation
         run: python sim.py ${{ steps.select-world.outputs.value }} --snapshot
       - name: Update README
-        run: python update_readme.py ${{ steps.select-world.outputs.value }}
+        env:
+          WORLD: ${{ steps.select-world.outputs.value }}
+        run: |
+          if [ "$WORLD" = "staging" ]; then
+            python update_readme.py "$WORLD" --staging
+          else
+            python update_readme.py "$WORLD"
+          fi
       - name: Commit world state
         run: python commit_world.py ${{ steps.select-world.outputs.value }}
       - name: Push changes

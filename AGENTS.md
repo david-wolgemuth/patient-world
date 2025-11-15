@@ -14,9 +14,15 @@ Patient World is a minimal autonomous ecosystem sim. `sim.py` holds the entire l
 
 Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or read these notes. Snapshot markers in README reference `worlds/<world>/snapshot.md`, produced via `python sim.py <world> --snapshot`.
 
+## Python Environment
+- Recommended: `python3 -m venv .venv && source .venv/bin/activate`
+- Install dependencies as needed (no pinned requirements yet)
+- Run `deactivate` when finished so future shells stay clean
+
 ## Work Tracking (Beads)
 - Example epic in-flight: `[L][worlds][refactor] Multi-world state management overhaul` (see `.beads/beads.base.jsonl`).
 - Create tasks with `bd create --title "[size][tags] Name" --type task` and link dependencies via `--parent`.
+- Use `--json` when listing ready/status items (e.g., `bd ready --json`) to make results easy to stash in notes.
 
 ## Quick Start for Agents
 1. Read `README.md` for snapshot/testing commands and the worlds directory layout.

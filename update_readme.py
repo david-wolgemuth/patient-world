@@ -4,10 +4,27 @@ import argparse
 import re
 from pathlib import Path
 
+PROD_MARKERS = ("<!-- SNAPSHOT START -->", "<!-- SNAPSHOT END -->")
+STAGING_MARKERS = ("<!-- STAGING SNAPSHOT START -->", "<!-- STAGING SNAPSHOT END -->")
+
+
+def replace_section(content: str, markers: tuple[str, str], snapshot: str) -> str:
+    start, end = markers
+    pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), flags=re.DOTALL)
+    replacement = f"{start}\n{snapshot}\n{end}"
+    if not pattern.search(content):
+        raise SystemExit(f"Marker pair {start}/{end} not found in README.md")
+    return pattern.sub(replacement, content)
+
 
 def main():
     parser = argparse.ArgumentParser(description="Inject a world's snapshot into README.md")
     parser.add_argument("world", nargs="?", default="prod", help="World name to display")
+    parser.add_argument(
+        "--staging",
+        action="store_true",
+        help="Update the staging snapshot block instead of the main prod block",
+    )
     args = parser.parse_args()
 
     snapshot_path = Path("worlds") / args.world / "snapshot.md"
@@ -18,12 +35,12 @@ def main():
     readme_path = Path("README.md")
     readme = readme_path.read_text()
 
-    pattern = r'<!-- SNAPSHOT START -->.*?<!-- SNAPSHOT END -->'
-    replacement = f"<!-- SNAPSHOT START -->\n{snapshot}\n<!-- SNAPSHOT END -->"
-    new_readme = re.sub(pattern, replacement, readme, flags=re.DOTALL)
+    markers = STAGING_MARKERS if args.staging else PROD_MARKERS
+    new_readme = replace_section(readme, markers, snapshot)
 
     readme_path.write_text(new_readme)
-    print(f"✓ README updated using '{args.world}' snapshot")
+    target = "staging" if args.staging else "prod"
+    print(f"✓ README {target} block updated using '{args.world}' snapshot")
 
 
 if __name__ == "__main__":
