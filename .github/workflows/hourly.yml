@@ -11,10 +11,12 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - run: python sim.py --prod
+      - run: python sim.py --prod --snapshot
+      - run: python update_readme.py
       - run: |
           git config user.name "World"
           git config user.email "bot@example.com"
-          git add state_prod.json history.csv
+          git add README.md state_prod.json history.csv
+          git add -f snapshot.md
           git commit -m "Day $(python -c 'import json; print(json.load(open("state_prod.json"))["day"])')" || exit 0
           git push

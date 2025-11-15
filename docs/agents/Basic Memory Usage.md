@@ -10,8 +10,8 @@ permalink: agents/basic-memory-usage
 Quick meta guide for working with Basic Memory inside the `patient-world` repo.
 
 ## Setup
-- Notes live under `notes/` (e.g., `vision/`, `agents/`).
-- The `patient-world` project was added via `bm project add patient-world ./notes`.
+- Notes live under `docs/` (e.g., `vision/`, `agents/`).
+- The `patient-world` project was added via `bm project add patient-world ./docs`.
 - Always pass `--project patient-world` (default project mode is off here).
 
 ## Authoring Flow

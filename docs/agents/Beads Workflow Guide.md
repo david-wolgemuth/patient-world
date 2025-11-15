@@ -7,17 +7,20 @@ permalink: agents/beads-workflow-guide
 # Beads Workflow Guide
 
 ## Summary
+
 Practical steps for managing work with `bd` inside the patient-world repo, based on initializing the tool, configuring hooks, and creating epics/subtasks for the README snapshot request.
 
-## Setup
-- Run `bd init` once per repo; it creates `.beads/` and configures issue prefixes (e.g., `patient-world`).
-- Accept the prompts to install git hooks (pre-commit flush) and configure the merge driver for `.beads/beads.jsonl`.
-- Git now tracks `.beads/` and `.gitattributes`; commit them so others share the configuration.
+- Run `bd quickstart` anytime you are asked to use beads or create/read issues
 
-## Creating Work
+## Project Custom Preferences
+
+### Use T-Shirt Size & Title Tags
+
 - Use `bd create --type epic --title "[size][tags] Title"` for epics. Titles can carry tags directly.
+
+### Use epics
+
 - Child tasks can be created with `--parent epic-id` to form a hierarchy (e.g., `patient-world-m6j.1`).
-- Use the `--description` flag to summarize the request instead of editing after creation.
 - `bd list` shows the epic and children, and `bd epic status` summarizes completion.
 
 ## Observations
