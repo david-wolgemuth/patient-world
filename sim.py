@@ -27,6 +27,10 @@ def tick(state):
 
     rabbits -= state["foxes"] * 0.2
 
+    grass = int(max(0, round(grass)))
+    rabbits = int(max(0, round(rabbits)))
+    foxes = int(max(0, round(foxes)))
+
     return {
         "day": state["day"] + 1,
         "grass": max(0, grass),
