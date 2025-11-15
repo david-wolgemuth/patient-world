@@ -77,13 +77,13 @@ Staging exists for experiments and may be reset at any time & have unrealistic n
 <!-- STAGING SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 14** • 2025-11-14
+**Day 15** • 2025-11-15
 
 ### Population
 ```
-🌱 Grass    █████████               464
-🐇 Rabbits  ███                     152
-🦊 Foxes    █                        71
+🌱 Grass    ████████                445
+🐇 Rabbits  ██                      131
+🦊 Foxes    █                        81
 ```
 
 <!-- STAGING SNAPSHOT END -->
