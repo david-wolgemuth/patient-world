@@ -10,12 +10,14 @@ from core import analysis, snapshot, world
 from core.grid import tick as grid_tick
 from core.grid.state import GridState
 
-COMMANDS = {"tick", "forecast", "init-grid", "intervene"}
+COMMANDS = {"tick", "forecast", "init-grid"}
 
 
 def normalize_args(argv: List[str]) -> List[str]:
     if not argv:
         return ["tick"]
+    if "-h" in argv or "--help" in argv:
+        return argv
     if argv[0].startswith("-"):
         if argv[0] in {"-h", "--help"}:
             return argv
@@ -61,13 +63,6 @@ def build_parser() -> argparse.ArgumentParser:
     init_p.add_argument("--rabbits", type=int, default=20, help="Initial rabbit population (default: 20)")
     init_p.add_argument("--foxes", type=int, default=5, help="Initial fox population (default: 5)")
     init_p.set_defaults(func=cmd_init_grid)
-
-    intervene_p = subparsers.add_parser("intervene", help="Manually adjust populations")
-    intervene_p.add_argument("world", help="Target world")
-    intervene_p.add_argument("field", choices=("grass", "rabbits", "foxes"), help="Population type")
-    intervene_p.add_argument("delta", help="Signed amount to add/remove (e.g., +100 or -25)")
-    intervene_p.add_argument("--at", help="Apply change to a specific cell (x,y)")
-    intervene_p.set_defaults(func=cmd_intervene)
 
     return parser
 
@@ -124,87 +119,6 @@ def cmd_init_grid(args: argparse.Namespace) -> None:
     snap_text = snapshot.generate_snapshot(state)
     snapshot.save_snapshot(args.world, snap_text)
     print(f"Initialized {args.world} as {state.grid_width}x{state.grid_height} grid.")
-
-
-def cmd_intervene(args: argparse.Namespace) -> None:
-    state = world.load_world(args.world)
-    delta = _parse_delta(args.delta)
-    field = args.field
-
-    if args.at:
-        x, y = _parse_coords(args.at, state)
-        cell = state.get_cell(x, y)
-        new_value = max(0, getattr(cell, field) + delta)
-        setattr(cell, field, new_value)
-        detail = f"cell ({x},{y})"
-    else:
-        _apply_global_delta(state, field, delta)
-        detail = "all cells"
-
-    world.save_world(args.world, state)
-    print(f"Applied {delta:+} {field} to {detail}.")
-    print(world.format_summary(args.world, state))
-
-
-def _parse_delta(raw: str) -> int:
-    try:
-        return int(raw)
-    except ValueError as exc:
-        raise SystemExit(f"Invalid delta '{raw}': {exc}")
-
-
-def _parse_coords(raw: str, state: GridState) -> tuple[int, int]:
-    try:
-        x_str, y_str = raw.split(",", 1)
-        x = int(x_str.strip())
-        y = int(y_str.strip())
-    except Exception as exc:  # noqa: BLE001
-        raise SystemExit(f"Invalid --at value '{raw}': {exc}") from exc
-    if not (0 <= x < state.grid_width and 0 <= y < state.grid_height):
-        raise SystemExit(f"--at {raw} is outside the {state.grid_width}x{state.grid_height} grid")
-    return x, y
-
-
-def _apply_global_delta(state: GridState, field: str, delta: int) -> None:
-    if delta == 0:
-        return
-    cells = state.cells
-    count = len(cells)
-    if count == 0:
-        return
-    if delta > 0:
-        per_cell = delta // count
-        remainder = delta % count
-        for idx, cell in enumerate(cells):
-            increment = per_cell + (1 if idx < remainder else 0)
-            if increment:
-                setattr(cell, field, getattr(cell, field) + increment)
-    else:
-        total_available = sum(getattr(cell, field) for cell in cells)
-        amount = min(total_available, abs(delta))
-        if amount == 0:
-            return
-        per_cell = amount // count
-        remainder = amount % count
-        removed = 0
-        for idx, cell in enumerate(cells):
-            decrement = per_cell + (1 if idx < remainder else 0)
-            if decrement <= 0:
-                continue
-            current = getattr(cell, field)
-            take = min(current, decrement)
-            if take:
-                setattr(cell, field, current - take)
-                removed += take
-        idx = 0
-        while removed < amount and idx < len(cells):
-            cell = cells[idx]
-            current = getattr(cell, field)
-            if current > 0:
-                setattr(cell, field, current - 1)
-                removed += 1
-            else:
-                idx += 1
 
 
 def main(argv: List[str] | None = None) -> int:

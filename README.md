@@ -83,17 +83,6 @@ python3 sim.py dev --count 0 --snapshot      # regenerate snapshot without ticki
 python3 sim.py staging --snapshot --update-readme
 ```
 
-## Manual Interventions
-Nudge populations without advancing time via the `intervene` command:
-
-```bash
-python3 sim.py intervene dev grass +200          # spread grass evenly across the grid
-python3 sim.py intervene dev rabbits -10         # cull rabbits everywhere
-python3 sim.py intervene dev foxes +5 --at 3,4   # adjust a single cell
-```
-
-Changes write back to `state.json`, so follow up with `--snapshot` and/or `--log` via `tick` if you want historical entries.
-
 ## Forecast (Read-only)
 Project future states without mutating the world using `forecast`:
 
