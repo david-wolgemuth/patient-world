@@ -323,5 +323,6 @@
       "rabbits": 2,
       "foxes": 0
     }
-  ]
+  ],
+  "_migration_version": 1
 }
