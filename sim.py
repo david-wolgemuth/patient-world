@@ -9,8 +9,9 @@ from typing import List
 from core import analysis, snapshot, world
 from core.grid import tick as grid_tick
 from core.grid.state import GridState
+from migrations import runner
 
-COMMANDS = {"tick", "forecast", "init-grid"}
+COMMANDS = {"tick", "forecast", "init-grid", "migrate"}
 
 
 def normalize_args(argv: List[str]) -> List[str]:
@@ -64,10 +65,15 @@ def build_parser() -> argparse.ArgumentParser:
     init_p.add_argument("--foxes", type=int, default=5, help="Initial fox population (default: 5)")
     init_p.set_defaults(func=cmd_init_grid)
 
+    migrate_p = subparsers.add_parser("migrate", help="Run pending migrations for a world")
+    migrate_p.add_argument("world", nargs="?", default="dev", help="World name (default: dev)")
+    migrate_p.set_defaults(func=cmd_migrate)
+
     return parser
 
 
 def cmd_tick(args: argparse.Namespace) -> None:
+    runner.run_pending(args.world)
     state = world.load_world(args.world)
 
     for _ in range(max(args.count, 0)):
@@ -91,6 +97,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
 
 
 def cmd_forecast(args: argparse.Namespace) -> None:
+    runner.run_pending(args.world, silent=True)
     state = world.load_world(args.world)
     result = analysis.run(
         state,
@@ -119,6 +126,14 @@ def cmd_init_grid(args: argparse.Namespace) -> None:
     snap_text = snapshot.generate_snapshot(state)
     snapshot.save_snapshot(args.world, snap_text)
     print(f"Initialized {args.world} as {state.grid_width}x{state.grid_height} grid.")
+
+
+def cmd_migrate(args: argparse.Namespace) -> None:
+    changed = runner.run_pending(args.world)
+    if changed:
+        print(f"Applied migrations for {args.world}.")
+    else:
+        print(f"No migrations needed for {args.world}.")
 
 
 def main(argv: List[str] | None = None) -> int:

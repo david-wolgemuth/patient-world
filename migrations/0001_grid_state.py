@@ -16,7 +16,8 @@ if str(ROOT_DIR) not in sys.path:
 from core import world
 from core.grid import Cell, GridState
 
-DEFAULT_GRID_SIZE = 8
+DEFAULT_GRID_SIZE = 10
+TARGET_VERSION = 1
 
 
 def migrate_world(world_name: str, grid_size: int = DEFAULT_GRID_SIZE) -> None:
@@ -26,10 +27,30 @@ def migrate_world(world_name: str, grid_size: int = DEFAULT_GRID_SIZE) -> None:
         raise SystemExit(f"State file not found for '{world_name}' at {state_path}")
 
     legacy = json.loads(state_path.read_text())
-    if "grid_width" in legacy:
-        print(f"{world_name} already uses grid format. Skipping.")
+    current_version = int(legacy.get("_migration_version", 0))
+    if current_version >= TARGET_VERSION:
+        print(f"{world_name} already at migration v{current_version}. Skipping.")
         return
 
+    if "grid_width" in legacy and "cells" in legacy:
+        if int(legacy.get("grid_width", grid_size)) == grid_size and int(legacy.get("grid_height", grid_size)) == grid_size:
+            migrated = legacy
+        else:
+            migrated = _regrid(legacy, grid_size)
+    else:
+        migrated = _convert_scalar_to_grid(legacy, grid_size)
+
+    migrated["_migration_version"] = TARGET_VERSION
+
+    backup_path = state_path.with_suffix(state_path.suffix + ".backup")
+    shutil.copy2(state_path, backup_path)
+    state_path.write_text(json.dumps(migrated, indent=2))
+
+    print(f"✓ Migrated {world_name} to v{TARGET_VERSION} (grid {grid_size}x{grid_size}).")
+    print(f"Backup created at {backup_path}")
+
+
+def _convert_scalar_to_grid(legacy: dict, grid_size: int) -> dict:
     cell_count = grid_size * grid_size
     grass_total = int(legacy.get("grass", 0))
     grass_base = grass_total // cell_count
@@ -46,14 +67,26 @@ def migrate_world(world_name: str, grid_size: int = DEFAULT_GRID_SIZE) -> None:
     for _ in range(int(legacy.get("foxes", 0))):
         cells[rng.randrange(cell_count)].foxes += 1
 
-    new_state = GridState(day=int(legacy.get("day", 0)), grid_width=grid_size, grid_height=grid_size, cells=cells)
+    return _grid_state_dict(legacy.get("day", 0), grid_size, cells)
 
-    backup_path = state_path.with_suffix(state_path.suffix + ".backup")
-    shutil.copy2(state_path, backup_path)
-    world.save_world(world_name, new_state)
 
-    print(f"Migrated {world_name} to {grid_size}x{grid_size} grid.")
-    print(f"Backup created at {backup_path}")
+def _regrid(existing: dict, grid_size: int) -> dict:
+    totals = {"grass": 0, "rabbits": 0, "foxes": 0}
+    for cell in existing.get("cells", []):
+        for key in totals:
+            totals[key] += int(cell.get(key, 0))
+    scalar = {
+        "day": existing.get("day", 0),
+        "grass": totals["grass"],
+        "rabbits": totals["rabbits"],
+        "foxes": totals["foxes"],
+    }
+    return _convert_scalar_to_grid(scalar, grid_size)
+
+
+def _grid_state_dict(day: int, grid_size: int, cells: list[Cell]) -> dict:
+    state = GridState(day=int(day), grid_width=grid_size, grid_height=grid_size, cells=cells, migration_version=TARGET_VERSION)
+    return state.to_dict()
 
 
 def main(argv: list[str]) -> int:
