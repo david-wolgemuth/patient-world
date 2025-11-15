@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import random
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Literal
 
 from core.grid import tick
 from core.grid.state import GridState
@@ -142,7 +142,14 @@ def _apply_noise(state: GridState, rng: random.Random) -> None:
     _scale_entities(state, rng, "fox", 0.94, 1.06)
 
 
-def _scale_entities(state: GridState, rng: random.Random, entity_type: str, low: float, high: float) -> None:
+def _scale_entities(
+    state: GridState,
+    rng: random.Random,
+    entity_type: Literal["rabbit", "fox"],
+    low: float,
+    high: float,
+) -> None:
+    """Randomly scale populations of the requested entity type between bounds."""
     cohort = [entity for entity in state.entities.values() if entity.type == entity_type]
     if not cohort:
         return
