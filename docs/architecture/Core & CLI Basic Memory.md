@@ -13,13 +13,14 @@ This note captures the architectural facts that routinely come up during onboard
 - `core/snapshot.py`: transforms a `GridState` into `snapshot.md` content and wires README updates.
 - `core/analysis.py`: read-only forecasting utilities used by the `forecast` CLI command.
 - `core/grid/` (grid simulation stack):
-  - `tick.py`: main tick logic (`tick_grid`) that mutates a cloned `GridState`.
   - `viz.py`: visualization helpers for debugging/world snapshots.
 - `core/environment/` (spatial substrate):
   - `cell.py`: `Cell` dataclass for per-tile biomass + entity references.
   - `spatial.py`: diffusion helpers used each tick (`apply_entity_diffusion`).
 - `core/model/`:
   - `state.py`: `GridState` aggregate (dimensions, per-cell array, entity lookup, spawning/movement helpers).
+- `core/rules.py`: movement/feeding/reproduction/mortality logic applied each tick.
+- `core/scheduler.py`: orchestrates rule execution and advances a tick.
 
 ## Data Models
 ### `Cell` (`core/environment/cell.py`)
@@ -35,10 +36,10 @@ This note captures the architectural facts that routinely come up during onboard
 - Integrity: validates cell count in `__post_init__`, enforces bounds via `_index`.
 
 ## Entity System Status
-The entity-based grid described in the vision docs is **already active**. Each grid cell only tracks IDs, while `GridState.entities` stores actual `Entity` objects with coordinates. `core/grid/tick.py` iterates over each individual rabbit/fox, updates per-entity hunger/age, handles reproduction, predation, movement (via `core.environment.apply_entity_diffusion`), and removes starving entities. There is no longer an aggregate population-per-cell model in the live simulation.
+The entity-based grid described in the vision docs is **already active**. Each grid cell only tracks IDs, while `GridState.entities` stores actual `Entity` objects with coordinates. `core/rules.py` iterates over each individual rabbit/fox, updates per-entity hunger/age, handles reproduction, predation, movement (via `core.environment.apply_entity_diffusion`), and removes starving entities; `core/scheduler.py` simply orchestrates the order of those rules. There is no longer an aggregate population-per-cell model in the live simulation.
 
 ## CLI Surface (`sim.py`)
-- `tick [world] [--count N] [--snapshot] [--log] [--update-readme]`: default command. Runs migrations, loads `worlds/<name>`, advances `GridState` N ticks via `core.grid.tick_grid`, persists state, and triggers optional side effects (snapshot file, history CSV append, README update for prod/staging).
+- `tick [world] [--count N] [--snapshot] [--log] [--update-readme]`: default command. Runs migrations, loads `worlds/<name>`, advances `GridState` N ticks via `core.scheduler.tick_grid`, persists state, and triggers optional side effects (snapshot file, history CSV append, README update for prod/staging).
 - `forecast [world] [--days D] [--step S] [--seed N] [--format table|csv|json]`: read-only projections using `core.analysis.run`; outputs aggregated stats without mutating saved state.
 - `init-grid <world> [--width W --height H --rabbits R --foxes F]`: bootstraps a brand-new grid world via `core.repository.init_grid_world`, writes its snapshot, and prints dimensions.
 - `migrate [world]`: runs pending migrations through `migrations/runner` against the specified world directory.

@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from core import repository
+import core.repository as repository
 from core.grid import viz
 from core.model import GridState
 

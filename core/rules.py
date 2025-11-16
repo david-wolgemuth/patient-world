@@ -1,32 +1,29 @@
-"""Grid tick logic for entity actors."""
+"""Simulation rules governing entities and environment changes."""
 from __future__ import annotations
 
 import random
 from typing import Iterable
 
-from core.environment import apply_entity_diffusion
 from core.agents import Entity
+from core.environment import apply_entity_diffusion
 from core.model import GridState
 
 
-def tick_grid(state: GridState) -> GridState:
-    """Apply one tick over the grid using entity behaviors."""
-    next_state = state.clone()
-    _grow_grass(next_state)
-    _tick_rabbits(next_state)
-    _tick_foxes(next_state)
-    apply_entity_diffusion(next_state)
-    _remove_dead_entities(next_state)
-    next_state.day += 1
-    return next_state
+def apply_all(state: GridState) -> None:
+    """Run all rule steps in canonical order."""
+    grow_grass(state)
+    tick_rabbits(state)
+    tick_foxes(state)
+    apply_entity_diffusion(state)
+    remove_dead_entities(state)
 
 
-def _grow_grass(state: GridState) -> None:
+def grow_grass(state: GridState) -> None:
     for cell in state.cells:
         cell.grass = min(100, int(cell.grass * 1.1))
 
 
-def _tick_rabbits(state: GridState) -> None:
+def tick_rabbits(state: GridState) -> None:
     for entity in list(_entities_of_type(state, "rabbit")):
         entity.hunger += 1
         entity.age += 1
@@ -39,7 +36,7 @@ def _tick_rabbits(state: GridState) -> None:
                 state.spawn_entity("rabbit", entity.x, entity.y)
 
 
-def _tick_foxes(state: GridState) -> None:
+def tick_foxes(state: GridState) -> None:
     for entity in list(_entities_of_type(state, "fox")):
         entity.hunger += 1
         entity.age += 1
@@ -53,7 +50,7 @@ def _tick_foxes(state: GridState) -> None:
                 state.spawn_entity("fox", entity.x, entity.y)
 
 
-def _remove_dead_entities(state: GridState) -> None:
+def remove_dead_entities(state: GridState) -> None:
     for entity_id in [eid for eid, entity in state.entities.items() if entity.is_dead()]:
         state.remove_entity(entity_id)
 
@@ -62,3 +59,4 @@ def _entities_of_type(state: GridState, entity_type: str) -> Iterable[Entity]:
     for entity in state.entities.values():
         if entity.type == entity_type:
             yield entity
+

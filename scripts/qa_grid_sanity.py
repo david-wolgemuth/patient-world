@@ -13,7 +13,7 @@ if str(ROOT_DIR) not in sys.path:
 
 from core.environment import Cell
 from core.model import GridState
-from core.grid.tick import tick_grid
+from core.scheduler import tick_grid
 
 MAX_RABBITS = 600
 MAX_FOXES = 200

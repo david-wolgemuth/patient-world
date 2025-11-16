@@ -6,7 +6,7 @@ import random
 from dataclasses import dataclass
 from typing import Dict, List, Literal
 
-from core.grid import tick
+import core.scheduler as scheduler
 from core.model import GridState
 
 SPECIES = ("grass", "rabbits", "foxes")
@@ -101,7 +101,7 @@ def run(state: GridState, *, world_name: str, days: int, step: int, seed: int | 
     record_sample(initial_totals)
 
     while current.day < end_day:
-        current = tick.tick_grid(current)
+        current = scheduler.tick_grid(current)
 
         if rng is not None:
             _apply_noise(current, rng)

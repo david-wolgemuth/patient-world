@@ -6,8 +6,10 @@ import argparse
 import sys
 from typing import List
 
-from core import analysis, repository, snapshot
-from core.grid import tick as grid_tick
+import core.analysis as analysis
+import core.repository as repository
+import core.scheduler as scheduler
+import core.snapshot as snapshot
 from core.model import GridState
 from migrations import runner
 
@@ -77,7 +79,7 @@ def cmd_tick(args: argparse.Namespace) -> None:
     state = repository.load_world(args.world)
 
     for _ in range(max(args.count, 0)):
-        state = grid_tick.tick_grid(state)
+        state = scheduler.tick_grid(state)
 
     repository.save_world(args.world, state)
 
