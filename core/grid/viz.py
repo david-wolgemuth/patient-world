@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Dict
 
-from .cell import Cell
+from core.environment import Cell
 from core.agents import Entity
 from .state import GridState
 

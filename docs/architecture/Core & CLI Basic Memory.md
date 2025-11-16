@@ -13,15 +13,15 @@ This note captures the architectural facts that routinely come up during onboard
 - `core/snapshot.py`: transforms a `GridState` into `snapshot.md` content and wires README updates.
 - `core/analysis.py`: read-only forecasting utilities used by the `forecast` CLI command.
 - `core/grid/` (grid simulation stack):
-  - `cell.py`: `Cell` dataclass for per-tile biomass + entity references.
-  - `agents/entity.py`: `Entity` dataclass for actors (rabbits/foxes) with position + hunger/age.
   - `state.py`: `GridState` aggregate (dimensions, per-cell array, entity lookup, spawning/movement helpers).
   - `tick.py`: main tick logic (`tick_grid`) that mutates a cloned `GridState`.
-  - `diffusion.py`: spatial diffusion helpers used each tick.
   - `viz.py`: visualization helpers for debugging/world snapshots.
+- `core/environment/` (spatial substrate):
+  - `cell.py`: `Cell` dataclass for per-tile biomass + entity references.
+  - `spatial.py`: diffusion helpers used each tick (`apply_entity_diffusion`).
 
 ## Data Models
-### `Cell` (`core/grid/cell.py`)
+### `Cell` (`core/environment/cell.py`)
 - Fields: `grass: int`, `entity_ids: List[int]`.
 - Constructors/serialization: `from_dict`, `to_dict`, `copy`.
 - Mutation helpers: `add_entity`, `remove_entity`.
@@ -34,7 +34,7 @@ This note captures the architectural facts that routinely come up during onboard
 - Integrity: validates cell count in `__post_init__`, enforces bounds via `_index`.
 
 ## Entity System Status
-The entity-based grid described in the vision docs is **already active**. Each grid cell only tracks IDs, while `GridState.entities` stores actual `Entity` objects with coordinates. `core/grid/tick.py` iterates over each individual rabbit/fox, updates per-entity hunger/age, handles reproduction, predation, movement (via diffusion), and removes starving entities. There is no longer an aggregate population-per-cell model in the live simulation.
+The entity-based grid described in the vision docs is **already active**. Each grid cell only tracks IDs, while `GridState.entities` stores actual `Entity` objects with coordinates. `core/grid/tick.py` iterates over each individual rabbit/fox, updates per-entity hunger/age, handles reproduction, predation, movement (via `core.environment.apply_entity_diffusion`), and removes starving entities. There is no longer an aggregate population-per-cell model in the live simulation.
 
 ## CLI Surface (`sim.py`)
 - `tick [world] [--count N] [--snapshot] [--log] [--update-readme]`: default command. Runs migrations, loads `worlds/<name>`, advances `GridState` N ticks via `core.grid.tick_grid`, persists state, and triggers optional side effects (snapshot file, history CSV append, README update for prod/staging).

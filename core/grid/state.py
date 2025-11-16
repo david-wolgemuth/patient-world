@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List, Sequence, Tuple
 
-from .cell import Cell
+from core.environment import Cell
 from core.agents import Entity
 
 

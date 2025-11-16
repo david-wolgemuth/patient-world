@@ -4,7 +4,7 @@ from __future__ import annotations
 import random
 from typing import Iterable
 
-from .diffusion import apply_entity_diffusion
+from core.environment import apply_entity_diffusion
 from core.agents import Entity
 from .state import GridState
 
