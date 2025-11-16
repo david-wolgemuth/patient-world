@@ -36,6 +36,12 @@ Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or rea
 - Create tasks with `bd create --title "[size][tags] Name" --type task` and link dependencies via `--parent`.
 - Use `--json` when listing ready/status items (e.g., `bd ready --json`) to make results easy to stash in notes.
 
+## Commit Guidance
+- Keep commit messages short and prefix them with the Beads issue suffix (drop the `patient-world-` prefix) inside square brackets. Format: `[<beads suffix>] short description`.
+- Examples: `[3yy] migration improvements`, `[nfu] spacial grid`.
+- When batching multiple issues, pick the primary suffix or split your changes so each commit cleanly maps to one issue.
+- After you close a subtask in Beads, follow up with a matching commit so the history reflects the completed work immediately.
+
 ## Quick Start for Agents
 1. Read `README.md` for snapshot/testing commands and the worlds directory layout.
 2. Review `docs/vision/` to understand constraints before proposing changes.
