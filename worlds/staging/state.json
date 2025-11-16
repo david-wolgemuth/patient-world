@@ -1,5 +1,5 @@
 {
-  "day": 32,
+  "day": 33,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
@@ -43,13 +43,13 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        17
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
-      "entity_ids": []
+      "entity_ids": [
+        38
+      ]
     },
     {
       "grass": 5,
@@ -92,8 +92,7 @@
     {
       "grass": 1,
       "entity_ids": [
-        36,
-        38
+        36
       ]
     },
     {
@@ -142,13 +141,17 @@
     },
     {
       "grass": 0,
-      "entity_ids": []
+      "entity_ids": [
+        53,
+        59
+      ]
     },
     {
       "grass": 1,
       "entity_ids": [
-        59,
-        43
+        43,
+        73,
+        173
       ]
     },
     {
@@ -167,43 +170,40 @@
     {
       "grass": 5,
       "entity_ids": [
-        61,
+        61
+      ]
+    },
+    {
+      "grass": 1,
+      "entity_ids": [
+        89,
         179
       ]
     },
     {
       "grass": 1,
       "entity_ids": [
-        62
+        35,
+        162
       ]
     },
     {
       "grass": 1,
       "entity_ids": [
-        35,
+        50,
         159
       ]
     },
     {
       "grass": 1,
       "entity_ids": [
-        50
-      ]
-    },
-    {
-      "grass": 1,
-      "entity_ids": [
-        53,
         40
       ]
     },
     {
       "grass": 1,
       "entity_ids": [
-        56,
-        73,
-        77,
-        173
+        56
       ]
     },
     {
@@ -228,8 +228,6 @@
       "grass": 1,
       "entity_ids": [
         84,
-        66,
-        89,
         67,
         85
       ]
@@ -237,7 +235,6 @@
     {
       "grass": 5,
       "entity_ids": [
-        162,
         65
       ]
     },
@@ -248,22 +245,20 @@
     {
       "grass": 1,
       "entity_ids": [
-        74,
-        107,
-        170
+        74
       ]
     },
     {
       "grass": 1,
       "entity_ids": [
-        131
+        131,
+        108
       ]
     },
     {
       "grass": 0,
       "entity_ids": [
         93,
-        108,
         164,
         99
       ]
@@ -282,7 +277,8 @@
     {
       "grass": 0,
       "entity_ids": [
-        115
+        115,
+        155
       ]
     },
     {
@@ -298,15 +294,16 @@
     {
       "grass": 0,
       "entity_ids": [
-        180
+        107,
+        121,
+        125,
+        170
       ]
     },
     {
       "grass": 6,
       "entity_ids": [
-        163,
-        121,
-        125
+        163
       ]
     },
     {
@@ -324,20 +321,19 @@
       "entity_ids": [
         165,
         133,
-        166
+        166,
+        116
       ]
     },
     {
       "grass": 0,
-      "entity_ids": [
-        116,
-        155
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
       "entity_ids": [
-        118
+        118,
+        156
       ]
     },
     {
@@ -349,18 +345,19 @@
     {
       "grass": 0,
       "entity_ids": [
-        122
+        122,
+        180
       ]
+    },
+    {
+      "grass": 0,
+      "entity_ids": []
     },
     {
       "grass": 0,
       "entity_ids": [
         154
       ]
-    },
-    {
-      "grass": 0,
-      "entity_ids": []
     },
     {
       "grass": 0,
@@ -380,9 +377,7 @@
     },
     {
       "grass": 0,
-      "entity_ids": [
-        156
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
@@ -397,664 +392,632 @@
       "type": "fox",
       "x": 2,
       "y": 1,
-      "hunger": 3,
-      "age": 15
+      "hunger": 4,
+      "age": 16
     },
     "4": {
       "id": 4,
       "type": "fox",
       "x": 1,
       "y": 0,
-      "hunger": 7,
-      "age": 31
+      "hunger": 8,
+      "age": 32
     },
     "6": {
       "id": 6,
       "type": "fox",
       "x": 1,
       "y": 2,
-      "hunger": 7,
-      "age": 26
+      "hunger": 8,
+      "age": 27
     },
     "10": {
       "id": 10,
       "type": "fox",
       "x": 4,
       "y": 0,
-      "hunger": 4,
-      "age": 25
+      "hunger": 5,
+      "age": 26
     },
     "12": {
       "id": 12,
       "type": "fox",
       "x": 2,
       "y": 0,
-      "hunger": 4,
-      "age": 15
+      "hunger": 5,
+      "age": 16
     },
     "15": {
       "id": 15,
       "type": "fox",
       "x": 4,
       "y": 1,
-      "hunger": 3,
-      "age": 32
+      "hunger": 4,
+      "age": 33
     },
     "16": {
       "id": 16,
       "type": "fox",
       "x": 3,
       "y": 0,
-      "hunger": 5,
-      "age": 30
-    },
-    "17": {
-      "id": 17,
-      "type": "fox",
-      "x": 6,
-      "y": 0,
-      "hunger": 9,
-      "age": 18
+      "hunger": 6,
+      "age": 31
     },
     "21": {
       "id": 21,
       "type": "fox",
       "x": 6,
       "y": 1,
-      "hunger": 2,
-      "age": 11
+      "hunger": 3,
+      "age": 12
     },
     "30": {
       "id": 30,
       "type": "fox",
       "x": 4,
       "y": 2,
-      "hunger": 7,
-      "age": 29
+      "hunger": 8,
+      "age": 30
     },
     "35": {
       "id": 35,
       "type": "fox",
       "x": 6,
       "y": 3,
-      "hunger": 8,
-      "age": 13
+      "hunger": 9,
+      "age": 14
     },
     "36": {
       "id": 36,
       "type": "fox",
       "x": 7,
       "y": 1,
-      "hunger": 8,
-      "age": 19
+      "hunger": 9,
+      "age": 20
     },
     "38": {
       "id": 38,
       "type": "fox",
       "x": 7,
-      "y": 1,
-      "hunger": 4,
-      "age": 27
+      "y": 0,
+      "hunger": 5,
+      "age": 28
     },
     "39": {
       "id": 39,
       "type": "fox",
       "x": 7,
       "y": 2,
-      "hunger": 4,
-      "age": 25
+      "hunger": 5,
+      "age": 26
     },
     "40": {
       "id": 40,
       "type": "fox",
       "x": 0,
       "y": 4,
-      "hunger": 6,
-      "age": 13
+      "hunger": 7,
+      "age": 14
     },
     "43": {
       "id": 43,
       "type": "fox",
       "x": 1,
       "y": 3,
-      "hunger": 6,
-      "age": 29
+      "hunger": 7,
+      "age": 30
     },
     "50": {
       "id": 50,
       "type": "fox",
       "x": 7,
       "y": 3,
-      "hunger": 6,
-      "age": 28
+      "hunger": 7,
+      "age": 29
     },
     "53": {
       "id": 53,
       "type": "fox",
       "x": 0,
-      "y": 4,
-      "hunger": 6,
-      "age": 16
+      "y": 3,
+      "hunger": 7,
+      "age": 17
     },
     "55": {
       "id": 55,
       "type": "fox",
       "x": 2,
       "y": 3,
-      "hunger": 2,
-      "age": 31
+      "hunger": 3,
+      "age": 32
     },
     "56": {
       "id": 56,
       "type": "fox",
       "x": 1,
       "y": 4,
-      "hunger": 5,
-      "age": 36
+      "hunger": 6,
+      "age": 37
     },
     "59": {
       "id": 59,
       "type": "fox",
-      "x": 1,
+      "x": 0,
       "y": 3,
-      "hunger": 7,
-      "age": 24
+      "hunger": 8,
+      "age": 25
     },
     "61": {
       "id": 61,
       "type": "fox",
       "x": 4,
       "y": 3,
-      "hunger": 3,
-      "age": 35
-    },
-    "62": {
-      "id": 62,
-      "type": "fox",
-      "x": 5,
-      "y": 3,
-      "hunger": 9,
-      "age": 12
+      "hunger": 4,
+      "age": 36
     },
     "65": {
       "id": 65,
       "type": "fox",
       "x": 6,
       "y": 4,
-      "hunger": 7,
-      "age": 20
-    },
-    "66": {
-      "id": 66,
-      "type": "fox",
-      "x": 5,
-      "y": 4,
-      "hunger": 9,
-      "age": 27
+      "hunger": 8,
+      "age": 21
     },
     "67": {
       "id": 67,
       "type": "fox",
       "x": 5,
       "y": 4,
-      "hunger": 5,
-      "age": 24
+      "hunger": 6,
+      "age": 25
     },
     "73": {
       "id": 73,
       "type": "fox",
       "x": 1,
-      "y": 4,
-      "hunger": 6,
-      "age": 21
+      "y": 3,
+      "hunger": 7,
+      "age": 22
     },
     "74": {
       "id": 74,
       "type": "fox",
       "x": 0,
       "y": 5,
-      "hunger": 7,
-      "age": 22
+      "hunger": 8,
+      "age": 23
     },
     "76": {
       "id": 76,
       "type": "fox",
       "x": 2,
       "y": 4,
-      "hunger": 7,
-      "age": 24
-    },
-    "77": {
-      "id": 77,
-      "type": "fox",
-      "x": 1,
-      "y": 4,
-      "hunger": 9,
-      "age": 35
+      "hunger": 8,
+      "age": 25
     },
     "84": {
       "id": 84,
       "type": "fox",
       "x": 5,
       "y": 4,
-      "hunger": 4,
-      "age": 23
+      "hunger": 5,
+      "age": 24
     },
     "85": {
       "id": 85,
       "type": "fox",
       "x": 5,
       "y": 4,
-      "hunger": 4,
-      "age": 11
+      "hunger": 5,
+      "age": 12
     },
     "87": {
       "id": 87,
       "type": "fox",
       "x": 7,
       "y": 6,
-      "hunger": 1,
-      "age": 15
+      "hunger": 2,
+      "age": 16
     },
     "89": {
       "id": 89,
       "type": "fox",
       "x": 5,
-      "y": 4,
-      "hunger": 7,
-      "age": 10
+      "y": 3,
+      "hunger": 8,
+      "age": 11
     },
     "93": {
       "id": 93,
       "type": "fox",
       "x": 2,
       "y": 5,
-      "hunger": 6,
-      "age": 38
+      "hunger": 7,
+      "age": 39
     },
     "99": {
       "id": 99,
       "type": "fox",
       "x": 2,
       "y": 5,
-      "hunger": 6,
-      "age": 20
+      "hunger": 7,
+      "age": 21
     },
     "100": {
       "id": 100,
       "type": "fox",
       "x": 2,
       "y": 2,
-      "hunger": 5,
-      "age": 22
+      "hunger": 6,
+      "age": 23
     },
     "102": {
       "id": 102,
       "type": "fox",
       "x": 4,
       "y": 4,
-      "hunger": 5,
-      "age": 15
+      "hunger": 6,
+      "age": 16
     },
     "107": {
       "id": 107,
       "type": "fox",
       "x": 0,
-      "y": 5,
-      "hunger": 6,
-      "age": 8
+      "y": 6,
+      "hunger": 7,
+      "age": 9
     },
     "108": {
       "id": 108,
       "type": "fox",
-      "x": 2,
+      "x": 1,
       "y": 5,
-      "hunger": 5,
-      "age": 30
+      "hunger": 6,
+      "age": 31
     },
     "110": {
       "id": 110,
       "type": "fox",
       "x": 4,
       "y": 5,
-      "hunger": 7,
-      "age": 10
+      "hunger": 8,
+      "age": 11
     },
     "112": {
       "id": 112,
       "type": "fox",
       "x": 4,
       "y": 7,
-      "hunger": 7,
-      "age": 24
+      "hunger": 8,
+      "age": 25
     },
     "115": {
       "id": 115,
       "type": "fox",
       "x": 5,
       "y": 5,
-      "hunger": 7,
-      "age": 25
+      "hunger": 8,
+      "age": 26
     },
     "116": {
       "id": 116,
       "type": "fox",
-      "x": 5,
+      "x": 4,
       "y": 6,
-      "hunger": 3,
-      "age": 31
+      "hunger": 4,
+      "age": 32
     },
     "118": {
       "id": 118,
       "type": "fox",
       "x": 6,
       "y": 6,
-      "hunger": 5,
-      "age": 15
+      "hunger": 6,
+      "age": 16
     },
     "121": {
       "id": 121,
       "type": "fox",
-      "x": 1,
+      "x": 0,
       "y": 6,
-      "hunger": 7,
-      "age": 29
+      "hunger": 8,
+      "age": 30
     },
     "122": {
       "id": 122,
       "type": "fox",
       "x": 0,
       "y": 7,
-      "hunger": 1,
-      "age": 19
+      "hunger": 2,
+      "age": 20
     },
     "125": {
       "id": 125,
       "type": "fox",
-      "x": 1,
+      "x": 0,
       "y": 6,
-      "hunger": 7,
-      "age": 9
+      "hunger": 8,
+      "age": 10
     },
     "128": {
       "id": 128,
       "type": "fox",
       "x": 3,
       "y": 7,
-      "hunger": 7,
-      "age": 14
+      "hunger": 8,
+      "age": 15
     },
     "131": {
       "id": 131,
       "type": "fox",
       "x": 1,
       "y": 5,
-      "hunger": 7,
-      "age": 16
+      "hunger": 8,
+      "age": 17
     },
     "133": {
       "id": 133,
       "type": "fox",
       "x": 4,
       "y": 6,
-      "hunger": 7,
-      "age": 22
+      "hunger": 8,
+      "age": 23
     },
     "135": {
       "id": 135,
       "type": "rabbit",
       "x": 7,
       "y": 7,
-      "hunger": 8,
-      "age": 28
+      "hunger": 9,
+      "age": 29
     },
     "146": {
       "id": 146,
       "type": "fox",
       "x": 3,
       "y": 3,
-      "hunger": 5,
-      "age": 7
+      "hunger": 6,
+      "age": 8
     },
     "147": {
       "id": 147,
       "type": "fox",
       "x": 4,
       "y": 5,
-      "hunger": 7,
-      "age": 7
+      "hunger": 8,
+      "age": 8
     },
     "150": {
       "id": 150,
       "type": "fox",
       "x": 5,
       "y": 0,
-      "hunger": 1,
-      "age": 6
+      "hunger": 2,
+      "age": 7
     },
     "151": {
       "id": 151,
       "type": "fox",
       "x": 1,
       "y": 0,
-      "hunger": 6,
-      "age": 6
+      "hunger": 7,
+      "age": 7
     },
     "152": {
       "id": 152,
       "type": "fox",
       "x": 2,
       "y": 4,
-      "hunger": 6,
-      "age": 6
+      "hunger": 7,
+      "age": 7
     },
     "153": {
       "id": 153,
       "type": "fox",
       "x": 2,
       "y": 4,
-      "hunger": 6,
-      "age": 6
+      "hunger": 7,
+      "age": 7
     },
     "154": {
       "id": 154,
       "type": "fox",
-      "x": 1,
+      "x": 2,
       "y": 7,
-      "hunger": 6,
-      "age": 6
+      "hunger": 7,
+      "age": 7
     },
     "155": {
       "id": 155,
       "type": "fox",
       "x": 5,
-      "y": 6,
-      "hunger": 6,
-      "age": 6
+      "y": 5,
+      "hunger": 7,
+      "age": 7
     },
     "156": {
       "id": 156,
       "type": "rabbit",
       "x": 6,
-      "y": 7,
-      "hunger": 5,
-      "age": 5
+      "y": 6,
+      "hunger": 6,
+      "age": 6
     },
     "157": {
       "id": 157,
       "type": "fox",
       "x": 3,
       "y": 2,
-      "hunger": 5,
-      "age": 5
+      "hunger": 6,
+      "age": 6
     },
     "158": {
       "id": 158,
       "type": "fox",
       "x": 4,
       "y": 2,
-      "hunger": 5,
-      "age": 5
+      "hunger": 6,
+      "age": 6
     },
     "159": {
       "id": 159,
       "type": "fox",
-      "x": 6,
+      "x": 7,
       "y": 3,
-      "hunger": 4,
-      "age": 5
+      "hunger": 5,
+      "age": 6
     },
     "161": {
       "id": 161,
       "type": "fox",
       "x": 2,
       "y": 3,
-      "hunger": 4,
-      "age": 4
+      "hunger": 5,
+      "age": 5
     },
     "162": {
       "id": 162,
       "type": "fox",
       "x": 6,
-      "y": 4,
-      "hunger": 4,
-      "age": 4
+      "y": 3,
+      "hunger": 5,
+      "age": 5
     },
     "163": {
       "id": 163,
       "type": "fox",
       "x": 1,
       "y": 6,
-      "hunger": 4,
-      "age": 4
+      "hunger": 5,
+      "age": 5
     },
     "164": {
       "id": 164,
       "type": "fox",
       "x": 2,
       "y": 5,
-      "hunger": 4,
-      "age": 4
+      "hunger": 5,
+      "age": 5
     },
     "165": {
       "id": 165,
       "type": "fox",
       "x": 4,
       "y": 6,
-      "hunger": 4,
-      "age": 4
+      "hunger": 5,
+      "age": 5
     },
     "166": {
       "id": 166,
       "type": "fox",
       "x": 4,
       "y": 6,
-      "hunger": 4,
-      "age": 4
+      "hunger": 5,
+      "age": 5
     },
     "168": {
       "id": 168,
       "type": "fox",
       "x": 2,
       "y": 1,
-      "hunger": 3,
-      "age": 3
+      "hunger": 4,
+      "age": 4
     },
     "169": {
       "id": 169,
       "type": "fox",
       "x": 3,
       "y": 0,
-      "hunger": 3,
-      "age": 3
+      "hunger": 4,
+      "age": 4
     },
     "170": {
       "id": 170,
       "type": "fox",
       "x": 0,
-      "y": 5,
-      "hunger": 3,
-      "age": 3
+      "y": 6,
+      "hunger": 4,
+      "age": 4
     },
     "171": {
       "id": 171,
       "type": "fox",
       "x": 4,
       "y": 0,
-      "hunger": 2,
-      "age": 2
+      "hunger": 3,
+      "age": 3
     },
     "172": {
       "id": 172,
       "type": "fox",
       "x": 4,
       "y": 0,
-      "hunger": 2,
-      "age": 2
+      "hunger": 3,
+      "age": 3
     },
     "173": {
       "id": 173,
       "type": "fox",
       "x": 1,
-      "y": 4,
-      "hunger": 2,
-      "age": 2
+      "y": 3,
+      "hunger": 3,
+      "age": 3
     },
     "174": {
       "id": 174,
       "type": "fox",
       "x": 6,
       "y": 5,
-      "hunger": 2,
-      "age": 2
+      "hunger": 3,
+      "age": 3
     },
     "175": {
       "id": 175,
       "type": "fox",
       "x": 3,
       "y": 6,
-      "hunger": 2,
-      "age": 2
+      "hunger": 3,
+      "age": 3
     },
     "176": {
       "id": 176,
       "type": "fox",
       "x": 2,
       "y": 1,
-      "hunger": 1,
-      "age": 1
+      "hunger": 2,
+      "age": 2
     },
     "177": {
       "id": 177,
       "type": "fox",
       "x": 3,
       "y": 1,
-      "hunger": 1,
-      "age": 1
+      "hunger": 2,
+      "age": 2
     },
     "178": {
       "id": 178,
       "type": "fox",
       "x": 2,
       "y": 2,
-      "hunger": 1,
-      "age": 1
+      "hunger": 2,
+      "age": 2
     },
     "179": {
       "id": 179,
       "type": "fox",
-      "x": 4,
+      "x": 5,
       "y": 3,
-      "hunger": 1,
-      "age": 1
+      "hunger": 2,
+      "age": 2
     },
     "180": {
       "id": 180,
       "type": "fox",
       "x": 0,
-      "y": 6,
-      "hunger": 0,
-      "age": 0
+      "y": 7,
+      "hunger": 1,
+      "age": 1
     }
   },
   "next_entity_id": 181,
