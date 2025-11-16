@@ -60,7 +60,7 @@ Use `python3 migrations/0001_grid_state.py <world>` once per world to convert ol
 
 ### Migration Versioning
 - Migrations live under `migrations/` with zero-padded filenames (e.g., `0001_grid_state.py`).
-- Every state writes `_migration_version` (currently `1`). `core/world.py` checks this and instructs you to run the latest migration if a world lags behind.
+- Every state writes `_migration_version` (currently `1`). `core/repository.py` checks this and instructs you to run the latest migration if a world lags behind.
 - Migrations are Python scripts you run manually (one world at a time). They are idempotent—safe to re-run if unsure.
 - See `docs/vision/Migration Strategy.md` for the full template (naming, helper ideas, and workflow).
 

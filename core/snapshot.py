@@ -5,7 +5,7 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-from core import world
+from core import repository
 from core.grid import viz
 from core.model import GridState
 
@@ -30,14 +30,14 @@ def generate_snapshot(state: GridState) -> str:
 
 
 def save_snapshot(world_name: str, snapshot_text: str) -> Path:
-    path = world.snapshot_path(world_name)
+    path = repository.snapshot_path(world_name)
     with path.open("w") as fh:
         fh.write(snapshot_text)
     return path
 
 
 def update_readme(world_name: str, *, staging: bool | None = None) -> None:
-    snapshot_file = world.snapshot_path(world_name)
+    snapshot_file = repository.snapshot_path(world_name)
     if not snapshot_file.exists():
         raise FileNotFoundError(f"Snapshot not found for world '{world_name}' at {snapshot_file}")
     snapshot_text = snapshot_file.read_text()

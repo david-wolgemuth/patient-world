@@ -9,7 +9,7 @@ This note captures the architectural facts that routinely come up during onboard
 
 ## Module Map (`core/`)
 - `core/__init__.py`: exposes top-level helpers (currently thin).
-- `core/world.py`: world I/O (load/save state JSON, initialize worlds, append history, format summaries).
+- `core/repository.py`: world I/O (load/save state JSON, initialize worlds, append history, format summaries).
 - `core/snapshot.py`: transforms a `GridState` into `snapshot.md` content and wires README updates.
 - `core/analysis.py`: read-only forecasting utilities used by the `forecast` CLI command.
 - `core/grid/` (grid simulation stack):
@@ -40,7 +40,7 @@ The entity-based grid described in the vision docs is **already active**. Each g
 ## CLI Surface (`sim.py`)
 - `tick [world] [--count N] [--snapshot] [--log] [--update-readme]`: default command. Runs migrations, loads `worlds/<name>`, advances `GridState` N ticks via `core.grid.tick_grid`, persists state, and triggers optional side effects (snapshot file, history CSV append, README update for prod/staging).
 - `forecast [world] [--days D] [--step S] [--seed N] [--format table|csv|json]`: read-only projections using `core.analysis.run`; outputs aggregated stats without mutating saved state.
-- `init-grid <world> [--width W --height H --rabbits R --foxes F]`: bootstraps a brand-new grid world via `core.world.init_grid_world`, writes its snapshot, and prints dimensions.
+- `init-grid <world> [--width W --height H --rabbits R --foxes F]`: bootstraps a brand-new grid world via `core.repository.init_grid_world`, writes its snapshot, and prints dimensions.
 - `migrate [world]`: runs pending migrations through `migrations/runner` against the specified world directory.
 - Argument normalization allows `./sim.py --count 10` shorthand for `tick`.
 

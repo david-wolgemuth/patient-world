@@ -7,7 +7,7 @@ import json
 import subprocess
 from pathlib import Path
 
-from core import world
+from core import repository
 
 
 def parse_args() -> argparse.Namespace:
@@ -20,7 +20,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    paths = world.get_paths(args.world)
+    paths = repository.get_paths(args.world)
     required = [paths.state, paths.history, paths.snapshot]
     missing = [p for p in required if not p.exists()]
     if missing:

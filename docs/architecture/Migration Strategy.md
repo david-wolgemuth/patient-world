@@ -30,7 +30,7 @@ Every `GridState` writes `_migration_version` inside `state.json`. Rules:
 - Default to `0` for legacy worlds (handled automatically when loading raw 
 JSON).
 - Each migration script sets `_migration_version` to its `TARGET_VERSION`.
-- `core/world.py` enforces `EXPECTED_MIGRATION_VERSION`, raising with the exact 
+- `core/repository.py` enforces `EXPECTED_MIGRATION_VERSION`, raising with the exact 
 command to run if a world lags behind.
 
 Example snippet (already applied in codebase):
@@ -55,7 +55,7 @@ return {
 TARGET_VERSION = 1
 
 def migrate_world(world_name: str):
-    paths = world.get_paths(world_name)
+    paths = repository.get_paths(world_name)
     data = json.loads(paths.state.read_text())
     if data.get("_migration_version", 0) >= TARGET_VERSION:
         print("Already up to date"); return
@@ -93,7 +93,7 @@ that shells out to each script in order if you want automation later.
 
 1. Copy the latest script, bump `TARGET_VERSION`, and implement `transform()` 
 logic.
-2. Bump `EXPECTED_MIGRATION_VERSION` in `core/world.py`.
+2. Bump `EXPECTED_MIGRATION_VERSION` in `core/repository.py`.
 3. Add docs (README + changelog snippet as needed).
 4. Run the migration script against every tracked world (prod, staging, dev).
 5. Regenerate snapshots if state changed.
