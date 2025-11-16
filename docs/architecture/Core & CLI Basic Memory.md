@@ -10,10 +10,9 @@ This note captures the architectural facts that routinely come up during onboard
 ## Module Map (`core/`)
 - `core/__init__.py`: exposes top-level helpers (currently thin).
 - `core/repository.py`: world I/O (load/save state JSON, initialize worlds, append history, format summaries).
-- `core/snapshot.py`: transforms a `GridState` into `snapshot.md` content and wires README updates.
+- `core/visualization.py`: renders emoji grids, builds snapshots, and updates README markers.
 - `core/analysis.py`: read-only forecasting utilities used by the `forecast` CLI command.
 - `core/grid/` (grid simulation stack):
-  - `viz.py`: visualization helpers for debugging/world snapshots.
 - `core/environment/` (spatial substrate):
   - `cell.py`: `Cell` dataclass for per-tile biomass + entity references.
   - `spatial.py`: diffusion helpers used each tick (`apply_entity_diffusion`).

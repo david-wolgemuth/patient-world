@@ -15,7 +15,7 @@ Patient World is a minimal autonomous ecosystem sim. `sim.py` holds the entire l
 Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or read these notes. Snapshot markers in README reference `worlds/<world>/snapshot.md`, produced via `python sim.py <world> --snapshot`.
 
 ## CLI + Structure
-- Core logic lives under `core/` (`simulation.py`, `repository.py`, `snapshot.py`).
+- Core logic lives under `core/` (`simulation.py`, `repository.py`, `visualization.py`).
 - `sim.py` handles load → tick → save with optional side effects:
   - `./sim.py` ticks `dev` once (no subcommand needed).
   - `./sim.py tick prod --snapshot --log --update-readme` mirrors the GitHub Action.
