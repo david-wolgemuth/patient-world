@@ -1,5 +1,6 @@
 """Core modules for Patient World."""
 from . import analysis, snapshot, world
-from .grid import Cell, GridState
+from .environment import Cell
+from .model import GridState
 
 __all__ = ["analysis", "snapshot", "world", "Cell", "GridState"]

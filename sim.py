@@ -8,7 +8,7 @@ from typing import List
 
 from core import analysis, snapshot, world
 from core.grid import tick as grid_tick
-from core.grid.state import GridState
+from core.model import GridState
 from migrations import runner
 
 COMMANDS = {"tick", "forecast", "init-grid", "migrate"}

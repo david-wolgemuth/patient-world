@@ -5,7 +5,8 @@ from __future__ import annotations
 import argparse
 from typing import Iterable, Tuple
 
-from core.grid import Cell, GridState
+from core.environment import Cell
+from core.model import GridState
 from core.grid.tick import tick_grid
 
 MAX_RABBITS = 600

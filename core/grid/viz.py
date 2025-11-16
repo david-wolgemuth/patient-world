@@ -5,7 +5,7 @@ from typing import Dict
 
 from core.environment import Cell
 from core.agents import Entity
-from .state import GridState
+from core.model import GridState
 
 
 def cell_to_emoji(cell: Cell, entities: Dict[int, Entity]) -> str:

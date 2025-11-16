@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Literal
 
 from core.grid import tick
-from core.grid.state import GridState
+from core.model import GridState
 
 SPECIES = ("grass", "rabbits", "foxes")
 EXTINCTION_THRESHOLD = 0.5

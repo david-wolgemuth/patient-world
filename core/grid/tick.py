@@ -6,7 +6,7 @@ from typing import Iterable
 
 from core.environment import apply_entity_diffusion
 from core.agents import Entity
-from .state import GridState
+from core.model import GridState
 
 
 def tick_grid(state: GridState) -> GridState:

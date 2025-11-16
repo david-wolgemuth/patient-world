@@ -13,12 +13,13 @@ This note captures the architectural facts that routinely come up during onboard
 - `core/snapshot.py`: transforms a `GridState` into `snapshot.md` content and wires README updates.
 - `core/analysis.py`: read-only forecasting utilities used by the `forecast` CLI command.
 - `core/grid/` (grid simulation stack):
-  - `state.py`: `GridState` aggregate (dimensions, per-cell array, entity lookup, spawning/movement helpers).
   - `tick.py`: main tick logic (`tick_grid`) that mutates a cloned `GridState`.
   - `viz.py`: visualization helpers for debugging/world snapshots.
 - `core/environment/` (spatial substrate):
   - `cell.py`: `Cell` dataclass for per-tile biomass + entity references.
   - `spatial.py`: diffusion helpers used each tick (`apply_entity_diffusion`).
+- `core/model/`:
+  - `state.py`: `GridState` aggregate (dimensions, per-cell array, entity lookup, spawning/movement helpers).
 
 ## Data Models
 ### `Cell` (`core/environment/cell.py`)
@@ -27,7 +28,7 @@ This note captures the architectural facts that routinely come up during onboard
 - Mutation helpers: `add_entity`, `remove_entity`.
 - Query helpers: `count_type`, `rabbits`, `foxes`, `iter_entities` (yields resolved `Entity` instances).
 
-### `GridState` (`core/grid/state.py`)
+### `GridState` (`core/model/state.py`)
 - Core fields: `day`, `grid_width`, `grid_height`, `cells: List[Cell]`, `entities: Dict[int, Entity]`, `next_entity_id`, `migration_version`.
 - Lifecycle helpers: `from_dict`, `to_dict`, `clone`, `spawn_entity`, `remove_entity`, `move_entity`.
 - Convenience queries: getters/setters for single cells; `neighbors`, totals (`total_grass`, `total_rabbits`, `total_foxes`), iteration over coordinates, and `entities_in_cell` / `entities_by_type`.

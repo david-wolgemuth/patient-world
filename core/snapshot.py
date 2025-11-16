@@ -7,7 +7,7 @@ from pathlib import Path
 
 from core import world
 from core.grid import viz
-from core.grid.state import GridState
+from core.model import GridState
 
 PROD_MARKERS = ("<!-- SNAPSHOT START -->", "<!-- SNAPSHOT END -->")
 STAGING_MARKERS = ("<!-- STAGING SNAPSHOT START -->", "<!-- STAGING SNAPSHOT END -->")

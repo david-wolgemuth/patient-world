@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import random
 
-from core.grid.state import GridState
+from core.model import GridState
 
 
 def apply_entity_diffusion(state: GridState, move_chance: float = 0.3) -> None:
