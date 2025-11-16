@@ -5,7 +5,7 @@ import random
 from typing import Iterable
 
 from .diffusion import apply_entity_diffusion
-from .entity import Entity
+from core.agents import Entity
 from .state import GridState
 
 

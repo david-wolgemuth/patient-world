@@ -14,7 +14,7 @@ This note captures the architectural facts that routinely come up during onboard
 - `core/analysis.py`: read-only forecasting utilities used by the `forecast` CLI command.
 - `core/grid/` (grid simulation stack):
   - `cell.py`: `Cell` dataclass for per-tile biomass + entity references.
-  - `entity.py`: `Entity` dataclass for actors (rabbits/foxes) with position + hunger/age.
+  - `agents/entity.py`: `Entity` dataclass for actors (rabbits/foxes) with position + hunger/age.
   - `state.py`: `GridState` aggregate (dimensions, per-cell array, entity lookup, spawning/movement helpers).
   - `tick.py`: main tick logic (`tick_grid`) that mutates a cloned `GridState`.
   - `diffusion.py`: spatial diffusion helpers used each tick.

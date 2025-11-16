@@ -4,7 +4,7 @@ from __future__ import annotations
 from typing import Dict
 
 from .cell import Cell
-from .entity import Entity
+from core.agents import Entity
 from .state import GridState
 
 
