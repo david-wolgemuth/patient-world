@@ -15,14 +15,14 @@ Patient World is a minimal autonomous ecosystem sim. `sim.py` holds the entire l
 Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or read these notes. Snapshot markers in README reference `worlds/<world>/snapshot.md`, produced via `python sim.py <world> --snapshot`.
 
 ## CLI + Structure
-- Core logic lives under `core/` (`simulation.py`, `world.py`, `snapshot.py`).
+- Core logic lives under `core/` (`simulation.py`, `repository.py`, `visualization.py`).
 - `sim.py` handles load → tick → save with optional side effects:
   - `./sim.py` ticks `dev` once (no subcommand needed).
   - `./sim.py tick prod --snapshot --log --update-readme` mirrors the GitHub Action.
   - `./sim.py dev --count 1000` for fast-forwarding.
   - `./sim.py forecast dev --days 365 --step 30 [--format csv|json]` provides read-only projections for QA (use `--seed` for reproducible comparisons).
 - Rare helpers:
-  - `python commit_world.py prod` stages README + world artifacts via git.
+  - `python scripts/commit_world.py prod` stages README + world artifacts via git.
   - Clone worlds via `cp -R worlds/prod worlds/staging-v2` when needed.
 
 ## Python Environment
@@ -35,6 +35,12 @@ Use `/Users/david/.local/bin/bm tool ... --project patient-world` to edit or rea
 - Example epic in-flight: `[L][worlds][refactor] Multi-world state management overhaul` (see `.beads/beads.base.jsonl`).
 - Create tasks with `bd create --title "[size][tags] Name" --type task` and link dependencies via `--parent`.
 - Use `--json` when listing ready/status items (e.g., `bd ready --json`) to make results easy to stash in notes.
+
+## Commit Guidance
+- Keep commit messages short and prefix them with the Beads issue suffix (drop the `patient-world-` prefix) inside square brackets. Format: `[<beads suffix>] short description`.
+- Examples: `[3yy] migration improvements`, `[nfu] spacial grid`.
+- When batching multiple issues, pick the primary suffix or split your changes so each commit cleanly maps to one issue.
+- After you close a subtask in Beads, follow up with a matching commit so the history reflects the completed work immediately.
 
 ## Quick Start for Agents
 1. Read `README.md` for snapshot/testing commands and the worlds directory layout.

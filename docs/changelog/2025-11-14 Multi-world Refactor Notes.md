@@ -12,7 +12,7 @@ Captured lessons from implementing the multi-world state overhaul: directory lay
 ## Details
 - Worlds now live under `worlds/<name>/` with committed prod/staging directories and gitignored dev sandboxes.
 - `sim.py` requires a positional world argument plus optional `--snapshot`; future CLI work should build on this argparse flow.
-- Snapshot plumbing: `python sim.py ... --update-readme` refreshes README from `worlds/<world>/snapshot.md`, and `python commit_world.py <world>` stages README + world data for the workflow.
+- Snapshot plumbing: `python sim.py ... --update-readme` refreshes README from `worlds/<world>/snapshot.md`, and `python scripts/commit_world.py <world>` stages README + world data for the workflow.
 - Staging world can be cloned manually (e.g., `cp -R worlds/prod worlds/staging`) and README should generally display prod snapshots even if staging is exercised.
 - Added `python sim.py forecast` for read-only QA runs (days/step/seed/format) so changes can be inspected without mutating worlds.
 

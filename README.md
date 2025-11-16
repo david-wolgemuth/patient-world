@@ -51,7 +51,7 @@ All worlds now share a single grid schema (no legacy scalar fields):
 }
 ```
 
-Cells are stored row-major (`y * width + x`). Helpers under `core/grid/` handle JSON (de)serialization, neighbor
+Cells are stored row-major (`y * width + x`). Helpers under `core/environment/`, `core/model/`, and `core/rules.py` handle JSON (de)serialization, neighbor
 computation, totals, and emoji visualization. Each state also carries a `_migration_version` metadata field so the CLI
 can refuse to run until all migrations have been applied.
 
@@ -60,7 +60,7 @@ Use `python3 migrations/0001_grid_state.py <world>` once per world to convert ol
 
 ### Migration Versioning
 - Migrations live under `migrations/` with zero-padded filenames (e.g., `0001_grid_state.py`).
-- Every state writes `_migration_version` (currently `1`). `core/world.py` checks this and instructs you to run the latest migration if a world lags behind.
+- Every state writes `_migration_version` (currently `1`). `core/repository.py` checks this and instructs you to run the latest migration if a world lags behind.
 - Migrations are Python scripts you run manually (one world at a time). They are idempotent—safe to re-run if unsure.
 - See `docs/vision/Migration Strategy.md` for the full template (naming, helper ideas, and workflow).
 
@@ -121,7 +121,7 @@ Use `--seed` for reproducible before/after comparisons and `--format csv|json` t
 
 To stage and commit a particular world's files manually (used by CI):
 ```bash
-python commit_world.py prod
+python scripts/commit_world.py prod
 git push
 ```
 
@@ -133,10 +133,10 @@ cp -R worlds/prod worlds/staging-v2
 Or bootstrap a blank world by deleting `state.json` and running `./sim.py staging-v2` once.
 
 ## Grid Sanity Check
-Run `python3 qa_grid_sanity.py` before shipping risky changes to guarantee per-cell ticks stay stable (checks for negative counts, runaway populations, and verifies that diffusion spreads populations away from hotspots).
+Run `python3 scripts/qa_grid_sanity.py` before shipping risky changes to guarantee per-cell ticks stay stable (checks for negative counts, runaway populations, and verifies that diffusion spreads populations away from hotspots).
 
 ## Automation
-- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC by running `python3 sim.py prod --snapshot --log --update-readme`, then commits via `python commit_world.py prod`.
+- `.github/workflows/daily.yml` ticks `prod` every day at 12:00 UTC by running `python3 sim.py prod --snapshot --log --update-readme`, then commits via `python scripts/commit_world.py prod`.
 - Manual `workflow_dispatch` runs accept a `world` input (default `staging`) so you can tick staging without touching cron schedules.
 
 `snapshot.md` files inside `worlds/dev/` remain untracked via `.gitignore`, keeping experiments clean while prod/staging snapshots are committed automatically by the workflow.
@@ -150,19 +150,19 @@ Staging exists for experiments and may be reset at any time & have unrealistic n
 <!-- STAGING SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 32** • 2025-11-16
+**Day 33** • 2025-11-16
 
-▫️🦊🦊🦊🦊🦊🦊▫️
+▫️🦊🦊🦊🦊🦊▫️🦊
 ▫️▫️🦊🦊🦊▫️🦊🦊
 ▫️🦊🦊🦊🦊▫️▫️🦊
-▫️🦊🦊🦊🦊🦊🦊🦊
+🦊🦊🦊🦊🦊🦊🦊🦊
 🦊🦊🦊▫️🦊🦊🦊▫️
 🦊🦊🦊▫️🦊🦊🦊▫️
-🦊🦊▫️🦊🦊🦊🦊🦊
-🦊🦊▫️🦊🦊▫️🐇🐇
+🦊🦊▫️🦊🦊▫️🦊🦊
+🦊▫️🦊🦊🦊▫️▫️🐇
 
 ### Totals
-🌱 111  🐇 2  🦊 81
+🌱 111  🐇 2  🦊 77
 
 <!-- STAGING SNAPSHOT END -->
 

@@ -33,7 +33,7 @@ jobs:
 
       - name: Commit prod state
         if: ${{ github.event_name == 'schedule' }}
-        run: python commit_world.py prod
+        run: python scripts/commit_world.py prod
 
       - name: Run staging simulation (weekly batch)
         if: ${{ github.event_name == 'schedule' }}
@@ -41,7 +41,7 @@ jobs:
 
       - name: Commit staging state
         if: ${{ github.event_name == 'schedule' }}
-        run: python commit_world.py staging
+        run: python scripts/commit_world.py staging
 
       - name: Run manual simulation
         if: ${{ github.event_name == 'workflow_dispatch' }}
@@ -49,7 +49,7 @@ jobs:
 
       - name: Commit manual world state
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        run: python commit_world.py ${{ steps.select-world.outputs.value }}
+        run: python scripts/commit_world.py ${{ steps.select-world.outputs.value }}
 
       - name: Push changes
         run: git push

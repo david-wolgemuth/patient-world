@@ -6,9 +6,11 @@ import argparse
 import sys
 from typing import List
 
-from core import analysis, snapshot, world
-from core.grid import tick as grid_tick
-from core.grid.state import GridState
+import core.analysis as analysis
+import core.repository as repository
+import core.scheduler as scheduler
+import core.visualization as visualization
+from core.model import GridState
 from migrations import runner
 
 COMMANDS = {"tick", "forecast", "init-grid", "migrate"}
@@ -74,31 +76,31 @@ def build_parser() -> argparse.ArgumentParser:
 
 def cmd_tick(args: argparse.Namespace) -> None:
     runner.run_pending(args.world)
-    state = world.load_world(args.world)
+    state = repository.load_world(args.world)
 
     for _ in range(max(args.count, 0)):
-        state = grid_tick.tick_grid(state)
+        state = scheduler.tick_grid(state)
 
-    world.save_world(args.world, state)
+    repository.save_world(args.world, state)
 
     if args.snapshot:
-        snap_text = snapshot.generate_snapshot(state)
-        snapshot.save_snapshot(args.world, snap_text)
+        snap_text = visualization.generate_snapshot(state)
+        visualization.save_snapshot(args.world, snap_text)
 
     if args.log:
-        world.log_history(args.world, state)
+        repository.log_history(args.world, state)
 
     if args.update_readme:
         if args.world not in {"prod", "staging"}:
             raise SystemExit("README updates are restricted to prod or staging")
-        snapshot.update_readme(args.world)
+        visualization.update_readme(args.world)
 
-    print(world.format_summary(args.world, state))
+    print(repository.format_summary(args.world, state))
 
 
 def cmd_forecast(args: argparse.Namespace) -> None:
     runner.run_pending(args.world, silent=True)
-    state = world.load_world(args.world)
+    state = repository.load_world(args.world)
     result = analysis.run(
         state,
         world_name=args.world,
@@ -116,15 +118,15 @@ def cmd_forecast(args: argparse.Namespace) -> None:
 
 
 def cmd_init_grid(args: argparse.Namespace) -> None:
-    state = world.init_grid_world(
+    state = repository.init_grid_world(
         args.world,
         width=max(1, args.width),
         height=max(1, args.height),
         total_rabbits=max(0, args.rabbits),
         total_foxes=max(0, args.foxes),
     )
-    snap_text = snapshot.generate_snapshot(state)
-    snapshot.save_snapshot(args.world, snap_text)
+    snap_text = visualization.generate_snapshot(state)
+    visualization.save_snapshot(args.world, snap_text)
     print(f"Initialized {args.world} as {state.grid_width}x{state.grid_height} grid.")
 
 

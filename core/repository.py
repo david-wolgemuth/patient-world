@@ -8,7 +8,8 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
-from core.grid import Cell, GridState
+from core.environment import Cell
+from core.model import GridState
 
 HISTORY_HEADER = "date,day,grass,rabbits,foxes"
 WORLDS_DIR = Path("worlds")

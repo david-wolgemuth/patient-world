@@ -5,9 +5,14 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
 from pathlib import Path
 
-from core import world
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+import core.repository as repository
 
 
 def parse_args() -> argparse.Namespace:
@@ -20,7 +25,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    paths = world.get_paths(args.world)
+    paths = repository.get_paths(args.world)
     required = [paths.state, paths.history, paths.snapshot]
     missing = [p for p in required if not p.exists()]
     if missing:

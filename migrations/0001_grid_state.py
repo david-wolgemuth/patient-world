@@ -13,14 +13,14 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from core import world
+import core.repository as repository
 
 DEFAULT_GRID_SIZE = 10
 TARGET_VERSION = 1
 
 
 def migrate_world(world_name: str, grid_size: int = DEFAULT_GRID_SIZE) -> None:
-    paths = world.get_paths(world_name)
+    paths = repository.get_paths(world_name)
     state_path = paths.state
     if not state_path.exists():
         raise SystemExit(f"State file not found for '{world_name}' at {state_path}")
