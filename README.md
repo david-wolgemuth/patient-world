@@ -51,7 +51,7 @@ All worlds now share a single grid schema (no legacy scalar fields):
 }
 ```
 
-Cells are stored row-major (`y * width + x`). Helpers under `core/grid/` handle JSON (de)serialization, neighbor
+Cells are stored row-major (`y * width + x`). Helpers under `core/environment/`, `core/model/`, and `core/rules.py` handle JSON (de)serialization, neighbor
 computation, totals, and emoji visualization. Each state also carries a `_migration_version` metadata field so the CLI
 can refuse to run until all migrations have been applied.
 
