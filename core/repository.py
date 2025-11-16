@@ -5,13 +5,13 @@ import json
 import random
 import shutil
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from core.environment import Cell
 from core.model import GridState
 
-HISTORY_HEADER = "date,day,grass,rabbits,foxes"
+HISTORY_HEADER = "timestamp,day,grass,rabbits,foxes"
 WORLDS_DIR = Path("worlds")
 DEFAULT_CELL_GRASS = 50
 EXPECTED_MIGRATION_VERSION = 2
@@ -72,10 +72,12 @@ def ensure_history_file(world_name: str) -> Path:
 
 
 def log_history(world_name: str, state: GridState) -> None:
+    """Append the current state snapshot with a UTC ISO8601 timestamp."""
+
     history_file = ensure_history_file(world_name)
+    timestamp = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     line = (
-        f"{datetime.now().date()},{state.day},{state.total_grass():.0f},"
-        f"{state.total_rabbits():.0f},{state.total_foxes():.0f}\n"
+        f"{timestamp},{state.day},{state.total_grass():.0f},{state.total_rabbits():.0f},{state.total_foxes():.0f}\n"
     )
     with history_file.open("a") as fh:
         fh.write(line)
