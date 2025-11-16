@@ -48,7 +48,7 @@ The entity-based grid described in the vision docs is **already active**. Each g
 - Core simulation + CLI: `core/`, `sim.py`.
 - Worlds & persistence: `worlds/<name>/` (`state.json`, `history.csv`, `snapshot.md` per world).
 - Knowledge + process docs: `docs/` (agents, architecture, vision, changelog) and `AGENTS.md`.
-- Automation/scripts: `commit_world.py` (staging helper), `qa_grid_sanity.py`, `migrations/` (state upgrade scripts).
-- QA/experiments: `qa_grid_sanity.py`, `snapshot.md` (root-level default snapshot output).
+- Automation/scripts: `scripts/commit_world.py` (staging helper), `scripts/qa_grid_sanity.py`, `migrations/` (state upgrade scripts).
+- QA/experiments: `scripts/qa_grid_sanity.py`, `snapshot.md` (root-level default snapshot output).
 - Tooling/infra: `.beads/` (task tracking), virtualenv in `venv/` when created; no dedicated `tests/` directory yet (QA scripts live at root).
 - Config: README and doc tree describe workflows; no other dotfiles committed as of now.
