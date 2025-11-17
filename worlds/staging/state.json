@@ -1,5 +1,5 @@
 {
-  "day": 34,
+  "day": 41,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
@@ -9,31 +9,19 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        4,
-        151
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
-      "entity_ids": [
-        12,
-        169
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        16,
-        10,
-        172
-      ]
+      "entity_ids": []
     },
     {
       "grass": 5,
-      "entity_ids": [
-        171
-      ]
+      "entity_ids": []
     },
     {
       "grass": 3,
@@ -41,16 +29,11 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        21,
-        150
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
-      "entity_ids": [
-        38
-      ]
+      "entity_ids": []
     },
     {
       "grass": 5,
@@ -62,23 +45,15 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        168,
-        3,
-        176
-      ]
+      "entity_ids": []
     },
     {
       "grass": 7,
-      "entity_ids": [
-        177
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        15
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
@@ -98,29 +73,19 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        6,
-        173
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        100,
-        178
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        157
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        158
-      ]
+      "entity_ids": []
     },
     {
       "grass": 7,
@@ -128,9 +93,7 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        162
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
@@ -138,43 +101,23 @@
     },
     {
       "grass": 0,
-      "entity_ids": [
-        59,
-        73
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        43
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        161,
-        55
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        146
-      ]
+      "entity_ids": []
     },
     {
       "grass": 5,
-      "entity_ids": [
-        61,
-        30,
-        179
-      ]
-    },
-    {
-      "grass": 1,
-      "entity_ids": [
-        89
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
@@ -182,30 +125,23 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        50,
-        39
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        53
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        56,
-        40
-      ]
+      "entity_ids": []
+    },
+    {
+      "grass": 1,
+      "entity_ids": []
     },
     {
       "grass": 7,
-      "entity_ids": [
-        76,
-        153
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
@@ -213,29 +149,15 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        102,
-        84,
-        85
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
-      "entity_ids": [
-        115
-      ]
+      "entity_ids": []
     },
     {
       "grass": 5,
-      "entity_ids": [
-        65
-      ]
-    },
-    {
-      "grass": 1,
-      "entity_ids": [
-        159
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
@@ -243,19 +165,15 @@
     },
     {
       "grass": 1,
-      "entity_ids": [
-        131,
-        108
-      ]
+      "entity_ids": []
+    },
+    {
+      "grass": 1,
+      "entity_ids": []
     },
     {
       "grass": 0,
-      "entity_ids": [
-        93,
-        164,
-        99,
-        152
-      ]
+      "entity_ids": []
     },
     {
       "grass": 1,
@@ -263,18 +181,11 @@
     },
     {
       "grass": 7,
-      "entity_ids": [
-        147,
-        110
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
-      "entity_ids": [
-        155,
-        67,
-        174
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
@@ -282,65 +193,45 @@
     },
     {
       "grass": 4,
-      "entity_ids": []
-    },
-    {
-      "grass": 0,
-      "entity_ids": [
-        107,
-        121,
-        125,
-        170,
-        74
-      ]
-    },
-    {
-      "grass": 6,
-      "entity_ids": [
-        163
-      ]
-    },
-    {
-      "grass": 6,
-      "entity_ids": [
-        154
-      ]
-    },
-    {
-      "grass": 0,
-      "entity_ids": [
-        175,
-        133
-      ]
-    },
-    {
-      "grass": 0,
-      "entity_ids": [
-        165,
-        166,
-        116
-      ]
-    },
-    {
-      "grass": 0,
-      "entity_ids": []
-    },
-    {
-      "grass": 0,
       "entity_ids": [
         118
       ]
     },
     {
       "grass": 0,
-      "entity_ids": [
-        87
-      ]
+      "entity_ids": []
+    },
+    {
+      "grass": 6,
+      "entity_ids": []
+    },
+    {
+      "grass": 6,
+      "entity_ids": []
+    },
+    {
+      "grass": 0,
+      "entity_ids": []
+    },
+    {
+      "grass": 0,
+      "entity_ids": []
+    },
+    {
+      "grass": 0,
+      "entity_ids": []
+    },
+    {
+      "grass": 0,
+      "entity_ids": []
+    },
+    {
+      "grass": 0,
+      "entity_ids": []
     },
     {
       "grass": 0,
       "entity_ids": [
-        122,
         180
       ]
     },
@@ -354,15 +245,11 @@
     },
     {
       "grass": 0,
-      "entity_ids": [
-        128
-      ]
+      "entity_ids": []
     },
     {
       "grass": 6,
-      "entity_ids": [
-        112
-      ]
+      "entity_ids": []
     },
     {
       "grass": 2,
@@ -378,605 +265,21 @@
     }
   ],
   "entities": {
-    "3": {
-      "id": 3,
-      "type": "fox",
-      "x": 2,
-      "y": 1,
-      "hunger": 5,
-      "age": 17
-    },
-    "4": {
-      "id": 4,
-      "type": "fox",
-      "x": 1,
-      "y": 0,
-      "hunger": 9,
-      "age": 33
-    },
-    "6": {
-      "id": 6,
-      "type": "fox",
-      "x": 1,
-      "y": 2,
-      "hunger": 9,
-      "age": 28
-    },
-    "10": {
-      "id": 10,
-      "type": "fox",
-      "x": 3,
-      "y": 0,
-      "hunger": 6,
-      "age": 27
-    },
-    "12": {
-      "id": 12,
-      "type": "fox",
-      "x": 2,
-      "y": 0,
-      "hunger": 6,
-      "age": 17
-    },
-    "15": {
-      "id": 15,
-      "type": "fox",
-      "x": 4,
-      "y": 1,
-      "hunger": 5,
-      "age": 34
-    },
-    "16": {
-      "id": 16,
-      "type": "fox",
-      "x": 3,
-      "y": 0,
-      "hunger": 7,
-      "age": 32
-    },
-    "21": {
-      "id": 21,
-      "type": "fox",
-      "x": 6,
-      "y": 0,
-      "hunger": 4,
-      "age": 13
-    },
-    "30": {
-      "id": 30,
-      "type": "fox",
-      "x": 4,
-      "y": 3,
-      "hunger": 9,
-      "age": 31
-    },
-    "38": {
-      "id": 38,
-      "type": "fox",
-      "x": 7,
-      "y": 0,
-      "hunger": 6,
-      "age": 29
-    },
-    "39": {
-      "id": 39,
-      "type": "fox",
-      "x": 7,
-      "y": 3,
-      "hunger": 6,
-      "age": 27
-    },
-    "40": {
-      "id": 40,
-      "type": "fox",
-      "x": 1,
-      "y": 4,
-      "hunger": 8,
-      "age": 15
-    },
-    "43": {
-      "id": 43,
-      "type": "fox",
-      "x": 1,
-      "y": 3,
-      "hunger": 8,
-      "age": 31
-    },
-    "50": {
-      "id": 50,
-      "type": "fox",
-      "x": 7,
-      "y": 3,
-      "hunger": 8,
-      "age": 30
-    },
-    "53": {
-      "id": 53,
-      "type": "fox",
-      "x": 0,
-      "y": 4,
-      "hunger": 8,
-      "age": 18
-    },
-    "55": {
-      "id": 55,
-      "type": "fox",
-      "x": 2,
-      "y": 3,
-      "hunger": 4,
-      "age": 33
-    },
-    "56": {
-      "id": 56,
-      "type": "fox",
-      "x": 1,
-      "y": 4,
-      "hunger": 7,
-      "age": 38
-    },
-    "59": {
-      "id": 59,
-      "type": "fox",
-      "x": 0,
-      "y": 3,
-      "hunger": 9,
-      "age": 26
-    },
-    "61": {
-      "id": 61,
-      "type": "fox",
-      "x": 4,
-      "y": 3,
-      "hunger": 5,
-      "age": 37
-    },
-    "65": {
-      "id": 65,
-      "type": "fox",
-      "x": 6,
-      "y": 4,
-      "hunger": 9,
-      "age": 22
-    },
-    "67": {
-      "id": 67,
-      "type": "fox",
-      "x": 5,
-      "y": 5,
-      "hunger": 7,
-      "age": 26
-    },
-    "73": {
-      "id": 73,
-      "type": "fox",
-      "x": 0,
-      "y": 3,
-      "hunger": 8,
-      "age": 23
-    },
-    "74": {
-      "id": 74,
-      "type": "fox",
-      "x": 0,
-      "y": 6,
-      "hunger": 9,
-      "age": 24
-    },
-    "76": {
-      "id": 76,
-      "type": "fox",
-      "x": 2,
-      "y": 4,
-      "hunger": 9,
-      "age": 26
-    },
-    "84": {
-      "id": 84,
-      "type": "fox",
-      "x": 4,
-      "y": 4,
-      "hunger": 6,
-      "age": 25
-    },
-    "85": {
-      "id": 85,
-      "type": "fox",
-      "x": 4,
-      "y": 4,
-      "hunger": 6,
-      "age": 13
-    },
-    "87": {
-      "id": 87,
-      "type": "fox",
-      "x": 7,
-      "y": 6,
-      "hunger": 3,
-      "age": 17
-    },
-    "89": {
-      "id": 89,
-      "type": "fox",
-      "x": 5,
-      "y": 3,
-      "hunger": 9,
-      "age": 12
-    },
-    "93": {
-      "id": 93,
-      "type": "fox",
-      "x": 2,
-      "y": 5,
-      "hunger": 8,
-      "age": 40
-    },
-    "99": {
-      "id": 99,
-      "type": "fox",
-      "x": 2,
-      "y": 5,
-      "hunger": 8,
-      "age": 22
-    },
-    "100": {
-      "id": 100,
-      "type": "fox",
-      "x": 2,
-      "y": 2,
-      "hunger": 7,
-      "age": 24
-    },
-    "102": {
-      "id": 102,
-      "type": "fox",
-      "x": 4,
-      "y": 4,
-      "hunger": 7,
-      "age": 17
-    },
-    "107": {
-      "id": 107,
-      "type": "fox",
-      "x": 0,
-      "y": 6,
-      "hunger": 8,
-      "age": 10
-    },
-    "108": {
-      "id": 108,
-      "type": "fox",
-      "x": 1,
-      "y": 5,
-      "hunger": 7,
-      "age": 32
-    },
-    "110": {
-      "id": 110,
-      "type": "fox",
-      "x": 4,
-      "y": 5,
-      "hunger": 9,
-      "age": 12
-    },
-    "112": {
-      "id": 112,
-      "type": "fox",
-      "x": 4,
-      "y": 7,
-      "hunger": 9,
-      "age": 26
-    },
-    "115": {
-      "id": 115,
-      "type": "fox",
-      "x": 5,
-      "y": 4,
-      "hunger": 9,
-      "age": 27
-    },
-    "116": {
-      "id": 116,
-      "type": "fox",
-      "x": 4,
-      "y": 6,
-      "hunger": 5,
-      "age": 33
-    },
     "118": {
       "id": 118,
       "type": "fox",
-      "x": 6,
-      "y": 6,
-      "hunger": 2,
-      "age": 17
-    },
-    "121": {
-      "id": 121,
-      "type": "fox",
-      "x": 0,
-      "y": 6,
-      "hunger": 9,
-      "age": 31
-    },
-    "122": {
-      "id": 122,
-      "type": "fox",
-      "x": 0,
-      "y": 7,
-      "hunger": 3,
-      "age": 21
-    },
-    "125": {
-      "id": 125,
-      "type": "fox",
-      "x": 0,
-      "y": 6,
-      "hunger": 9,
-      "age": 11
-    },
-    "128": {
-      "id": 128,
-      "type": "fox",
-      "x": 3,
-      "y": 7,
-      "hunger": 9,
-      "age": 16
-    },
-    "131": {
-      "id": 131,
-      "type": "fox",
-      "x": 1,
+      "x": 7,
       "y": 5,
-      "hunger": 9,
-      "age": 18
-    },
-    "133": {
-      "id": 133,
-      "type": "fox",
-      "x": 3,
-      "y": 6,
       "hunger": 9,
       "age": 24
-    },
-    "146": {
-      "id": 146,
-      "type": "fox",
-      "x": 3,
-      "y": 3,
-      "hunger": 7,
-      "age": 9
-    },
-    "147": {
-      "id": 147,
-      "type": "fox",
-      "x": 4,
-      "y": 5,
-      "hunger": 9,
-      "age": 9
-    },
-    "150": {
-      "id": 150,
-      "type": "fox",
-      "x": 6,
-      "y": 0,
-      "hunger": 3,
-      "age": 8
-    },
-    "151": {
-      "id": 151,
-      "type": "fox",
-      "x": 1,
-      "y": 0,
-      "hunger": 8,
-      "age": 8
-    },
-    "152": {
-      "id": 152,
-      "type": "fox",
-      "x": 2,
-      "y": 5,
-      "hunger": 8,
-      "age": 8
-    },
-    "153": {
-      "id": 153,
-      "type": "fox",
-      "x": 2,
-      "y": 4,
-      "hunger": 8,
-      "age": 8
-    },
-    "154": {
-      "id": 154,
-      "type": "fox",
-      "x": 2,
-      "y": 6,
-      "hunger": 8,
-      "age": 8
-    },
-    "155": {
-      "id": 155,
-      "type": "fox",
-      "x": 5,
-      "y": 5,
-      "hunger": 8,
-      "age": 8
-    },
-    "157": {
-      "id": 157,
-      "type": "fox",
-      "x": 3,
-      "y": 2,
-      "hunger": 7,
-      "age": 7
-    },
-    "158": {
-      "id": 158,
-      "type": "fox",
-      "x": 4,
-      "y": 2,
-      "hunger": 7,
-      "age": 7
-    },
-    "159": {
-      "id": 159,
-      "type": "fox",
-      "x": 7,
-      "y": 4,
-      "hunger": 6,
-      "age": 7
-    },
-    "161": {
-      "id": 161,
-      "type": "fox",
-      "x": 2,
-      "y": 3,
-      "hunger": 6,
-      "age": 6
-    },
-    "162": {
-      "id": 162,
-      "type": "fox",
-      "x": 6,
-      "y": 2,
-      "hunger": 6,
-      "age": 6
-    },
-    "163": {
-      "id": 163,
-      "type": "fox",
-      "x": 1,
-      "y": 6,
-      "hunger": 6,
-      "age": 6
-    },
-    "164": {
-      "id": 164,
-      "type": "fox",
-      "x": 2,
-      "y": 5,
-      "hunger": 6,
-      "age": 6
-    },
-    "165": {
-      "id": 165,
-      "type": "fox",
-      "x": 4,
-      "y": 6,
-      "hunger": 6,
-      "age": 6
-    },
-    "166": {
-      "id": 166,
-      "type": "fox",
-      "x": 4,
-      "y": 6,
-      "hunger": 6,
-      "age": 6
-    },
-    "168": {
-      "id": 168,
-      "type": "fox",
-      "x": 2,
-      "y": 1,
-      "hunger": 5,
-      "age": 5
-    },
-    "169": {
-      "id": 169,
-      "type": "fox",
-      "x": 2,
-      "y": 0,
-      "hunger": 5,
-      "age": 5
-    },
-    "170": {
-      "id": 170,
-      "type": "fox",
-      "x": 0,
-      "y": 6,
-      "hunger": 5,
-      "age": 5
-    },
-    "171": {
-      "id": 171,
-      "type": "fox",
-      "x": 4,
-      "y": 0,
-      "hunger": 4,
-      "age": 4
-    },
-    "172": {
-      "id": 172,
-      "type": "fox",
-      "x": 3,
-      "y": 0,
-      "hunger": 4,
-      "age": 4
-    },
-    "173": {
-      "id": 173,
-      "type": "fox",
-      "x": 1,
-      "y": 2,
-      "hunger": 4,
-      "age": 4
-    },
-    "174": {
-      "id": 174,
-      "type": "fox",
-      "x": 5,
-      "y": 5,
-      "hunger": 4,
-      "age": 4
-    },
-    "175": {
-      "id": 175,
-      "type": "fox",
-      "x": 3,
-      "y": 6,
-      "hunger": 4,
-      "age": 4
-    },
-    "176": {
-      "id": 176,
-      "type": "fox",
-      "x": 2,
-      "y": 1,
-      "hunger": 3,
-      "age": 3
-    },
-    "177": {
-      "id": 177,
-      "type": "fox",
-      "x": 3,
-      "y": 1,
-      "hunger": 3,
-      "age": 3
-    },
-    "178": {
-      "id": 178,
-      "type": "fox",
-      "x": 2,
-      "y": 2,
-      "hunger": 3,
-      "age": 3
-    },
-    "179": {
-      "id": 179,
-      "type": "fox",
-      "x": 4,
-      "y": 3,
-      "hunger": 3,
-      "age": 3
     },
     "180": {
       "id": 180,
       "type": "fox",
       "x": 0,
       "y": 7,
-      "hunger": 2,
-      "age": 2
+      "hunger": 9,
+      "age": 9
     }
   },
   "next_entity_id": 181,
