@@ -1,5 +1,5 @@
 {
-  "day": 41,
+  "day": 48,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
@@ -193,9 +193,7 @@
     },
     {
       "grass": 4,
-      "entity_ids": [
-        118
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
@@ -231,9 +229,7 @@
     },
     {
       "grass": 0,
-      "entity_ids": [
-        180
-      ]
+      "entity_ids": []
     },
     {
       "grass": 0,
@@ -264,24 +260,7 @@
       "entity_ids": []
     }
   ],
-  "entities": {
-    "118": {
-      "id": 118,
-      "type": "fox",
-      "x": 7,
-      "y": 5,
-      "hunger": 9,
-      "age": 24
-    },
-    "180": {
-      "id": 180,
-      "type": "fox",
-      "x": 0,
-      "y": 7,
-      "hunger": 9,
-      "age": 9
-    }
-  },
+  "entities": {},
   "next_entity_id": 181,
   "_migration_version": 2
 }
