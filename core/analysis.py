@@ -11,7 +11,7 @@ import core.telemetry as telemetry
 from core.model import GridState
 from core.environment.producers import PRODUCER_PROFILES, PRODUCER_TYPES
 
-SPECIES = ("grass", "rabbits", "foxes")
+SPECIES = ("biomass", "rabbits", "foxes")
 PRODUCER_SPECIES = tuple(PRODUCER_TYPES)
 EXTINCTION_THRESHOLD = 0.5
 
@@ -19,7 +19,7 @@ EXTINCTION_THRESHOLD = 0.5
 @dataclass
 class Sample:
     day: int
-    grass: float
+    biomass: float
     rabbits: float
     foxes: float
     water_mean: float
@@ -31,7 +31,7 @@ class Sample:
     def as_dict(self) -> Dict[str, float | int | Dict[str, float]]:
         return {
             "day": self.day,
-            "grass": self.grass,
+            "biomass": self.biomass,
             "rabbits": self.rabbits,
             "foxes": self.foxes,
             "water_mean": self.water_mean,
@@ -129,7 +129,7 @@ def run(state: GridState, *, world_name: str, days: int, step: int, seed: int | 
         producer_totals = st.producer_totals()
         return {
             "day": float(st.day),
-            "grass": float(sum(producer_totals.values())),
+            "biomass": float(sum(producer_totals.values())),
             "rabbits": float(st.total_rabbits()),
             "foxes": float(st.total_foxes()),
             "producers": {name: float(producer_totals.get(name, 0)) for name in PRODUCER_SPECIES},
@@ -177,7 +177,7 @@ def run(state: GridState, *, world_name: str, days: int, step: int, seed: int | 
         samples.append(
             Sample(
                 day=int(totals["day"]),
-                grass=totals["grass"],
+                biomass=totals["biomass"],
                 rabbits=totals["rabbits"],
                 foxes=totals["foxes"],
                 water_mean=water["mean"],
@@ -306,24 +306,24 @@ def render_table(result: ForecastResult, *, capacity_details: bool = False) -> s
     init = result.initial_state
     lines.append(
         "Initial state: "
-        f"Day {int(init['day'])}, Grass={init['grass']:.0f}, Rabbits={init['rabbits']:.0f}, Foxes={init['foxes']:.0f}"
+        f"Day {int(init['day'])}, Biomass={init['biomass']:.0f}, Rabbits={init['rabbits']:.0f}, Foxes={init['foxes']:.0f}"
     )
     if isinstance(init.get("producers"), dict):
         lines.append("Initial producers: " + _format_producer_totals(init["producers"]))
     lines.append("")
     producer_header = " ".join(f"{PRODUCER_PROFILES[name].emoji:>6}" for name in PRODUCER_SPECIES)
-    lines.append(f"Day    Grass   Rabbits  Foxes   Water  Dry  {producer_header}".rstrip())
+    lines.append(f"Day    Biomass Rabbits  Foxes   Water  Dry  {producer_header}".rstrip())
     for sample in result.samples:
         warn = _extinction_warning(sample, result.summary)
         producer_values = " ".join(f"{sample.producers.get(name, 0):6.0f}" for name in PRODUCER_SPECIES)
         lines.append(
-            f"{sample.day:4d}    {sample.grass:4.0f}      {sample.rabbits:3.0f}      {sample.foxes:3.0f}   "
+            f"{sample.day:4d}    {sample.biomass:4.0f}      {sample.rabbits:3.0f}      {sample.foxes:3.0f}   "
             f"{sample.water_mean:4.2f}   {sample.dry_cells:3d}  {producer_values}{warn}"
         )
 
     lines.append("")
     lines.append(f"Summary ({result.days} days):")
-    for label, species in ("Grass", "grass"), ("Rabbits", "rabbits"), ("Foxes", "foxes"):
+    for label, species in ("Biomass", "biomass"), ("Rabbits", "rabbits"), ("Foxes", "foxes"):
         metric = result.summary[species]
         status = ""
         if metric.extinct_days:
@@ -382,8 +382,8 @@ def _extinction_warning(sample: Sample, summary: Dict[str, MetricSummary]) -> st
         warnings.append("Foxes extinct")
     if sample.rabbits <= EXTINCTION_THRESHOLD:
         warnings.append("Rabbits extinct")
-    if sample.grass <= EXTINCTION_THRESHOLD:
-        warnings.append("Grass depleted")
+    if sample.biomass <= EXTINCTION_THRESHOLD:
+        warnings.append("Biomass depleted")
     if warnings:
         return "  ⚠️  " + "; ".join(warnings)
     return ""
@@ -391,14 +391,14 @@ def _extinction_warning(sample: Sample, summary: Dict[str, MetricSummary]) -> st
 
 def render_csv(result: ForecastResult, *, include_capacity: bool = False) -> str:
     producer_headers = ",".join(f"producer_{name}" for name in PRODUCER_SPECIES)
-    base_header = "day,grass,rabbits,foxes,water_mean,water_min,water_max,dry_cells"
+    base_header = "day,biomass,rabbits,foxes,water_mean,water_min,water_max,dry_cells"
     header = f"{base_header},{producer_headers}" if producer_headers else base_header
     lines = [header]
     for sample in result.samples:
         producer_values = ",".join(str(int(sample.producers.get(name, 0))) for name in PRODUCER_SPECIES)
         producer_text = f",{producer_values}" if producer_values else ""
         lines.append(
-            f"{sample.day},{sample.grass:.0f},{sample.rabbits:.0f},{sample.foxes:.0f},"
+            f"{sample.day},{sample.biomass:.0f},{sample.rabbits:.0f},{sample.foxes:.0f},"
             f"{sample.water_mean:.3f},{sample.water_min:.3f},{sample.water_max:.3f},{sample.dry_cells}"
             f"{producer_text}"
         )

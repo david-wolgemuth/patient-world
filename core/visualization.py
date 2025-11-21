@@ -20,7 +20,7 @@ HERBIVORE_EMOJIS = {profile.type: profile.emoji for profile in HERBIVORE_PROFILE
 def generate_snapshot(state: GridState) -> str:
     grid_viz = render_grid(state)
     totals = (
-        f"🌱 {state.total_grass()}  "
+        f"🌱 {state.total_biomass()}  "
         f"🐇 {state.total_rabbits()}  "
         f"🦊 {state.total_foxes()}"
     )

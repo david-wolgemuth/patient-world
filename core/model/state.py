@@ -91,7 +91,7 @@ class GridState:
             coords.append((x + 1, y))
         return coords
 
-    def total_grass(self) -> int:
+    def total_biomass(self) -> int:
         return int(sum(cell.total_producer_biomass() for cell in self.cells))
 
     def total_producer(self, producer_name: str) -> int:

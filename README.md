@@ -158,16 +158,16 @@ Sample output:
 
 ```
 Forecasting 'dev' world for 365 days (sampling every 30 days)
-Initial state: Day 94, Grass=944, Rabbits=127, Foxes=74
+Initial state: Day 94, Biomass=944, Rabbits=127, Foxes=74
 
-Day    Grass   Rabbits  Foxes   Water  Dry
+Day    Biomass Rabbits  Foxes   Water  Dry
   94     944      127      74   0.57     0
- 124     811       96      58   0.55     2
- 154     705       73      46   0.53     4
+  124     811       96      58   0.55     2
+  154     705       73      46   0.53     4
  ...
 
 Summary (365 days):
-  Grass    start=944  end=712  min=412  max=1000
+  Biomass  start=944  end=712  min=412  max=1000
   Rabbits  start=127  end=53   min=18   max=145
   Foxes    start=74   end=21   min=6    max=84
   Water    mean start=0.57 end=0.54 range=0.52-0.59 cell range=0.18-0.94
@@ -176,6 +176,8 @@ Summary (365 days):
 Capacity-limited events: 82 across 19 cells (active on 12 days)
   Hotspots: (4,3)×10, (5,3)×8, (6,3)×7
 ```
+
+The `Biomass` column represents the total live producer biomass across every guild (fast grass, shrubs, mosses, vines, etc.), so the quick-look metric no longer clashes with the dedicated `fast_grass` guild that appears in the per-guild columns.
 
 Use `--seed` for reproducible before/after comparisons and `--format csv|json` to feed spreadsheets or QA scripts. CSV/JSON formats include the same water fields as the table view so downstream tooling can read abiotic trends directly.
 Add `--capacity-report` to either `tick` or `forecast` to include per-run carrying-capacity stats and layer totals; the summaries also show up automatically in table output and can be appended to CSV exports via `--capacity-report`.

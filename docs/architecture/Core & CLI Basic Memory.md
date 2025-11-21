@@ -30,7 +30,7 @@ This note captures the architectural facts that routinely come up during onboard
 ### `GridState` (`core/model/state.py`)
 - Core fields: `day`, `grid_width`, `grid_height`, `cells: List[Cell]`, `entities: Dict[int, Entity]`, `next_entity_id`, `migration_version`.
 - Lifecycle helpers: `from_dict`, `to_dict`, `clone`, `spawn_entity`, `remove_entity`, `move_entity`.
-- Convenience queries: getters/setters for single cells; `neighbors`, totals (`total_grass`, `total_rabbits`, `total_foxes`), iteration over coordinates, and `entities_in_cell` / `entities_by_type`.
+- Convenience queries: getters/setters for single cells; `neighbors`, totals (`total_biomass`, `total_rabbits`, `total_foxes`), iteration over coordinates, and `entities_in_cell` / `entities_by_type`.
 - Integrity: validates cell count in `__post_init__`, enforces bounds via `_index`.
 
 ## Entity System Status

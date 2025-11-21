@@ -133,7 +133,7 @@ def main() -> int:
     print(
         f"Sanity checks passed after {args.ticks} ticks "
         f"(Day {final_state.day}, totals: "
-        f"🌱{final_state.total_grass()} 🐇{final_state.total_rabbits()} 🦊{final_state.total_foxes()})"
+        f"🌱{final_state.total_biomass()} 🐇{final_state.total_rabbits()} 🦊{final_state.total_foxes()})"
     )
     return 0
 

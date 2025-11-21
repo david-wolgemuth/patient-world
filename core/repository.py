@@ -13,11 +13,11 @@ from core.environment.producers import PRODUCER_PROFILES, PRODUCER_TYPES, empty_
 from core.model import GridState
 
 PRODUCER_HISTORY_FIELDS = [f"producer_{name}" for name in PRODUCER_TYPES]
-HISTORY_HEADER = "timestamp,day,grass,rabbits,foxes"
+HISTORY_HEADER = "timestamp,day,biomass,rabbits,foxes"
 if PRODUCER_HISTORY_FIELDS:
     HISTORY_HEADER = HISTORY_HEADER + "," + ",".join(PRODUCER_HISTORY_FIELDS)
 WORLDS_DIR = Path("worlds")
-DEFAULT_CELL_GRASS = 50
+DEFAULT_CELL_BIOMASS = 50
 EXPECTED_MIGRATION_VERSION = 2
 
 
@@ -100,7 +100,7 @@ def log_history(world_name: str, state: GridState) -> None:
         ordered = ",".join(str(producers.get(name, 0)) for name in PRODUCER_TYPES)
         producer_segment = f",{ordered}"
     line = (
-        f"{timestamp},{state.day},{state.total_grass():.0f},{state.total_rabbits():.0f},"
+        f"{timestamp},{state.day},{state.total_biomass():.0f},{state.total_rabbits():.0f},"
         f"{state.total_foxes():.0f}{producer_segment}\n"
     )
     with history_file.open("a") as fh:
@@ -112,12 +112,12 @@ def init_grid_world(
     *,
     width: int = 10,
     height: int = 10,
-    total_grass: int | None = None,
+    total_biomass: int | None = None,
     total_rabbits: int = 20,
     total_foxes: int = 5,
 ) -> GridState:
     ensure_directory(get_paths(world_name).directory)
-    base_grass = DEFAULT_CELL_GRASS if total_grass is None else int(total_grass)
+    base_grass = DEFAULT_CELL_BIOMASS if total_biomass is None else int(total_biomass)
     rng = random.Random()
     water_noise = generate_water_distribution(width, height, seed=f"{world_name}-water")
     cells = []
