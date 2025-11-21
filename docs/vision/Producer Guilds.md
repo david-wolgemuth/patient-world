@@ -1,22 +1,43 @@
-# Producer Guilds
+# Producer Guilds (Deep Dive)
 
-Patient World now tracks four concurrent producer guilds per cell. Each guild brings different ecological effects, growth constraints, and visualization cues.
+Patient World now tracks **eighteen** vegetation guilds split across two layers. Each guild has distinct water/fertility preferences, succession dependencies, and emoji for visualization/logging.
 
-| Guild | Emoji | Layer | Growth Traits | Tradeoffs |
-| --- | --- | --- | --- | --- |
-| Fast grass | 🌱 | Ground | Grows rapidly whenever water + fertility are adequate. Uses the base resource multiplier and recovers from grazing quickly. | Shallow roots mean it collapses if shrubs do not establish; rabbits deplete it after seasonal booms. |
-| Seasonal annuals | 🌼 | Ground | Explosive growth inside the active season window (roughly 15%–55% of the annual cycle). Outside of that window the guild drops most of its biomass into seed banks. | First-choice forage for rabbits; heavy dormancy losses leave patches bare if no other guilds share the tile. |
-| Slow shrubs | 🌿 | Canopy | Seeds only where fast grass is already abundant. Gains stability once water and fertility are moderate. | Expansion stops when the ground layer is thin, so repeated disturbances can keep shrubs away permanently. |
-| Deep-rooted plants | 🌳 | Canopy | Requires existing shrub cover and grows slowly but benefits more from high fertility than the other guilds. | Rare without shrubs; ties up canopy capacity so fast-growing shrubs cannot respawn as quickly after fire or grazing. |
+## Ground Layer (cap ≈ 200 biomass/cell)
+| Emoji | Guild | Growth Traits | Tradeoffs |
+| --- | --- | --- | --- |
+| 🌱 Fast grass | Recovers immediately after rain or grazing and props up early succession. | Burns out without shade, leaving bare soil in droughts. |
+| 🌼 Seasonal annuals | Explode inside a narrow seasonal window, refilling seed banks. | Collapse to seeds outside bloom season; first target for rabbits. |
+| 🌺 Forb wildflowers | Mid-season forbs that boost pollen/seed production once grass is stable. | Need a healthy fast-grass base and scorch easily in droughts. |
+| 🪨 Lichen crust | Colonizes barren, dry tiles and slowly stabilizes soil. | Extremely slow growth and low forage value. |
+| 🍀 Moss carpets | Trap humidity and protect soil in shaded wetlands. | Suffocate in heat/drought; minimal nutrition for herbivores. |
+| 🎋 Reed beds | Dominate banks and flooded cells, slowing erosion. | Require consistently wet cells; die back when water drops. |
+| 🪷 Bog sedges | Thick freshwater mats that extend wetlands inland. | Collapse when water tables fall; slow to reestablish elsewhere. |
+| 🍄 Fungal mats | Recycle shrub litter into nutrients and shade the ground. | Need moss/shrub litter; go dormant outside humid stretches. |
+| 🌵 Succulent clusters | Store water for drought years and colonize barren cells. | Spread slowly and lose ground to faster guilds in wet seasons. |
+| 🌻 Desert bloomers | Rare but dramatic blooms triggered by storms. | Spend most of the year dormant; need succulents nearby to reseed. |
+
+## Canopy Layer (cap ≈ 150 biomass/cell)
+| Emoji | Guild | Growth Traits | Tradeoffs |
+| --- | --- | --- | --- |
+| 🌿 Slow shrubs | Provide woody cover, seed beds, and browse for herbivores. | Need established ground cover; crowding throttles expansion. |
+| 🌳 Deep-rooted plants | Anchor the canopy and tap deep aquifers to stabilize drought years. | Only propagate where shrubs are dense; very slow recovery. |
+| 🍎 Fruit trees | Offer high-energy forage and dense shade once shrubs mature. | Sensitive to drought; require fertile cells plus shrub scaffolding. |
+| 🌲 Needle conifers | Thrive on poor soils and cooler, drier slopes. | Shed acidic litter and suppress shrub regeneration under heavy cover. |
+| 🍂 Pioneer brush | Fire-following shrubs that recolonize disturbed cells. | Short-lived and easily outcompeted once taller guilds return. |
+| 🌸 Vine canopy | Opportunistic climbers that exploit shrub lattices to spread quickly. | Dormant outside warm, wet spans; can smother shrubs if unmanaged. |
+| 🌴 Palm crowns | Humid floodplain specialists that provide fruit and shade. | Struggle in cold/dry cells and require high water tables. |
+| 🍃 Mangrove canopy | Salt-tolerant trees that bridge land and tidal wetlands. | Only thrive in saturated coastal cells; slow to expand inland. |
 
 ## Layer caps
 
-- Ground layer (fast grass + seasonal annuals) caps at ~120 biomass units per cell.
-- Canopy layer (slow shrubs + deep roots) caps at ~95 biomass units per cell.
-- `Cell.clamp_layers()` enforces the caps after every tick so each layer represents a competing share of light/space.
+- Ground layer: 200 biomass units shared by the ten ground guilds.
+- Canopy layer: 150 biomass units shared by the eight canopy guilds.
+- `Cell.layer_capacity()` dynamically adjusts caps per tile based on water/fertility/history, so wetlands can host more reeds while drought cells favor succulents/conifers.
+- `Cell.clamp_layers()` keeps every tick within those limits and records carrying-capacity events for telemetry.
 
 ## Gameplay implications
 
-- Rabbits graze in the order `annuals → fast grass → shrubs`, so mixed cells buffer grazing waves.
-- Shrubs seed when grass is dense, and deep roots rely on shrubs; clearing the ground resets those succession ladders.
-- Visualization now surfaces the dominant producer emoji whenever no animals occupy a tile, making it easier to spot shrub islands or seasonal blooms at a glance.
+- **Tick + forecast outputs list every guild** with emoji totals, so you can see biomass shifts at a glance.
+- Herbivores graze the diet chain `annuals → fast grass → reeds/moss → shrubs`, so mixing guilds is the only way to buffer boom/bust cycles.
+- Moisture regimes now matter: reeds/fungal mats explode in wetlands while succulents seize drought cells; capacity telemetry flags hotspots when layers saturate.
+- Forecast CSV/JSON/table outputs include per-guild statistics (start/end/min/max/extinction days) for regression tracking and QA diffing.

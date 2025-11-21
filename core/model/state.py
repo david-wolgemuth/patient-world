@@ -110,6 +110,33 @@ class GridState:
     def total_foxes(self) -> int:
         return sum(1 for entity in self.entities.values() if entity.type == "fox")
 
+    def water_stats(self, *, dry_threshold: float = 0.2) -> Dict[str, float | int]:
+        """Return aggregate water statistics across all cells."""
+
+        if not self.cells:
+            return {"mean": 0.0, "min": 0.0, "max": 0.0, "dry_cells": 0, "dry_percent": 0.0}
+        total = 0.0
+        minimum = 1.0
+        maximum = 0.0
+        dry_cells = 0
+        for cell in self.cells:
+            water = cell.get_water() if hasattr(cell, "get_water") else float(getattr(cell, "water", 0.0))
+            total += water
+            minimum = min(minimum, water)
+            maximum = max(maximum, water)
+            if water <= dry_threshold:
+                dry_cells += 1
+        count = len(self.cells)
+        mean = total / count if count else 0.0
+        dry_percent = dry_cells / count if count else 0.0
+        return {
+            "mean": mean,
+            "min": minimum,
+            "max": maximum,
+            "dry_cells": dry_cells,
+            "dry_percent": dry_percent,
+        }
+
     def clone(self) -> "GridState":
         return GridState(
             day=int(self.day),

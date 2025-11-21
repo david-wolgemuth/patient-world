@@ -23,10 +23,20 @@ MULTIPLIER_BLOCK_THRESHOLD = 0.1
 MULTIPLIER_MIN = 0.35
 MULTIPLIER_MAX = 1.6
 NOISE_SCALE = 0.10
-RABBIT_DIET: Sequence[str] = ("seasonal_annuals", "fast_grass", "slow_shrubs")
+RABBIT_DIET: Sequence[str] = (
+    "seasonal_annuals",
+    "fast_grass",
+    "forb_wildflowers",
+    "reed_beds",
+    "bog_sedges",
+    "moss_carpet",
+    "succulent_cluster",
+    "desert_bloomers",
+    "slow_shrubs",
+)
 
 
-def apply_all(state: GridState) -> None:
+def apply_all(state: GridState, *, log_capacity: bool = True) -> None:
     """Run all rule steps in canonical order."""
     state.capacity_events.clear()
     grow_producers(state)
@@ -34,7 +44,7 @@ def apply_all(state: GridState) -> None:
     tick_foxes(state)
     apply_entity_diffusion(state)
     remove_dead_entities(state)
-    if state.capacity_events:
+    if log_capacity and state.capacity_events:
         _log_capacity_summary(state)
 
 

@@ -22,7 +22,7 @@ This note captures the architectural facts that routinely come up during onboard
 
 ## Data Models
 ### `Cell` (`core/environment/cell.py`)
-- Fields: `producers: Dict[str, int]` (fast grass, seasonal annuals, slow shrubs, deep roots), `entity_ids: List[int]`, `water`, `fertility`, `temperature`.
+- Fields: `producers: Dict[str, int]` (see **docs/vision/Producer Guilds** for the 18 supported guilds), `entity_ids: List[int]`, `water`, `fertility`, `temperature`.
 - Constructors/serialization: `from_dict`, `to_dict`, `copy`.
 - Mutation helpers: `add_entity`, `remove_entity`, `adjust_producer`, `clamp_layers`.
 - Query helpers: `count_type`, `rabbits`, `foxes`, `ground_cover`, `canopy_cover`, `iter_entities` (yields resolved `Entity` instances).

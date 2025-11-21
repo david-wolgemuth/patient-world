@@ -35,6 +35,17 @@ def build_fixture(width: int = 5, height: int = 5) -> GridState:
             producers["fast_grass"] = base
             producers["seasonal_annuals"] = base // 3
             producers["slow_shrubs"] = base // 4
+            producers["deep_roots"] = base // 5
+            if (x + y) % 3 == 0:
+                producers["moss_carpet"] = base // 5
+                producers["fungal_mat"] = base // 6
+            if (x + y) % 4 == 0:
+                producers["reed_beds"] = base // 4
+            if (x + y) % 5 == 0:
+                producers["succulent_cluster"] = base // 6
+            producers["fruit_trees"] = base // 6
+            producers["needle_conifers"] = base // 7
+            producers["vine_canopy"] = base // 8
             cells.append(Cell(producers=producers))
     state = GridState(day=0, grid_width=width, grid_height=height, cells=cells, migration_version=2)
     for _ in range(40):

@@ -9,6 +9,7 @@ from typing import List
 import core.analysis as analysis
 import core.repository as repository
 import core.scheduler as scheduler
+import core.telemetry as telemetry
 import core.visualization as visualization
 from core.model import GridState
 from migrations import runner
@@ -44,6 +45,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Update README snapshot for this world",
     )
+    tick_p.add_argument(
+        "--capacity-report",
+        action="store_true",
+        help="Print detailed carrying-capacity stats after the run",
+    )
     tick_p.set_defaults(func=cmd_tick)
 
     forecast_p = subparsers.add_parser("forecast", help="Forecast world evolution (read-only)")
@@ -56,6 +62,11 @@ def build_parser() -> argparse.ArgumentParser:
         choices=("table", "csv", "json"),
         default="table",
         help="Output format",
+    )
+    forecast_p.add_argument(
+        "--capacity-report",
+        action="store_true",
+        help="Show detailed carrying-capacity stats for the simulated window",
     )
     forecast_p.set_defaults(func=cmd_forecast)
 
@@ -77,9 +88,11 @@ def build_parser() -> argparse.ArgumentParser:
 def cmd_tick(args: argparse.Namespace) -> None:
     runner.run_pending(args.world)
     state = repository.load_world(args.world)
+    capacity_tracker = telemetry.CapacityTracker()
 
     for _ in range(max(args.count, 0)):
         state = scheduler.tick_grid(state)
+        capacity_tracker.ingest(state.capacity_events)
 
     repository.save_world(args.world, state)
 
@@ -96,6 +109,10 @@ def cmd_tick(args: argparse.Namespace) -> None:
         visualization.update_readme(args.world)
 
     print(repository.format_summary(args.world, state))
+    lines = telemetry.format_capacity_lines(capacity_tracker.snapshot(), verbose=args.capacity_report)
+    if lines:
+        for line in lines:
+            print(line)
 
 
 def cmd_forecast(args: argparse.Namespace) -> None:
@@ -110,9 +127,9 @@ def cmd_forecast(args: argparse.Namespace) -> None:
     )
 
     if args.format == "table":
-        print(analysis.render_table(result))
+        print(analysis.render_table(result, capacity_details=args.capacity_report))
     elif args.format == "csv":
-        print(analysis.render_csv(result))
+        print(analysis.render_csv(result, include_capacity=args.capacity_report))
     else:
         print(analysis.render_json(result))
 
