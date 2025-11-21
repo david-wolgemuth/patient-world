@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 from typing import Dict, Iterable, List, Sequence, Tuple
 
 from core.environment import Cell
+from core.environment.producers import PRODUCER_TYPES
 from core.agents import Entity
 
 
@@ -19,6 +20,7 @@ class GridState:
     entities: Dict[int, Entity] = field(default_factory=dict)
     next_entity_id: int = 1
     migration_version: int = 2
+    capacity_events: List[Dict[str, int]] = field(default_factory=list, repr=False, compare=False)
 
     def __post_init__(self) -> None:
         expected = self.grid_width * self.grid_height
@@ -32,7 +34,7 @@ class GridState:
         width = int(data["grid_width"])
         height = int(data["grid_height"])
         cells_raw: Sequence[dict] = data["cells"]
-        cells = [Cell.from_dict(cell) for cell in cells_raw]
+        cells = [Cell.from_dict(cell, seed=index) for index, cell in enumerate(cells_raw)]
         entities_raw = data.get("entities", {})
         entities: Dict[int, Entity] = {}
         if isinstance(entities_raw, dict):
@@ -89,17 +91,51 @@ class GridState:
             coords.append((x + 1, y))
         return coords
 
-    def _total(self, attr: str) -> int:
-        return int(sum(getattr(cell, attr) for cell in self.cells))
+    def total_biomass(self) -> int:
+        return int(sum(cell.total_producer_biomass() for cell in self.cells))
 
-    def total_grass(self) -> int:
-        return self._total("grass")
+    def total_producer(self, producer_name: str) -> int:
+        return int(sum(cell.producer_amount(producer_name) for cell in self.cells))
+
+    def producer_totals(self) -> Dict[str, int]:
+        totals = {name: 0 for name in PRODUCER_TYPES}
+        for cell in self.cells:
+            for name in PRODUCER_TYPES:
+                totals[name] += cell.producer_amount(name)
+        return totals
 
     def total_rabbits(self) -> int:
         return sum(1 for entity in self.entities.values() if entity.type == "rabbit")
 
     def total_foxes(self) -> int:
         return sum(1 for entity in self.entities.values() if entity.type == "fox")
+
+    def water_stats(self, *, dry_threshold: float = 0.2) -> Dict[str, float | int]:
+        """Return aggregate water statistics across all cells."""
+
+        if not self.cells:
+            return {"mean": 0.0, "min": 0.0, "max": 0.0, "dry_cells": 0, "dry_percent": 0.0}
+        total = 0.0
+        minimum = 1.0
+        maximum = 0.0
+        dry_cells = 0
+        for cell in self.cells:
+            water = cell.get_water() if hasattr(cell, "get_water") else float(getattr(cell, "water", 0.0))
+            total += water
+            minimum = min(minimum, water)
+            maximum = max(maximum, water)
+            if water <= dry_threshold:
+                dry_cells += 1
+        count = len(self.cells)
+        mean = total / count if count else 0.0
+        dry_percent = dry_cells / count if count else 0.0
+        return {
+            "mean": mean,
+            "min": minimum,
+            "max": maximum,
+            "dry_cells": dry_cells,
+            "dry_percent": dry_percent,
+        }
 
     def clone(self) -> "GridState":
         return GridState(
@@ -110,6 +146,19 @@ class GridState:
             entities={eid: Entity.from_dict(entity.to_dict()) for eid, entity in self.entities.items()},
             next_entity_id=int(self.next_entity_id),
             migration_version=int(self.migration_version),
+            capacity_events=[],
+        )
+
+    def record_capacity_event(self, *, x: int, y: int, layer: str, total: int, capacity: int) -> None:
+        self.capacity_events.append(
+            {
+                "day": int(self.day),
+                "x": int(x),
+                "y": int(y),
+                "layer": layer,
+                "total": int(total),
+                "capacity": int(capacity),
+            }
         )
 
     def iter_coords(self) -> Iterable[Tuple[int, int]]:

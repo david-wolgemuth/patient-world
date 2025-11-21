@@ -6,19 +6,21 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
-from core.agents import Entity
+from core.agents import Entity, HERBIVORE_PROFILES
 from core.environment import Cell
 import core.repository as repository
 from core.model import GridState
 
 PROD_MARKERS = ("<!-- SNAPSHOT START -->", "<!-- SNAPSHOT END -->")
 STAGING_MARKERS = ("<!-- STAGING SNAPSHOT START -->", "<!-- STAGING SNAPSHOT END -->")
+HERBIVORE_DISPLAY_ORDER = ("grazer", "browser", "rabbit")
+HERBIVORE_EMOJIS = {profile.type: profile.emoji for profile in HERBIVORE_PROFILES.values()}
 
 
 def generate_snapshot(state: GridState) -> str:
     grid_viz = render_grid(state)
     totals = (
-        f"🌱 {state.total_grass()}  "
+        f"🌱 {state.total_biomass()}  "
         f"🐇 {state.total_rabbits()}  "
         f"🦊 {state.total_foxes()}"
     )
@@ -57,17 +59,28 @@ def update_readme(world_name: str, *, staging: bool | None = None) -> None:
 
 
 def cell_to_emoji(cell: Cell, entities: Dict[int, Entity]) -> str:
-    rabbits = cell.rabbits(entities)
     foxes = cell.foxes(entities)
     if foxes > 0:
         return "🦊"
-    if rabbits > 0:
-        return "🐇"
-    if cell.grass > 70:
-        return "🌲"
-    if cell.grass > 20:
-        return "🌱"
+    herbivore_symbol = _herbivore_symbol(cell, entities)
+    if herbivore_symbol:
+        return herbivore_symbol
+    producer = cell.producer_emoji()
+    if producer:
+        return producer
     return "▫️"
+
+
+def _herbivore_symbol(cell: Cell, entities: Dict[int, Entity]) -> str | None:
+    if not cell.entity_ids:
+        return None
+    for herbivore_type in HERBIVORE_DISPLAY_ORDER:
+        symbol = HERBIVORE_EMOJIS.get(herbivore_type)
+        if not symbol:
+            continue
+        if any(entity.type == herbivore_type for entity in cell.iter_entities(entities)):
+            return symbol
+    return None
 
 
 def render_grid(state: GridState) -> str:

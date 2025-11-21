@@ -44,16 +44,68 @@ All worlds now share a single grid schema (no legacy scalar fields):
   "grid_width": 10,
   "grid_height": 10,
   "cells": [
-    {"grass": 52, "rabbits": 3, "foxes": 0},
-    {"grass": 48, "rabbits": 2, "foxes": 1},
-    {"grass": 61, "rabbits": 0, "foxes": 0}
+    {
+      "producers": {
+        "fast_grass": 52,
+        "seasonal_annuals": 18,
+        "forb_wildflowers": 11,
+        "lichen_crust": 4,
+        "slow_shrubs": 9,
+        "deep_roots": 4,
+        "moss_carpet": 7,
+        "reed_beds": 3,
+        "bog_sedges": 6,
+        "fungal_mat": 5,
+        "succulent_cluster": 2,
+        "desert_bloomers": 0,
+        "fruit_trees": 4,
+        "needle_conifers": 2,
+        "pioneer_brush": 2,
+        "vine_canopy": 1,
+        "palm_crowns": 0,
+        "mangrove_canopy": 0
+      },
+      "entity_ids": [12, 19],
+      "water": 0.64,
+      "fertility": 0.47,
+      "temperature": 0.58
+    }
   ]
 }
 ```
 
-Cells are stored row-major (`y * width + x`). Helpers under `core/environment/`, `core/model/`, and `core/rules.py` handle JSON (de)serialization, neighbor
+Cells are stored row-major (`y * width + x`). Each carries an environment profile (water/fertility/temperature) plus four producer guilds that can coexist in the same tile. Helpers under `core/environment/`, `core/model/`, and `core/rules.py` handle JSON (de)serialization, neighbor
 computation, totals, and emoji visualization. Each state also carries a `_migration_version` metadata field so the CLI
 can refuse to run until all migrations have been applied.
+
+### Producer Guilds & Emojis
+#### Ground Layer (cap ≈ 200 per cell)
+| Emoji | Guild | Traits | Tradeoffs |
+| --- | --- | --- | --- |
+| 🌱 | Fast grass | Rapid regrowth immediately after rain or grazing. | Shallow roots; collapses quickly if shrubs/vines don't shelter soil. |
+| 🌼 | Seasonal annuals | Explosive bursts inside a narrow growing window. | Drop to seed banks outside bloom season; first target for herbivores. |
+| 🌺 | Forb wildflowers | Mid-season forbs that boost pollen/seed production once grass is stable. | Need a healthy fast-grass base and scorch easily in droughts. |
+| 🪨 | Lichen crust | Colonizes barren, dry tiles and slowly stabilizes soil. | Extremely slow growth and low forage value. |
+| 🍀 | Moss carpets | Keep soil moist and prevent erosion in shaded wetlands. | Suffocate if soils dry out or temperatures spike. |
+| 🎋 | Reed beds | Tall marsh grasses that thrive on flooded shores. | Require consistently wet cells; offer little nutrition when dry. |
+| 🪷 | Bog sedges | Thick freshwater mats that extend wetlands inland. | Collapse when water tables fall; slow to reestablish elsewhere. |
+| 🍄 | Fungal mats | Recycle woody litter into nutrients while shading soil. | Depend on moss/shrub litter; heavy dormancy outside humid stretches. |
+| 🌵 | Succulent clusters | Store water for drought years and stabilize barren tiles. | Spread slowly and lose ground to faster guilds in wet seasons. |
+| 🌻 | Desert bloomers | Rare but dramatic blooms triggered by storms. | Spend most of the year dormant; need succulents nearby to reseed. |
+
+#### Canopy Layer (cap ≈ 150 per cell)
+| Emoji | Guild | Traits | Tradeoffs |
+| --- | --- | --- | --- |
+| 🌿 | Slow shrubs | Woody understory that shields grass and feeds browsers. | Need established ground cover; crowding limits expansion but protects soil. |
+| 🌳 | Deep-rooted plants | Anchor the canopy and tap deep water tables. | Only arrive where shrubs already thrive; slow to recover after disturbance. |
+| 🍎 | Fruit trees | Produce rich forage and shade once shrubs mature. | Sensitive to drought; require high fertility and shrub support. |
+| 🌲 | Needle conifers | Tolerate poor soils and cold/dry slopes. | Slow growth and acidic litter hinder shrub regeneration. |
+| 🍂 | Pioneer brush | Fire-following shrubs that recolonize disturbed cells. | Short-lived and easily outcompeted once taller guilds return. |
+| 🌸 | Vine canopy | Opportunistic climbers that exploit shrub scaffolding. | Go dormant outside warm, wet seasons; can smother shrubs if unchecked. |
+| 🌴 | Palm crowns | Humid floodplain specialists that provide fruit and shade. | Struggle in cold/dry cells and require high water tables. |
+| 🍃 | Mangrove canopy | Salt-tolerant trees that bridge land and tidal wetlands. | Only thrive in saturated coastal cells; slow to expand inland. |
+
+Tick summaries and forecast tables now list each emoji so you can see where biomass shifts between guilds. Rabbits graze annuals → grass → reeds/moss → shrubs, so keeping multiple guilds in a cell is the only way to avoid bare ground after a boom. Visualization uses the guild emojis whenever a cell is free of animals.
 
 Use `python3 migrations/0001_grid_state.py <world>` once per world to convert older aggregate state files. The script creates
 `state.json.backup` beside the new grid file for safekeeping.
@@ -66,11 +118,13 @@ Use `python3 migrations/0001_grid_state.py <world>` once per world to convert ol
 
 ## Running Locally
 - Default flow: `./sim.py` or `./sim.py tick` → ticks `dev` once and prints the new totals.
+- The one-line summary now includes 💧water mean plus the number of "dry" cells (≤0.2 water) so you can tell when abiotic stress is building without cracking open snapshots.
 - Examples:
   ```bash
   python3 sim.py --count 100            # fast-forward dev
-  python3 sim.py prod --snapshot --log  # prod tick with side effects
-  python3 sim.py staging --count 10     # experiment in staging
+  python3 sim.py prod --snapshot --log              # prod tick with side effects
+  python3 sim.py staging --count 10                 # experiment in staging
+  python3 sim.py dev --capacity-report --count 25   # show carrying-capacity hotspots
   python3 sim.py tick prod --snapshot --log --update-readme  # explicit subcommand
   ```
 - Initialize new worlds with the grid-aware helper:
@@ -86,6 +140,7 @@ Add flags to the main command (or `tick` subcommand):
 python3 sim.py prod --snapshot --log --update-readme
 python3 sim.py dev --count 0 --snapshot      # regenerate snapshot without ticking
 python3 sim.py staging --snapshot --update-readme
+python3 sim.py tick dev --capacity-report    # print capacity stats after ticking
 ```
 
 ## Forecast (Read-only)
@@ -103,21 +158,30 @@ Sample output:
 
 ```
 Forecasting 'dev' world for 365 days (sampling every 30 days)
-Initial state: Day 94, Grass=944, Rabbits=127, Foxes=74
+Initial state: Day 94, Biomass=944, Rabbits=127, Foxes=74
 
-Day    Grass   Rabbits  Foxes
-  94     944      127      74
- 124     811       96      58
- 154     705       73      46
+Day    Biomass Rabbits  Foxes   Water  Dry
+  94     944      127      74   0.57     0
+  124     811       96      58   0.55     2
+  154     705       73      46   0.53     4
  ...
 
 Summary (365 days):
-  Grass    start=944  end=712  min=412  max=1000
+  Biomass  start=944  end=712  min=412  max=1000
   Rabbits  start=127  end=53   min=18   max=145
   Foxes    start=74   end=21   min=6    max=84
+  Water    mean start=0.57 end=0.54 range=0.52-0.59 cell range=0.18-0.94
+    Dry cells max=7 on day 210 (<=0.2 water)
+
+Capacity-limited events: 82 across 19 cells (active on 12 days)
+  Hotspots: (4,3)×10, (5,3)×8, (6,3)×7
 ```
 
-Use `--seed` for reproducible before/after comparisons and `--format csv|json` to feed spreadsheets or QA scripts.
+The `Biomass` column represents the total live producer biomass across every guild (fast grass, shrubs, mosses, vines, etc.), so the quick-look metric no longer clashes with the dedicated `fast_grass` guild that appears in the per-guild columns.
+
+Use `--seed` for reproducible before/after comparisons and `--format csv|json` to feed spreadsheets or QA scripts. CSV/JSON formats include the same water fields as the table view so downstream tooling can read abiotic trends directly.
+Add `--capacity-report` to either `tick` or `forecast` to include per-run carrying-capacity stats and layer totals; the summaries also show up automatically in table output and can be appended to CSV exports via `--capacity-report`.
+Every forecast row now includes per-guild columns (one per emoji), and the summary block lists start/end/min/max/extinction stats for each producer so you can trace biomass shifts over long horizons.
 
 To stage and commit a particular world's files manually (used by CI):
 ```bash

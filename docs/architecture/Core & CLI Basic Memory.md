@@ -22,15 +22,15 @@ This note captures the architectural facts that routinely come up during onboard
 
 ## Data Models
 ### `Cell` (`core/environment/cell.py`)
-- Fields: `grass: int`, `entity_ids: List[int]`.
+- Fields: `producers: Dict[str, int]` (see **docs/vision/Producer Guilds** for the 18 supported guilds), `entity_ids: List[int]`, `water`, `fertility`, `temperature`.
 - Constructors/serialization: `from_dict`, `to_dict`, `copy`.
-- Mutation helpers: `add_entity`, `remove_entity`.
-- Query helpers: `count_type`, `rabbits`, `foxes`, `iter_entities` (yields resolved `Entity` instances).
+- Mutation helpers: `add_entity`, `remove_entity`, `adjust_producer`, `clamp_layers`.
+- Query helpers: `count_type`, `rabbits`, `foxes`, `ground_cover`, `canopy_cover`, `iter_entities` (yields resolved `Entity` instances).
 
 ### `GridState` (`core/model/state.py`)
 - Core fields: `day`, `grid_width`, `grid_height`, `cells: List[Cell]`, `entities: Dict[int, Entity]`, `next_entity_id`, `migration_version`.
 - Lifecycle helpers: `from_dict`, `to_dict`, `clone`, `spawn_entity`, `remove_entity`, `move_entity`.
-- Convenience queries: getters/setters for single cells; `neighbors`, totals (`total_grass`, `total_rabbits`, `total_foxes`), iteration over coordinates, and `entities_in_cell` / `entities_by_type`.
+- Convenience queries: getters/setters for single cells; `neighbors`, totals (`total_biomass`, `total_rabbits`, `total_foxes`), iteration over coordinates, and `entities_in_cell` / `entities_by_type`.
 - Integrity: validates cell count in `__post_init__`, enforces bounds via `_index`.
 
 ## Entity System Status
