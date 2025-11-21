@@ -90,8 +90,12 @@ def assert_diffusion(previous: GridState, current: GridState) -> None:
     before_foxes = _sum_species(previous, neighbor_coords, "fox")
     after_foxes = _sum_species(current, neighbor_coords, "fox")
 
-    if "rabbit" not in HERBIVORE_SET and after_rabbits <= before_rabbits:
-        raise AssertionError("Rabbits failed to diffuse outward from the center.")
+    # Herbivores are now stationary and should NOT diffuse
+    if "rabbit" in HERBIVORE_SET:
+        if after_rabbits > before_rabbits:
+            raise AssertionError("Herbivores unexpectedly diffused (should be stationary).")
+    elif after_rabbits <= before_rabbits:
+        raise AssertionError("Non-herbivore rabbits failed to diffuse outward from the center.")
     if after_foxes <= before_foxes:
         raise AssertionError("Foxes failed to diffuse outward from the center.")
 
@@ -140,4 +144,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-HERBIVORE_SET = set(HERBIVORE_TYPES)
