@@ -22,10 +22,10 @@ This note captures the architectural facts that routinely come up during onboard
 
 ## Data Models
 ### `Cell` (`core/environment/cell.py`)
-- Fields: `grass: int`, `entity_ids: List[int]`.
+- Fields: `producers: Dict[str, int]` (fast grass, seasonal annuals, slow shrubs, deep roots), `entity_ids: List[int]`, `water`, `fertility`, `temperature`.
 - Constructors/serialization: `from_dict`, `to_dict`, `copy`.
-- Mutation helpers: `add_entity`, `remove_entity`.
-- Query helpers: `count_type`, `rabbits`, `foxes`, `iter_entities` (yields resolved `Entity` instances).
+- Mutation helpers: `add_entity`, `remove_entity`, `adjust_producer`, `clamp_layers`.
+- Query helpers: `count_type`, `rabbits`, `foxes`, `ground_cover`, `canopy_cover`, `iter_entities` (yields resolved `Entity` instances).
 
 ### `GridState` (`core/model/state.py`)
 - Core fields: `day`, `grid_width`, `grid_height`, `cells: List[Cell]`, `entities: Dict[int, Entity]`, `next_entity_id`, `migration_version`.

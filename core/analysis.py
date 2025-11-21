@@ -137,7 +137,10 @@ def run(state: GridState, *, world_name: str, days: int, step: int, seed: int | 
 
 def _apply_noise(state: GridState, rng: random.Random) -> None:
     for cell in state.cells:
-        cell.grass = max(0, min(100, int(round(cell.grass * rng.uniform(0.97, 1.03)))))
+        for name in cell.producers:
+            jitter = rng.uniform(0.97, 1.03)
+            cell.producers[name] = max(0, int(round(cell.producers[name] * jitter)))
+        cell.clamp_layers()
     _scale_entities(state, rng, "rabbit", 0.95, 1.05)
     _scale_entities(state, rng, "fox", 0.94, 1.06)
 

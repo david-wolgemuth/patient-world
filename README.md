@@ -44,16 +44,35 @@ All worlds now share a single grid schema (no legacy scalar fields):
   "grid_width": 10,
   "grid_height": 10,
   "cells": [
-    {"grass": 52, "rabbits": 3, "foxes": 0},
-    {"grass": 48, "rabbits": 2, "foxes": 1},
-    {"grass": 61, "rabbits": 0, "foxes": 0}
+    {
+      "producers": {
+        "fast_grass": 52,
+        "seasonal_annuals": 18,
+        "slow_shrubs": 9,
+        "deep_roots": 4
+      },
+      "entity_ids": [12, 19],
+      "water": 0.64,
+      "fertility": 0.47,
+      "temperature": 0.58
+    }
   ]
 }
 ```
 
-Cells are stored row-major (`y * width + x`). Helpers under `core/environment/`, `core/model/`, and `core/rules.py` handle JSON (de)serialization, neighbor
+Cells are stored row-major (`y * width + x`). Each carries an environment profile (water/fertility/temperature) plus four producer guilds that can coexist in the same tile. Helpers under `core/environment/`, `core/model/`, and `core/rules.py` handle JSON (de)serialization, neighbor
 computation, totals, and emoji visualization. Each state also carries a `_migration_version` metadata field so the CLI
 can refuse to run until all migrations have been applied.
+
+### Producer Guilds & Emojis
+| Emoji | Guild | Traits | Tradeoffs |
+| --- | --- | --- | --- |
+| 🌱 | Fast grass | High regrowth, shallow roots | Thrives after rain but quickly overgrazed without shrubs to shelter it. |
+| 🌼 | Seasonal annuals | Burst growth inside the growing season window | Collapse to seed banks outside bloom windows and feed rabbits first. |
+| 🌿 | Slow shrubs | Woody cover that stabilizes ground layer | Needs established grass to seed; crowding limits expansion but shields grass. |
+| 🌳 | Deep-rooted plants | Persistent canopy rooted in shrubs | Only arrives where shrubs are dense; slow growth but resists drought. |
+
+Fast grass and annuals share the ground layer (capped at ~120 coverage per cell), while shrubs and deep roots share the canopy layer (capped at ~95). Rabbits graze annuals → grass → shrubs, so keeping multiple guilds in a cell is the only way to avoid bare ground after a boom. Visualization uses the guild emojis whenever a cell is free of animals.
 
 Use `python3 migrations/0001_grid_state.py <world>` once per world to convert older aggregate state files. The script creates
 `state.json.backup` beside the new grid file for safekeeping.

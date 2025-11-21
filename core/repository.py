@@ -8,7 +8,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
-from core.environment import Cell
+from core.environment import Cell, generate_water_distribution, random_environment_profile
+from core.environment.producers import empty_producer_map
 from core.model import GridState
 
 HISTORY_HEADER = "timestamp,day,grass,rabbits,foxes"
@@ -94,7 +95,23 @@ def init_grid_world(
 ) -> GridState:
     ensure_directory(get_paths(world_name).directory)
     base_grass = DEFAULT_CELL_GRASS if total_grass is None else int(total_grass)
-    cells = [Cell(grass=base_grass) for _ in range(width * height)]
+    rng = random.Random()
+    water_noise = generate_water_distribution(width, height, seed=f"{world_name}-water")
+    cells = []
+    for idx in range(width * height):
+        env_water, fertility, temperature = random_environment_profile(rng.randrange(1_000_000_000))
+        water = water_noise[idx] if idx < len(water_noise) else env_water
+        producers = empty_producer_map()
+        producers["fast_grass"] = base_grass
+        producers["slow_shrubs"] = max(0, base_grass // 4)
+        cells.append(
+            Cell(
+                producers=producers,
+                water=water,
+                fertility=fertility,
+                temperature=temperature,
+            )
+        )
     state = GridState(
         day=0,
         grid_width=width,
@@ -102,7 +119,6 @@ def init_grid_world(
         cells=cells,
         migration_version=EXPECTED_MIGRATION_VERSION,
     )
-    rng = random.Random()
     total_cells = width * height
     for _ in range(max(0, total_rabbits)):
         idx = rng.randrange(total_cells)
