@@ -1,4 +1,4 @@
-timestamp,day,grass,rabbits,foxes
+timestamp,day,biomass,rabbits,foxes,producer_fast_grass,producer_seasonal_annuals,producer_forb_wildflowers,producer_lichen_crust,producer_slow_shrubs,producer_deep_roots,producer_moss_carpet,producer_reed_beds,producer_bog_sedges,producer_fungal_mat,producer_succulent_cluster,producer_desert_bloomers,producer_fruit_trees,producer_needle_conifers,producer_pioneer_brush,producer_vine_canopy,producer_palm_crowns,producer_mangrove_canopy
 2025-11-14T00:00:00Z,1,592,92,17
 2025-11-15T00:00:00Z,2,605,114,20
 2025-11-16T00:00:00Z,3,412,107,22
@@ -7,3 +7,4 @@ timestamp,day,grass,rabbits,foxes
 2025-11-19T12:14:32.045805Z,6,189,101,27
 2025-11-20T12:14:38.841592Z,7,171,92,30
 2025-11-21T12:13:55.162765Z,8,155,82,30
+2025-11-22T12:12:12.977116Z,9,596,79,31,123,0,0,20,29,64,22,16,20,0,6,11,64,64,64,0,57,36
