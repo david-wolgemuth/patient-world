@@ -1,12 +1,12 @@
 {
-  "day": 426,
+  "day": 433,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
     {
       "producers": {
-        "fast_grass": 68,
-        "seasonal_annuals": 1,
+        "fast_grass": 69,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -20,7 +20,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 37,
+        "vine_canopy": 43,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -36,8 +36,8 @@
     },
     {
       "producers": {
-        "fast_grass": 81,
-        "seasonal_annuals": 1,
+        "fast_grass": 82,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 32,
@@ -67,22 +67,22 @@
     },
     {
       "producers": {
-        "fast_grass": 53,
-        "seasonal_annuals": 4,
+        "fast_grass": 58,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 21,
+        "moss_carpet": 19,
         "reed_beds": 5,
         "bog_sedges": 5,
-        "fungal_mat": 1,
+        "fungal_mat": 2,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 13,
+        "vine_canopy": 35,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -98,8 +98,8 @@
     },
     {
       "producers": {
-        "fast_grass": 58,
-        "seasonal_annuals": 1,
+        "fast_grass": 59,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 40,
@@ -129,8 +129,8 @@
     },
     {
       "producers": {
-        "fast_grass": 62,
-        "seasonal_annuals": 1,
+        "fast_grass": 63,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 41,
@@ -160,8 +160,8 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
-        "seasonal_annuals": 1,
+        "fast_grass": 80,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 2,
@@ -191,8 +191,8 @@
     },
     {
       "producers": {
-        "fast_grass": 65,
-        "seasonal_annuals": 5,
+        "fast_grass": 70,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -222,8 +222,8 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
-        "seasonal_annuals": 1,
+        "fast_grass": 75,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -237,7 +237,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 34,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -254,12 +254,12 @@
     {
       "producers": {
         "fast_grass": 52,
-        "seasonal_annuals": 1,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 26,
+        "moss_carpet": 27,
         "reed_beds": 6,
         "bog_sedges": 6,
         "fungal_mat": 1,
@@ -268,7 +268,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 5,
+        "vine_canopy": 12,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -284,8 +284,8 @@
     },
     {
       "producers": {
-        "fast_grass": 77,
-        "seasonal_annuals": 1,
+        "fast_grass": 78,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 52,
@@ -315,16 +315,16 @@
     },
     {
       "producers": {
-        "fast_grass": 77,
-        "seasonal_annuals": 24,
-        "forb_wildflowers": 2,
+        "fast_grass": 83,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 8,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 5,
+        "moss_carpet": 10,
         "reed_beds": 4,
         "bog_sedges": 4,
-        "fungal_mat": 1,
+        "fungal_mat": 7,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -342,26 +342,26 @@
         0.7228513093097522
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.6092500000000001
+      "limiting_value": 0.60625
     },
     {
       "producers": {
-        "fast_grass": 47,
-        "seasonal_annuals": 8,
+        "fast_grass": 51,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 27,
+        "moss_carpet": 28,
         "reed_beds": 5,
         "bog_sedges": 18,
-        "fungal_mat": 1,
+        "fungal_mat": 6,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 22,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 2
       },
@@ -377,16 +377,16 @@
     },
     {
       "producers": {
-        "fast_grass": 78,
-        "seasonal_annuals": 16,
-        "forb_wildflowers": 1,
+        "fast_grass": 80,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 4,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 4,
+        "moss_carpet": 9,
         "reed_beds": 4,
         "bog_sedges": 4,
-        "fungal_mat": 1,
+        "fungal_mat": 7,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -408,11 +408,11 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
-        "seasonal_annuals": 1,
+        "fast_grass": 80,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
-        "slow_shrubs": 51,
+        "slow_shrubs": 52,
         "deep_roots": 1,
         "moss_carpet": 4,
         "reed_beds": 1,
@@ -434,13 +434,13 @@
       "water_history": [
         0.6309408581027048
       ],
-      "limiting_factor": "temperature",
-      "limiting_value": 0.5439632004895314
+      "limiting_factor": "facilitation",
+      "limiting_value": 0.5660000000000001
     },
     {
       "producers": {
-        "fast_grass": 61,
-        "seasonal_annuals": 1,
+        "fast_grass": 62,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 39,
@@ -470,8 +470,8 @@
     },
     {
       "producers": {
-        "fast_grass": 60,
-        "seasonal_annuals": 1,
+        "fast_grass": 61,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 39,
@@ -501,9 +501,9 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
-        "seasonal_annuals": 4,
-        "forb_wildflowers": 1,
+        "fast_grass": 81,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -532,8 +532,8 @@
     },
     {
       "producers": {
-        "fast_grass": 65,
-        "seasonal_annuals": 1,
+        "fast_grass": 66,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 52,
@@ -563,8 +563,8 @@
     },
     {
       "producers": {
-        "fast_grass": 80,
-        "seasonal_annuals": 1,
+        "fast_grass": 81,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 3,
@@ -590,12 +590,12 @@
         0.6592141540986374
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.5595000000000001
+      "limiting_value": 0.558875
     },
     {
       "producers": {
-        "fast_grass": 75,
-        "seasonal_annuals": 1,
+        "fast_grass": 76,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -625,22 +625,22 @@
     },
     {
       "producers": {
-        "fast_grass": 30,
-        "seasonal_annuals": 7,
+        "fast_grass": 32,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
         "moss_carpet": 46,
         "reed_beds": 5,
-        "bog_sedges": 30,
-        "fungal_mat": 1,
+        "bog_sedges": 33,
+        "fungal_mat": 4,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 2,
+        "vine_canopy": 4,
         "palm_crowns": 1,
         "mangrove_canopy": 52
       },
@@ -656,16 +656,16 @@
     },
     {
       "producers": {
-        "fast_grass": 77,
-        "seasonal_annuals": 21,
-        "forb_wildflowers": 2,
+        "fast_grass": 83,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 8,
         "lichen_crust": 0,
         "slow_shrubs": 63,
         "deep_roots": 1,
-        "moss_carpet": 5,
+        "moss_carpet": 6,
         "reed_beds": 1,
         "bog_sedges": 4,
-        "fungal_mat": 1,
+        "fungal_mat": 7,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -683,12 +683,12 @@
         0.6738457003959499
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.5793750000000001
+      "limiting_value": 0.579125
     },
     {
       "producers": {
-        "fast_grass": 59,
-        "seasonal_annuals": 1,
+        "fast_grass": 60,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 39,
@@ -718,8 +718,8 @@
     },
     {
       "producers": {
-        "fast_grass": 64,
-        "seasonal_annuals": 1,
+        "fast_grass": 65,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 52,
@@ -749,16 +749,16 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
-        "seasonal_annuals": 7,
+        "fast_grass": 80,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 5,
+        "moss_carpet": 6,
         "reed_beds": 5,
         "bog_sedges": 5,
-        "fungal_mat": 1,
+        "fungal_mat": 6,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -780,11 +780,11 @@
     },
     {
       "producers": {
-        "fast_grass": 83,
-        "seasonal_annuals": 5,
-        "forb_wildflowers": 2,
+        "fast_grass": 85,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 5,
         "lichen_crust": 0,
-        "slow_shrubs": 24,
+        "slow_shrubs": 22,
         "deep_roots": 1,
         "moss_carpet": 5,
         "reed_beds": 0,
@@ -794,7 +794,7 @@
         "desert_bloomers": 0,
         "fruit_trees": 3,
         "needle_conifers": 1,
-        "pioneer_brush": 38,
+        "pioneer_brush": 39,
         "vine_canopy": 2,
         "palm_crowns": 1,
         "mangrove_canopy": 0
@@ -806,16 +806,16 @@
       "water_history": [
         0.5582527604242657
       ],
-      "limiting_factor": "water",
-      "limiting_value": 0.5582527604242657
+      "limiting_factor": "facilitation",
+      "limiting_value": 0.5579999999999999
     },
     {
       "producers": {
-        "fast_grass": 70,
-        "seasonal_annuals": 1,
+        "fast_grass": 71,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
-        "slow_shrubs": 41,
+        "slow_shrubs": 42,
         "deep_roots": 1,
         "moss_carpet": 1,
         "reed_beds": 0,
@@ -842,11 +842,11 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
-        "seasonal_annuals": 1,
+        "fast_grass": 75,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
-        "slow_shrubs": 56,
+        "slow_shrubs": 55,
         "deep_roots": 1,
         "moss_carpet": 1,
         "reed_beds": 0,
@@ -873,8 +873,8 @@
     },
     {
       "producers": {
-        "fast_grass": 69,
-        "seasonal_annuals": 1,
+        "fast_grass": 70,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 23,
@@ -904,8 +904,8 @@
     },
     {
       "producers": {
-        "fast_grass": 60,
-        "seasonal_annuals": 1,
+        "fast_grass": 62,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -919,7 +919,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 13,
+        "vine_canopy": 32,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -935,8 +935,8 @@
     },
     {
       "producers": {
-        "fast_grass": 71,
-        "seasonal_annuals": 1,
+        "fast_grass": 72,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 53,
@@ -966,8 +966,8 @@
     },
     {
       "producers": {
-        "fast_grass": 67,
-        "seasonal_annuals": 1,
+        "fast_grass": 68,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 39,
@@ -997,22 +997,22 @@
     },
     {
       "producers": {
-        "fast_grass": 25,
-        "seasonal_annuals": 6,
+        "fast_grass": 26,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 29,
+        "moss_carpet": 31,
         "reed_beds": 16,
-        "bog_sedges": 24,
-        "fungal_mat": 5,
+        "bog_sedges": 25,
+        "fungal_mat": 7,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 7,
+        "vine_canopy": 14,
         "palm_crowns": 1,
         "mangrove_canopy": 52
       },
@@ -1028,8 +1028,8 @@
     },
     {
       "producers": {
-        "fast_grass": 68,
-        "seasonal_annuals": 5,
+        "fast_grass": 72,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1043,7 +1043,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 44,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1059,9 +1059,9 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
-        "seasonal_annuals": 5,
-        "forb_wildflowers": 1,
+        "fast_grass": 82,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 3,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1086,12 +1086,12 @@
         0.67268414761063
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.545625
+      "limiting_value": 0.5435
     },
     {
       "producers": {
-        "fast_grass": 72,
-        "seasonal_annuals": 1,
+        "fast_grass": 73,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1121,9 +1121,9 @@
     },
     {
       "producers": {
-        "fast_grass": 80,
-        "seasonal_annuals": 9,
-        "forb_wildflowers": 2,
+        "fast_grass": 83,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 8,
         "lichen_crust": 0,
         "slow_shrubs": 30,
         "deep_roots": 1,
@@ -1148,12 +1148,12 @@
         0.5814894825316826
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.55825
+      "limiting_value": 0.5595
     },
     {
       "producers": {
-        "fast_grass": 68,
-        "seasonal_annuals": 1,
+        "fast_grass": 69,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 40,
@@ -1183,22 +1183,22 @@
     },
     {
       "producers": {
-        "fast_grass": 80,
-        "seasonal_annuals": 9,
+        "fast_grass": 81,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 11,
+        "moss_carpet": 14,
         "reed_beds": 5,
         "bog_sedges": 5,
-        "fungal_mat": 2,
+        "fungal_mat": 9,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 35,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1210,12 +1210,12 @@
         0.7650511357379283
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.577
+      "limiting_value": 0.5785
     },
     {
       "producers": {
-        "fast_grass": 81,
-        "seasonal_annuals": 3,
+        "fast_grass": 84,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1241,20 +1241,20 @@
         0.6555797979464021
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.5630000000000001
+      "limiting_value": 0.5646666666666667
     },
     {
       "producers": {
-        "fast_grass": 80,
-        "seasonal_annuals": 9,
-        "forb_wildflowers": 1,
+        "fast_grass": 81,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 3,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
         "moss_carpet": 5,
         "reed_beds": 3,
         "bog_sedges": 5,
-        "fungal_mat": 1,
+        "fungal_mat": 8,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -1276,8 +1276,8 @@
     },
     {
       "producers": {
-        "fast_grass": 64,
-        "seasonal_annuals": 1,
+        "fast_grass": 65,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 2,
@@ -1291,7 +1291,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 35,
+        "vine_canopy": 40,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1307,8 +1307,8 @@
     },
     {
       "producers": {
-        "fast_grass": 38,
-        "seasonal_annuals": 1,
+        "fast_grass": 41,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 1,
         "slow_shrubs": 57,
@@ -1317,8 +1317,8 @@
         "reed_beds": 0,
         "bog_sedges": 0,
         "fungal_mat": 0,
-        "succulent_cluster": 34,
-        "desert_bloomers": 0,
+        "succulent_cluster": 31,
+        "desert_bloomers": 1,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
@@ -1338,8 +1338,8 @@
     },
     {
       "producers": {
-        "fast_grass": 72,
-        "seasonal_annuals": 1,
+        "fast_grass": 73,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1353,7 +1353,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 9,
+        "vine_canopy": 23,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1369,22 +1369,22 @@
     },
     {
       "producers": {
-        "fast_grass": 81,
-        "seasonal_annuals": 8,
+        "fast_grass": 82,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 5,
+        "moss_carpet": 7,
         "reed_beds": 4,
         "bog_sedges": 5,
-        "fungal_mat": 3,
+        "fungal_mat": 9,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 18,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1395,13 +1395,13 @@
       "water_history": [
         0.7512038396816163
       ],
-      "limiting_factor": "temperature",
-      "limiting_value": 0.5678606415368613
+      "limiting_factor": "facilitation",
+      "limiting_value": 0.577625
     },
     {
       "producers": {
-        "fast_grass": 68,
-        "seasonal_annuals": 1,
+        "fast_grass": 69,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 4,
@@ -1431,8 +1431,8 @@
     },
     {
       "producers": {
-        "fast_grass": 75,
-        "seasonal_annuals": 2,
+        "fast_grass": 77,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1462,8 +1462,8 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
-        "seasonal_annuals": 1,
+        "fast_grass": 75,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1493,8 +1493,8 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
-        "seasonal_annuals": 1,
+        "fast_grass": 75,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 7,
@@ -1524,8 +1524,8 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
-        "seasonal_annuals": 1,
+        "fast_grass": 75,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1539,7 +1539,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 43,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1555,16 +1555,16 @@
     },
     {
       "producers": {
-        "fast_grass": 28,
-        "seasonal_annuals": 6,
+        "fast_grass": 30,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 45,
+        "moss_carpet": 47,
         "reed_beds": 5,
-        "bog_sedges": 29,
-        "fungal_mat": 1,
+        "bog_sedges": 30,
+        "fungal_mat": 3,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -1582,12 +1582,12 @@
         0.7980597426643579
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.571875
+      "limiting_value": 0.573375
     },
     {
       "producers": {
-        "fast_grass": 66,
-        "seasonal_annuals": 1,
+        "fast_grass": 67,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 2,
@@ -1601,7 +1601,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 32,
+        "vine_canopy": 41,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1617,8 +1617,8 @@
     },
     {
       "producers": {
-        "fast_grass": 75,
-        "seasonal_annuals": 1,
+        "fast_grass": 76,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 22,
@@ -1648,8 +1648,8 @@
     },
     {
       "producers": {
-        "fast_grass": 66,
-        "seasonal_annuals": 1,
+        "fast_grass": 67,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 42,
@@ -1679,8 +1679,8 @@
     },
     {
       "producers": {
-        "fast_grass": 80,
-        "seasonal_annuals": 1,
+        "fast_grass": 81,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 35,
@@ -1710,8 +1710,8 @@
     },
     {
       "producers": {
-        "fast_grass": 65,
-        "seasonal_annuals": 1,
+        "fast_grass": 66,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 44,
@@ -1741,8 +1741,8 @@
     },
     {
       "producers": {
-        "fast_grass": 61,
-        "seasonal_annuals": 1,
+        "fast_grass": 62,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 48,
@@ -1772,8 +1772,8 @@
     },
     {
       "producers": {
-        "fast_grass": 78,
-        "seasonal_annuals": 5,
+        "fast_grass": 82,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 5,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1803,8 +1803,8 @@
     },
     {
       "producers": {
-        "fast_grass": 69,
-        "seasonal_annuals": 1,
+        "fast_grass": 70,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1818,7 +1818,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 16,
+        "vine_canopy": 40,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1834,8 +1834,8 @@
     },
     {
       "producers": {
-        "fast_grass": 78,
-        "seasonal_annuals": 1,
+        "fast_grass": 79,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 7,
@@ -1865,9 +1865,9 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
-        "seasonal_annuals": 7,
-        "forb_wildflowers": 1,
+        "fast_grass": 84,
+        "seasonal_annuals": 0,
+        "forb_wildflowers": 3,
         "lichen_crust": 0,
         "slow_shrubs": 2,
         "deep_roots": 1,
@@ -1896,8 +1896,8 @@
     },
     {
       "producers": {
-        "fast_grass": 64,
-        "seasonal_annuals": 1,
+        "fast_grass": 65,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 42,
@@ -1927,8 +1927,8 @@
     },
     {
       "producers": {
-        "fast_grass": 71,
-        "seasonal_annuals": 1,
+        "fast_grass": 72,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1942,7 +1942,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 9,
+        "vine_canopy": 24,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1958,8 +1958,8 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
-        "seasonal_annuals": 1,
+        "fast_grass": 75,
+        "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 7,
