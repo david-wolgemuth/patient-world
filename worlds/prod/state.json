@@ -1,5 +1,5 @@
 {
-  "day": 83,
+  "day": 84,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
@@ -264,7 +264,6 @@
       "entity_ids": [
         135,
         246,
-        396,
         399,
         402,
         404,
@@ -297,7 +296,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 39,
+        "vine_canopy": 42,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -372,7 +371,8 @@
         410,
         418,
         420,
-        423
+        423,
+        424
       ],
       "water": 0.7228513093097522,
       "fertility": 0.6189195360081453,
@@ -895,7 +895,7 @@
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
-        "pioneer_brush": 15,
+        "pioneer_brush": 16,
         "vine_canopy": 11,
         "palm_crowns": 1,
         "mangrove_canopy": 0
@@ -1408,7 +1408,7 @@
     },
     {
       "producers": {
-        "fast_grass": 36,
+        "fast_grass": 37,
         "seasonal_annuals": 0,
         "forb_wildflowers": 18,
         "lichen_crust": 0,
@@ -1501,7 +1501,7 @@
     },
     {
       "producers": {
-        "fast_grass": 50,
+        "fast_grass": 51,
         "seasonal_annuals": 0,
         "forb_wildflowers": 25,
         "lichen_crust": 0,
@@ -1611,7 +1611,7 @@
         "pioneer_brush": 1,
         "vine_canopy": 45,
         "palm_crowns": 1,
-        "mangrove_canopy": 18
+        "mangrove_canopy": 19
       },
       "entity_ids": [],
       "water": 0.7980597426643579,
@@ -1722,7 +1722,7 @@
         "seasonal_annuals": 0,
         "forb_wildflowers": 2,
         "lichen_crust": 1,
-        "slow_shrubs": 44,
+        "slow_shrubs": 45,
         "deep_roots": 1,
         "moss_carpet": 0,
         "reed_beds": 0,
@@ -1981,7 +1981,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 37,
+        "vine_canopy": 40,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1991,7 +1991,8 @@
         403,
         412,
         413,
-        422
+        422,
+        425
       ],
       "water": 0.7446690145411164,
       "fertility": 0.4745969001760857,
@@ -2045,7 +2046,7 @@
       "x": 0,
       "y": 0,
       "hunger": 0,
-      "age": 88,
+      "age": 89,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2055,7 +2056,7 @@
       "x": 1,
       "y": 0,
       "hunger": 0,
-      "age": 84,
+      "age": 85,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2065,7 +2066,7 @@
       "x": 5,
       "y": 0,
       "hunger": 0,
-      "age": 101,
+      "age": 102,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2075,7 +2076,7 @@
       "x": 6,
       "y": 0,
       "hunger": 0,
-      "age": 87,
+      "age": 88,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2085,7 +2086,7 @@
       "x": 2,
       "y": 1,
       "hunger": 0,
-      "age": 95,
+      "age": 96,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2095,7 +2096,7 @@
       "x": 7,
       "y": 7,
       "hunger": 0,
-      "age": 98,
+      "age": 99,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2105,7 +2106,7 @@
       "x": 7,
       "y": 0,
       "hunger": 0,
-      "age": 80,
+      "age": 81,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2115,7 +2116,7 @@
       "x": 6,
       "y": 7,
       "hunger": 0,
-      "age": 77,
+      "age": 78,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2125,7 +2126,7 @@
       "x": 5,
       "y": 0,
       "hunger": 8,
-      "age": 73,
+      "age": 74,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2135,7 +2136,7 @@
       "x": 6,
       "y": 7,
       "hunger": 7,
-      "age": 71,
+      "age": 72,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2145,7 +2146,7 @@
       "x": 0,
       "y": 0,
       "hunger": 7,
-      "age": 67,
+      "age": 68,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2155,7 +2156,7 @@
       "x": 6,
       "y": 0,
       "hunger": 9,
-      "age": 67,
+      "age": 68,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2165,7 +2166,7 @@
       "x": 7,
       "y": 0,
       "hunger": 2,
-      "age": 67,
+      "age": 68,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2175,17 +2176,7 @@
       "x": 2,
       "y": 1,
       "hunger": 0,
-      "age": 64,
-      "health": 100,
-      "reproduction_cooldown": 0
-    },
-    "396": {
-      "id": 396,
-      "type": "rabbit",
-      "x": 7,
-      "y": 0,
-      "hunger": 9,
-      "age": 9,
+      "age": 65,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2194,8 +2185,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 8,
-      "age": 8,
+      "hunger": 9,
+      "age": 9,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2204,8 +2195,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 7,
-      "hunger": 8,
-      "age": 8,
+      "hunger": 9,
+      "age": 9,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2214,8 +2205,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 8,
-      "age": 8,
+      "hunger": 9,
+      "age": 9,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2224,8 +2215,8 @@
       "type": "rabbit",
       "x": 1,
       "y": 0,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2234,8 +2225,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2244,8 +2235,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2254,8 +2245,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2264,8 +2255,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2274,8 +2265,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2284,8 +2275,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 5,
-      "age": 5,
+      "hunger": 6,
+      "age": 6,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2294,8 +2285,8 @@
       "type": "rabbit",
       "x": 1,
       "y": 0,
-      "hunger": 5,
-      "age": 5,
+      "hunger": 6,
+      "age": 6,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2304,8 +2295,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 5,
-      "age": 5,
+      "hunger": 6,
+      "age": 6,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2314,8 +2305,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2324,8 +2315,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2334,8 +2325,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2344,8 +2335,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2354,8 +2345,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 3,
-      "age": 3,
+      "hunger": 4,
+      "age": 4,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2364,8 +2355,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 2,
-      "age": 2,
+      "hunger": 3,
+      "age": 3,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2374,8 +2365,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 2,
-      "age": 2,
+      "hunger": 3,
+      "age": 3,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2384,8 +2375,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 1,
-      "age": 1,
+      "hunger": 2,
+      "age": 2,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2394,8 +2385,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 1,
-      "age": 1,
+      "hunger": 2,
+      "age": 2,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2404,8 +2395,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 1,
-      "age": 1,
+      "hunger": 2,
+      "age": 2,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2414,8 +2405,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 0,
-      "age": 0,
+      "hunger": 1,
+      "age": 1,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2424,8 +2415,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 0,
-      "age": 0,
+      "hunger": 1,
+      "age": 1,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2434,8 +2425,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 7,
-      "hunger": 0,
-      "age": 0,
+      "hunger": 1,
+      "age": 1,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2444,8 +2435,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 0,
-      "age": 0,
+      "hunger": 1,
+      "age": 1,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2454,12 +2445,32 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
+      "hunger": 1,
+      "age": 1,
+      "health": 100,
+      "reproduction_cooldown": 0
+    },
+    "424": {
+      "id": 424,
+      "type": "rabbit",
+      "x": 2,
+      "y": 1,
+      "hunger": 0,
+      "age": 0,
+      "health": 100,
+      "reproduction_cooldown": 0
+    },
+    "425": {
+      "id": 425,
+      "type": "rabbit",
+      "x": 6,
+      "y": 7,
       "hunger": 0,
       "age": 0,
       "health": 100,
       "reproduction_cooldown": 0
     }
   },
-  "next_entity_id": 424,
+  "next_entity_id": 426,
   "_migration_version": 3
 }
