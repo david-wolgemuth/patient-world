@@ -1,5 +1,5 @@
 {
-  "day": 96,
+  "day": 97,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
@@ -26,7 +26,8 @@
       },
       "entity_ids": [
         3,
-        435
+        435,
+        447
       ],
       "water": 0.6557707193831535,
       "fertility": 0.4075032265668001,
@@ -35,7 +36,7 @@
         0.6557707193831535
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.38375
+      "limiting_value": 0.385
     },
     {
       "producers": {
@@ -72,9 +73,9 @@
     },
     {
       "producers": {
-        "fast_grass": 80,
+        "fast_grass": 79,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -103,9 +104,9 @@
     },
     {
       "producers": {
-        "fast_grass": 64,
+        "fast_grass": 62,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 40,
         "deep_roots": 1,
@@ -134,9 +135,9 @@
     },
     {
       "producers": {
-        "fast_grass": 64,
+        "fast_grass": 65,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 1,
         "slow_shrubs": 41,
         "deep_roots": 1,
@@ -221,7 +222,6 @@
       },
       "entity_ids": [
         19,
-        433,
         437,
         441,
         443
@@ -233,7 +233,7 @@
         0.7237721826711307
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.3383333333333333
+      "limiting_value": 0.3375
     },
     {
       "producers": {
@@ -260,7 +260,8 @@
         135,
         440,
         442,
-        446
+        446,
+        448
       ],
       "water": 0.6792557579952907,
       "fertility": 0.5020751549553976,
@@ -304,9 +305,9 @@
     },
     {
       "producers": {
-        "fast_grass": 81,
+        "fast_grass": 79,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 53,
         "deep_roots": 1,
@@ -370,7 +371,7 @@
       "producers": {
         "fast_grass": 54,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -394,14 +395,14 @@
       "water_history": [
         0.7892463055917482
       ],
-      "limiting_factor": "fertility",
-      "limiting_value": 0.513560313162506
+      "limiting_factor": "season",
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 78,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -426,13 +427,13 @@
         0.7317618657011979
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 81,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -456,14 +457,14 @@
       "water_history": [
         0.6309408581027048
       ],
-      "limiting_factor": "facilitation",
-      "limiting_value": 0.522375
+      "limiting_factor": "season",
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 63,
+        "fast_grass": 61,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 39,
         "deep_roots": 1,
@@ -488,13 +489,13 @@
         0.49115931026061876
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.453375
+      "limiting_value": 0.45275
     },
     {
       "producers": {
-        "fast_grass": 63,
+        "fast_grass": 61,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 39,
         "deep_roots": 1,
@@ -525,7 +526,7 @@
       "producers": {
         "fast_grass": 84,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -549,14 +550,14 @@
       "water_history": [
         0.6542737777057601
       ],
-      "limiting_factor": "fertility",
-      "limiting_value": 0.5094496536910252
+      "limiting_factor": "season",
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 68,
+        "fast_grass": 66,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 50,
         "deep_roots": 1,
@@ -587,7 +588,7 @@
       "producers": {
         "fast_grass": 85,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -618,7 +619,7 @@
       "producers": {
         "fast_grass": 77,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -649,7 +650,7 @@
       "producers": {
         "fast_grass": 53,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -674,13 +675,13 @@
         0.7958093402546381
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 80,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 4,
         "deep_roots": 1,
@@ -705,13 +706,13 @@
         0.6738457003959499
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 61,
+        "fast_grass": 62,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 1,
         "slow_shrubs": 39,
         "deep_roots": 1,
@@ -740,9 +741,9 @@
     },
     {
       "producers": {
-        "fast_grass": 65,
+        "fast_grass": 66,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 1,
         "slow_shrubs": 30,
         "deep_roots": 1,
@@ -771,9 +772,9 @@
     },
     {
       "producers": {
-        "fast_grass": 78,
+        "fast_grass": 79,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -804,7 +805,7 @@
       "producers": {
         "fast_grass": 85,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 20,
         "deep_roots": 1,
@@ -817,7 +818,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 12,
-        "vine_canopy": 32,
+        "vine_canopy": 31,
         "palm_crowns": 1,
         "mangrove_canopy": 0
       },
@@ -829,13 +830,13 @@
         0.5582527604242657
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 71,
+        "fast_grass": 72,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 1,
         "slow_shrubs": 43,
         "deep_roots": 1,
@@ -864,9 +865,9 @@
     },
     {
       "producers": {
-        "fast_grass": 77,
+        "fast_grass": 75,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 34,
         "deep_roots": 1,
@@ -895,9 +896,9 @@
     },
     {
       "producers": {
-        "fast_grass": 70,
+        "fast_grass": 68,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 13,
         "deep_roots": 1,
@@ -926,16 +927,16 @@
     },
     {
       "producers": {
-        "fast_grass": 58,
+        "fast_grass": 57,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
         "moss_carpet": 1,
         "reed_beds": 1,
         "bog_sedges": 1,
-        "fungal_mat": 8,
+        "fungal_mat": 7,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -957,9 +958,9 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
+        "fast_grass": 72,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 53,
         "deep_roots": 1,
@@ -988,9 +989,9 @@
     },
     {
       "producers": {
-        "fast_grass": 68,
+        "fast_grass": 69,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 11,
         "deep_roots": 1,
@@ -1019,13 +1020,13 @@
     },
     {
       "producers": {
-        "fast_grass": 38,
+        "fast_grass": 37,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 34,
+        "moss_carpet": 33,
         "reed_beds": 1,
         "bog_sedges": 18,
         "fungal_mat": 13,
@@ -1046,13 +1047,13 @@
         0.7984485520960387
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 78,
+        "fast_grass": 77,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1083,7 +1084,7 @@
       "producers": {
         "fast_grass": 84,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1108,13 +1109,13 @@
         0.67268414761063
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 74,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1145,7 +1146,7 @@
       "producers": {
         "fast_grass": 85,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 19,
         "deep_roots": 1,
@@ -1158,7 +1159,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 13,
-        "vine_canopy": 43,
+        "vine_canopy": 42,
         "palm_crowns": 1,
         "mangrove_canopy": 0
       },
@@ -1170,13 +1171,13 @@
         0.5814894825316826
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 71,
+        "fast_grass": 69,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 26,
         "deep_roots": 1,
@@ -1207,7 +1208,7 @@
       "producers": {
         "fast_grass": 79,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1232,13 +1233,13 @@
         0.7650511357379283
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 84,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1263,13 +1264,13 @@
         0.6555797979464021
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 79,
+        "fast_grass": 78,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1294,13 +1295,13 @@
         0.7050043200300605
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 67,
+        "fast_grass": 68,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1329,9 +1330,9 @@
     },
     {
       "producers": {
-        "fast_grass": 71,
+        "fast_grass": 72,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 1,
         "slow_shrubs": 57,
         "deep_roots": 1,
@@ -1360,16 +1361,16 @@
     },
     {
       "producers": {
-        "fast_grass": 39,
+        "fast_grass": 38,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 22,
+        "moss_carpet": 21,
         "reed_beds": 1,
         "bog_sedges": 1,
-        "fungal_mat": 24,
+        "fungal_mat": 23,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -1391,15 +1392,15 @@
     },
     {
       "producers": {
-        "fast_grass": 47,
+        "fast_grass": 46,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 18,
+        "moss_carpet": 17,
         "reed_beds": 1,
-        "bog_sedges": 15,
+        "bog_sedges": 14,
         "fungal_mat": 23,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
@@ -1418,13 +1419,13 @@
         0.7512038396816163
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 71,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 3,
         "deep_roots": 1,
@@ -1453,9 +1454,9 @@
     },
     {
       "producers": {
-        "fast_grass": 74,
+        "fast_grass": 75,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1484,9 +1485,9 @@
     },
     {
       "producers": {
-        "fast_grass": 75,
+        "fast_grass": 74,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1515,9 +1516,9 @@
     },
     {
       "producers": {
-        "fast_grass": 76,
+        "fast_grass": 74,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 14,
         "deep_roots": 1,
@@ -1546,9 +1547,9 @@
     },
     {
       "producers": {
-        "fast_grass": 79,
+        "fast_grass": 80,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1577,13 +1578,13 @@
     },
     {
       "producers": {
-        "fast_grass": 53,
+        "fast_grass": 51,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 46,
+        "moss_carpet": 45,
         "reed_beds": 1,
         "bog_sedges": 3,
         "fungal_mat": 10,
@@ -1604,13 +1605,13 @@
         0.7980597426643579
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 69,
+        "fast_grass": 68,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1639,9 +1640,9 @@
     },
     {
       "producers": {
-        "fast_grass": 77,
+        "fast_grass": 75,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 18,
         "deep_roots": 1,
@@ -1666,13 +1667,13 @@
         0.5352342248589822
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 67,
+        "fast_grass": 68,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 1,
         "slow_shrubs": 40,
         "deep_roots": 1,
@@ -1701,9 +1702,9 @@
     },
     {
       "producers": {
-        "fast_grass": 83,
+        "fast_grass": 81,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 45,
         "deep_roots": 1,
@@ -1732,9 +1733,9 @@
     },
     {
       "producers": {
-        "fast_grass": 68,
+        "fast_grass": 66,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 1,
         "slow_shrubs": 44,
         "deep_roots": 1,
@@ -1763,9 +1764,9 @@
     },
     {
       "producers": {
-        "fast_grass": 62,
+        "fast_grass": 63,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 1,
         "slow_shrubs": 48,
         "deep_roots": 1,
@@ -1796,7 +1797,7 @@
       "producers": {
         "fast_grass": 85,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1821,13 +1822,13 @@
         0.6284172373301138
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
         "fast_grass": 63,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 2,
+        "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1856,11 +1857,11 @@
     },
     {
       "producers": {
-        "fast_grass": 84,
+        "fast_grass": 81,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
-        "slow_shrubs": 14,
+        "slow_shrubs": 13,
         "deep_roots": 1,
         "moss_carpet": 1,
         "reed_beds": 0,
@@ -1882,14 +1883,14 @@
       "water_history": [
         0.572420472962551
       ],
-      "limiting_factor": "fertility",
-      "limiting_value": 0.5270735869059762
+      "limiting_factor": "season",
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 85,
+        "fast_grass": 82,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 0,
+        "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
@@ -1914,13 +1915,13 @@
         0.6916303397839403
       ],
       "limiting_factor": "season",
-      "limiting_value": 0.5279428580865548
+      "limiting_value": 0.5091186271093948
     },
     {
       "producers": {
-        "fast_grass": 66,
+        "fast_grass": 67,
         "seasonal_annuals": 0,
-        "forb_wildflowers": 1,
+        "forb_wildflowers": 0,
         "lichen_crust": 1,
         "slow_shrubs": 42,
         "deep_roots": 1,
@@ -2015,7 +2016,7 @@
         0.5794454191332528
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.36124999999999996
+      "limiting_value": 0.3625
     }
   ],
   "entities": {
@@ -2025,7 +2026,7 @@
       "x": 0,
       "y": 0,
       "hunger": 0,
-      "age": 101,
+      "age": 102,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2035,7 +2036,7 @@
       "x": 1,
       "y": 0,
       "hunger": 0,
-      "age": 97,
+      "age": 98,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2045,7 +2046,7 @@
       "x": 5,
       "y": 0,
       "hunger": 0,
-      "age": 114,
+      "age": 115,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2055,7 +2056,7 @@
       "x": 6,
       "y": 0,
       "hunger": 0,
-      "age": 100,
+      "age": 101,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2065,7 +2066,7 @@
       "x": 2,
       "y": 1,
       "hunger": 0,
-      "age": 108,
+      "age": 109,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2075,7 +2076,7 @@
       "x": 7,
       "y": 7,
       "hunger": 0,
-      "age": 111,
+      "age": 112,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2085,7 +2086,7 @@
       "x": 7,
       "y": 0,
       "hunger": 0,
-      "age": 93,
+      "age": 94,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2095,17 +2096,7 @@
       "x": 6,
       "y": 7,
       "hunger": 0,
-      "age": 90,
-      "health": 100,
-      "reproduction_cooldown": 0
-    },
-    "433": {
-      "id": 433,
-      "type": "rabbit",
-      "x": 6,
-      "y": 0,
-      "hunger": 9,
-      "age": 9,
+      "age": 91,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2114,8 +2105,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 8,
-      "age": 8,
+      "hunger": 9,
+      "age": 9,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2124,8 +2115,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2134,8 +2125,8 @@
       "type": "rabbit",
       "x": 5,
       "y": 0,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2144,8 +2135,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2154,8 +2145,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2164,8 +2155,8 @@
       "type": "rabbit",
       "x": 5,
       "y": 0,
-      "hunger": 5,
-      "age": 5,
+      "hunger": 6,
+      "age": 6,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2174,8 +2165,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 3,
-      "age": 3,
+      "hunger": 4,
+      "age": 4,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2184,8 +2175,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 2,
-      "age": 2,
+      "hunger": 3,
+      "age": 3,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2194,8 +2185,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 2,
-      "age": 2,
+      "hunger": 3,
+      "age": 3,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2204,8 +2195,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 1,
-      "age": 1,
+      "hunger": 2,
+      "age": 2,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2214,8 +2205,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 7,
-      "hunger": 1,
-      "age": 1,
+      "hunger": 2,
+      "age": 2,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2224,13 +2215,33 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 1,
-      "age": 1,
+      "hunger": 2,
+      "age": 2,
       "health": 100,
       "reproduction_cooldown": 0
     },
     "446": {
       "id": 446,
+      "type": "rabbit",
+      "x": 7,
+      "y": 0,
+      "hunger": 1,
+      "age": 1,
+      "health": 100,
+      "reproduction_cooldown": 0
+    },
+    "447": {
+      "id": 447,
+      "type": "rabbit",
+      "x": 0,
+      "y": 0,
+      "hunger": 0,
+      "age": 0,
+      "health": 100,
+      "reproduction_cooldown": 0
+    },
+    "448": {
+      "id": 448,
       "type": "rabbit",
       "x": 7,
       "y": 0,
@@ -2240,6 +2251,6 @@
       "reproduction_cooldown": 0
     }
   },
-  "next_entity_id": 447,
+  "next_entity_id": 449,
   "_migration_version": 3
 }
