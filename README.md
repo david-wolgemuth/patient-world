@@ -214,7 +214,7 @@ Staging exists for experiments and may be reset at any time & have unrealistic n
 <!-- STAGING SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 776** • 2026-03-02
+**Day 783** • 2026-03-03
 
 🌱🌱🌱🌱🌱🌱🌱🌱
 🌱🌱🌱🌱🌱🌱🌱🌱
@@ -226,7 +226,7 @@ Staging exists for experiments and may be reset at any time & have unrealistic n
 🌱🌱🌱🌱🌱🌱🌱🌱
 
 ### Totals
-🌱 8047  🐇 0  🦊 0
+🌱 8558  🐇 0  🦊 0
 
 <!-- STAGING SNAPSHOT END -->
 
