@@ -5,7 +5,7 @@ A self-running ecosystem simulation built around tiny rules that evolve over tim
 <!-- SNAPSHOT START -->
 ## 🌍 Patient World
 
-**Day 154** • 2026-04-16
+**Day 155** • 2026-04-17
 
 🐇🐇🌱🌱🌱🐇🐇🐇
 🍀🌱🐇🌱🌱🌱🌱🌱
@@ -17,7 +17,7 @@ A self-running ecosystem simulation built around tiny rules that evolve over tim
 🌱🌱🌱🌱🌱🌱🐇🐇
 
 ### Totals
-🌱 6069  🐇 38  🦊 0
+🌱 6085  🐇 36  🦊 0
 
 <!-- SNAPSHOT END -->
 
