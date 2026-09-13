@@ -1,5 +1,5 @@
 {
-  "day": 303,
+  "day": 304,
   "grid_width": 8,
   "grid_height": 8,
   "cells": [
@@ -14,13 +14,13 @@
         "moss_carpet": 0,
         "reed_beds": 0,
         "bog_sedges": 0,
-        "fungal_mat": 24,
+        "fungal_mat": 25,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 9,
+        "vine_canopy": 10,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -37,7 +37,7 @@
         0.6557707193831535
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.35
+      "limiting_value": 0.3585
     },
     {
       "producers": {
@@ -50,7 +50,7 @@
         "moss_carpet": 0,
         "reed_beds": 0,
         "bog_sedges": 0,
-        "fungal_mat": 4,
+        "fungal_mat": 5,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -91,7 +91,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 4,
+        "vine_canopy": 5,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -103,7 +103,7 @@
         0.7568718270819382
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.4176666666666667
+      "limiting_value": 0.41850000000000004
     },
     {
       "producers": {
@@ -184,7 +184,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 26,
+        "vine_canopy": 31,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -200,7 +200,7 @@
         0.6179765922412868
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.3796666666666667
+      "limiting_value": 0.385
     },
     {
       "producers": {
@@ -219,7 +219,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 13,
+        "vine_canopy": 15,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -236,7 +236,7 @@
         0.7237721826711307
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.33916666666666667
+      "limiting_value": 0.3408333333333333
     },
     {
       "producers": {
@@ -255,7 +255,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 7,
+        "vine_canopy": 8,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -273,7 +273,7 @@
         0.6792557579952907
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.35824999999999996
+      "limiting_value": 0.36124999999999996
     },
     {
       "producers": {
@@ -292,7 +292,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 1,
+        "vine_canopy": 2,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -354,17 +354,17 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 37,
+        "vine_canopy": 43,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
       "entity_ids": [
         44,
         736,
-        803,
         808,
         813,
-        818
+        818,
+        822
       ],
       "water": 0.7228513093097522,
       "fertility": 0.6189195360081453,
@@ -392,7 +392,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 13,
+        "vine_canopy": 15,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -439,7 +439,7 @@
     },
     {
       "producers": {
-        "fast_grass": 76,
+        "fast_grass": 77,
         "seasonal_annuals": 1,
         "forb_wildflowers": 5,
         "lichen_crust": 0,
@@ -454,7 +454,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 23,
+        "vine_canopy": 27,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -466,7 +466,7 @@
         0.6309408581027048
       ],
       "limiting_factor": "temperature",
-      "limiting_value": 0.4745324386638413
+      "limiting_value": 0.4978901394615012
     },
     {
       "producers": {
@@ -497,7 +497,7 @@
         0.49115931026061876
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.45525000000000004
+      "limiting_value": 0.45587500000000003
     },
     {
       "producers": {
@@ -532,8 +532,8 @@
     },
     {
       "producers": {
-        "fast_grass": 81,
-        "seasonal_annuals": 5,
+        "fast_grass": 80,
+        "seasonal_annuals": 6,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -609,7 +609,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 40,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -640,7 +640,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 35,
+        "vine_canopy": 40,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -656,7 +656,7 @@
     },
     {
       "producers": {
-        "fast_grass": 59,
+        "fast_grass": 60,
         "seasonal_annuals": 7,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
@@ -702,7 +702,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 7,
+        "vine_canopy": 8,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -714,7 +714,7 @@
         0.6738457003959499
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.576
+      "limiting_value": 0.57725
     },
     {
       "producers": {
@@ -789,13 +789,13 @@
         "moss_carpet": 6,
         "reed_beds": 1,
         "bog_sedges": 1,
-        "fungal_mat": 2,
+        "fungal_mat": 3,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 39,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -811,7 +811,7 @@
     },
     {
       "producers": {
-        "fast_grass": 82,
+        "fast_grass": 81,
         "seasonal_annuals": 11,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
@@ -838,11 +838,11 @@
         0.5582527604242657
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.55675
+      "limiting_value": 0.557375
     },
     {
       "producers": {
-        "fast_grass": 67,
+        "fast_grass": 68,
         "seasonal_annuals": 1,
         "forb_wildflowers": 5,
         "lichen_crust": 1,
@@ -950,7 +950,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 9,
+        "vine_canopy": 10,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -970,7 +970,7 @@
         "seasonal_annuals": 1,
         "forb_wildflowers": 1,
         "lichen_crust": 1,
-        "slow_shrubs": 50,
+        "slow_shrubs": 51,
         "deep_roots": 1,
         "moss_carpet": 0,
         "reed_beds": 0,
@@ -1034,7 +1034,7 @@
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 45,
+        "moss_carpet": 46,
         "reed_beds": 1,
         "bog_sedges": 26,
         "fungal_mat": 2,
@@ -1043,7 +1043,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 8,
+        "vine_canopy": 9,
         "palm_crowns": 1,
         "mangrove_canopy": 52
       },
@@ -1074,7 +1074,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 31,
+        "vine_canopy": 35,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1090,8 +1090,8 @@
     },
     {
       "producers": {
-        "fast_grass": 82,
-        "seasonal_annuals": 7,
+        "fast_grass": 81,
+        "seasonal_annuals": 8,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1117,7 +1117,7 @@
         0.67268414761063
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.542875
+      "limiting_value": 0.5435
     },
     {
       "producers": {
@@ -1152,8 +1152,8 @@
     },
     {
       "producers": {
-        "fast_grass": 80,
-        "seasonal_annuals": 13,
+        "fast_grass": 79,
+        "seasonal_annuals": 14,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 33,
@@ -1179,7 +1179,7 @@
         0.5814894825316826
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.55575
+      "limiting_value": 0.5563750000000001
     },
     {
       "producers": {
@@ -1229,7 +1229,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 19,
+        "vine_canopy": 22,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1241,12 +1241,12 @@
         0.7650511357379283
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.5745
+      "limiting_value": 0.57575
     },
     {
       "producers": {
         "fast_grass": 83,
-        "seasonal_annuals": 2,
+        "seasonal_annuals": 3,
         "forb_wildflowers": 2,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1260,7 +1260,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 40,
+        "vine_canopy": 45,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1271,8 +1271,8 @@
       "water_history": [
         0.6555797979464021
       ],
-      "limiting_factor": "temperature",
-      "limiting_value": 0.5387413696002248
+      "limiting_factor": "facilitation",
+      "limiting_value": 0.5615000000000001
     },
     {
       "producers": {
@@ -1322,7 +1322,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 21,
+        "vine_canopy": 24,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1369,7 +1369,7 @@
     },
     {
       "producers": {
-        "fast_grass": 76,
+        "fast_grass": 77,
         "seasonal_annuals": 1,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
@@ -1384,7 +1384,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 6,
+        "vine_canopy": 7,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1395,13 +1395,13 @@
       "water_history": [
         0.7326662117444718
       ],
-      "limiting_factor": "temperature",
-      "limiting_value": 0.48179290836695654
+      "limiting_factor": "fertility",
+      "limiting_value": 0.49225423762079845
     },
     {
       "producers": {
         "fast_grass": 81,
-        "seasonal_annuals": 4,
+        "seasonal_annuals": 5,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
@@ -1415,7 +1415,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 15,
+        "vine_canopy": 18,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1427,7 +1427,7 @@
         0.7512038396816163
       ],
       "limiting_factor": "temperature",
-      "limiting_value": 0.49842987971117125
+      "limiting_value": 0.521787580508831
     },
     {
       "producers": {
@@ -1477,7 +1477,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 37,
+        "vine_canopy": 41,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1570,7 +1570,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 32,
+        "vine_canopy": 36,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1587,12 +1587,12 @@
     {
       "producers": {
         "fast_grass": 57,
-        "seasonal_annuals": 5,
+        "seasonal_annuals": 6,
         "forb_wildflowers": 1,
         "lichen_crust": 0,
         "slow_shrubs": 1,
         "deep_roots": 1,
-        "moss_carpet": 44,
+        "moss_carpet": 43,
         "reed_beds": 1,
         "bog_sedges": 3,
         "fungal_mat": 5,
@@ -1632,7 +1632,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 17,
+        "vine_canopy": 20,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1772,7 +1772,7 @@
     },
     {
       "producers": {
-        "fast_grass": 59,
+        "fast_grass": 58,
         "seasonal_annuals": 1,
         "forb_wildflowers": 5,
         "lichen_crust": 1,
@@ -1830,7 +1830,7 @@
         0.6284172373301138
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.5361666666666667
+      "limiting_value": 0.5353333333333334
     },
     {
       "producers": {
@@ -1849,7 +1849,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 8,
+        "vine_canopy": 9,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1973,7 +1973,7 @@
         "fruit_trees": 1,
         "needle_conifers": 1,
         "pioneer_brush": 1,
-        "vine_canopy": 2,
+        "vine_canopy": 3,
         "palm_crowns": 1,
         "mangrove_canopy": 1
       },
@@ -1982,7 +1982,8 @@
         739,
         810,
         815,
-        821
+        821,
+        823
       ],
       "water": 0.7446690145411164,
       "fertility": 0.4745969001760857,
@@ -1991,7 +1992,7 @@
         0.7446690145411164
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.37916666666666665
+      "limiting_value": 0.38083333333333336
     },
     {
       "producers": {
@@ -2004,7 +2005,7 @@
         "moss_carpet": 0,
         "reed_beds": 0,
         "bog_sedges": 0,
-        "fungal_mat": 17,
+        "fungal_mat": 20,
         "succulent_cluster": 0,
         "desert_bloomers": 0,
         "fruit_trees": 1,
@@ -2027,7 +2028,7 @@
         0.5794454191332528
       ],
       "limiting_factor": "facilitation",
-      "limiting_value": 0.35125
+      "limiting_value": 0.35425
     }
   ],
   "entities": {
@@ -2037,7 +2038,7 @@
       "x": 0,
       "y": 0,
       "hunger": 0,
-      "age": 308,
+      "age": 309,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2047,7 +2048,7 @@
       "x": 1,
       "y": 0,
       "hunger": 0,
-      "age": 304,
+      "age": 305,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2057,7 +2058,7 @@
       "x": 5,
       "y": 0,
       "hunger": 0,
-      "age": 321,
+      "age": 322,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2067,7 +2068,7 @@
       "x": 6,
       "y": 0,
       "hunger": 0,
-      "age": 307,
+      "age": 308,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2077,7 +2078,7 @@
       "x": 2,
       "y": 1,
       "hunger": 0,
-      "age": 315,
+      "age": 316,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2087,7 +2088,7 @@
       "x": 7,
       "y": 7,
       "hunger": 0,
-      "age": 318,
+      "age": 319,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2097,7 +2098,7 @@
       "x": 7,
       "y": 0,
       "hunger": 0,
-      "age": 300,
+      "age": 301,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2107,7 +2108,7 @@
       "x": 6,
       "y": 7,
       "hunger": 0,
-      "age": 297,
+      "age": 298,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2117,7 +2118,7 @@
       "x": 0,
       "y": 0,
       "hunger": 9,
-      "age": 49,
+      "age": 50,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2127,7 +2128,7 @@
       "x": 5,
       "y": 0,
       "hunger": 4,
-      "age": 49,
+      "age": 50,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2137,7 +2138,7 @@
       "x": 6,
       "y": 0,
       "hunger": 9,
-      "age": 48,
+      "age": 49,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2147,7 +2148,7 @@
       "x": 7,
       "y": 0,
       "hunger": 3,
-      "age": 48,
+      "age": 49,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2157,7 +2158,7 @@
       "x": 2,
       "y": 1,
       "hunger": 0,
-      "age": 45,
+      "age": 46,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2167,7 +2168,7 @@
       "x": 7,
       "y": 7,
       "hunger": 7,
-      "age": 45,
+      "age": 46,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2177,17 +2178,7 @@
       "x": 6,
       "y": 7,
       "hunger": 0,
-      "age": 44,
-      "health": 100,
-      "reproduction_cooldown": 0
-    },
-    "803": {
-      "id": 803,
-      "type": "rabbit",
-      "x": 2,
-      "y": 1,
-      "hunger": 9,
-      "age": 9,
+      "age": 45,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2196,8 +2187,8 @@
       "type": "rabbit",
       "x": 5,
       "y": 0,
-      "hunger": 8,
-      "age": 8,
+      "hunger": 9,
+      "age": 9,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2206,8 +2197,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 7,
-      "age": 7,
+      "hunger": 8,
+      "age": 8,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2216,8 +2207,8 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2226,8 +2217,8 @@
       "type": "rabbit",
       "x": 1,
       "y": 0,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2236,8 +2227,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 6,
-      "age": 6,
+      "hunger": 7,
+      "age": 7,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2246,8 +2237,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 5,
-      "age": 5,
+      "hunger": 6,
+      "age": 6,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2256,8 +2247,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 5,
-      "age": 5,
+      "hunger": 6,
+      "age": 6,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2266,8 +2257,8 @@
       "type": "rabbit",
       "x": 1,
       "y": 0,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2276,8 +2267,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2286,8 +2277,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2296,8 +2287,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 7,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2306,8 +2297,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 7,
-      "hunger": 4,
-      "age": 4,
+      "hunger": 5,
+      "age": 5,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2316,8 +2307,8 @@
       "type": "rabbit",
       "x": 6,
       "y": 0,
-      "hunger": 3,
-      "age": 3,
+      "hunger": 4,
+      "age": 4,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2326,8 +2317,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 7,
-      "hunger": 3,
-      "age": 3,
+      "hunger": 4,
+      "age": 4,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2336,8 +2327,8 @@
       "type": "rabbit",
       "x": 2,
       "y": 1,
-      "hunger": 2,
-      "age": 2,
+      "hunger": 3,
+      "age": 3,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2346,8 +2337,8 @@
       "type": "rabbit",
       "x": 7,
       "y": 0,
-      "hunger": 2,
-      "age": 2,
+      "hunger": 3,
+      "age": 3,
       "health": 100,
       "reproduction_cooldown": 0
     },
@@ -2356,13 +2347,33 @@
       "type": "rabbit",
       "x": 0,
       "y": 0,
-      "hunger": 0,
-      "age": 0,
+      "hunger": 1,
+      "age": 1,
       "health": 100,
       "reproduction_cooldown": 0
     },
     "821": {
       "id": 821,
+      "type": "rabbit",
+      "x": 6,
+      "y": 7,
+      "hunger": 1,
+      "age": 1,
+      "health": 100,
+      "reproduction_cooldown": 0
+    },
+    "822": {
+      "id": 822,
+      "type": "rabbit",
+      "x": 2,
+      "y": 1,
+      "hunger": 0,
+      "age": 0,
+      "health": 100,
+      "reproduction_cooldown": 0
+    },
+    "823": {
+      "id": 823,
       "type": "rabbit",
       "x": 6,
       "y": 7,
@@ -2372,6 +2383,6 @@
       "reproduction_cooldown": 0
     }
   },
-  "next_entity_id": 822,
+  "next_entity_id": 824,
   "_migration_version": 3
 }
